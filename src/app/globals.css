@@ -2,9 +2,12 @@
 
 @theme {
   /* Brand Colors */
-  --color-app-dark: #0C263B;      /* Maastricht Blue */
-  --color-app-acc: #FF4305;       /* Red-Orange */
-  --color-app-light: #E6E6E6;     /* Crystal Platinum */
+  --color-app-dark: #0C263B;
+  /* Maastricht Blue */
+  --color-app-acc: #FF4305;
+  /* Red-Orange */
+  --color-app-light: #E6E6E6;
+  /* Crystal Platinum */
 
   /* Semantic Colors */
   --color-primary-dark: var(--color-app-dark);
@@ -19,6 +22,7 @@
   --font-tajawal: var(--font-tajawal);
   --font-sans: var(--font-inter);
   --font-arabic: var(--font-tajawal);
+  --font-heading: var(--font-outfit);
 }
 
 @layer base {
@@ -26,8 +30,17 @@
     @apply bg-app-light text-app-dark font-sans;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-heading {
+    @apply font-heading;
+  }
+
   [dir="rtl"] {
     @apply font-arabic;
   }
 }
-

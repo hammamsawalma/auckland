@@ -44,7 +44,7 @@ export function Navbar() {
                         />
                     </div>
                     <div className="flex flex-col border-l border-white/20 pl-3">
-                        <span className="font-sans font-bold text-lg md:text-xl leading-none text-white group-hover:text-app-acc transition-colors drop-shadow-md tracking-wider">
+                        <span className="font-heading font-bold text-lg md:text-xl leading-none text-white group-hover:text-app-acc transition-colors drop-shadow-md tracking-wider">
                             AUCKLAND
                         </span>
                         <span className={`font-sans text-[8px] md:text-[10px] tracking-widest mt-1 uppercase text-white/70 drop-shadow-md transition-opacity duration-300 ${scrolled ? 'opacity-0 h-0 hidden md:block md:opacity-100 md:h-auto' : 'opacity-100 hidden md:block'}`}>

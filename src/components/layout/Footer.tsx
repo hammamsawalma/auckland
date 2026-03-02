@@ -37,7 +37,7 @@ export function Footer() {
                                 />
                             </div>
                             <div className="flex flex-col">
-                                <span className="font-sans font-black text-3xl leading-none text-white tracking-widest group-hover:text-app-acc transition-colors">
+                                <span className="font-heading font-black text-3xl leading-none text-white tracking-widest group-hover:text-app-acc transition-colors">
                                     AUCKLAND
                                 </span>
                                 <span className="font-sans text-[10px] text-white/50 tracking-[0.3em] mt-2 uppercase">
