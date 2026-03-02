@@ -11,6 +11,20 @@ import { motion } from "framer-motion";
 export default function Contact() {
     const t = useTranslations("Contact");
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const firstName = formData.get('firstName');
+        const lastName = formData.get('lastName');
+        const email = formData.get('email');
+        const details = formData.get('details');
+
+        const subject = encodeURIComponent(`Auckland Website Inquiry: ${firstName} ${lastName}`);
+        const body = encodeURIComponent(`Client Name: ${firstName} ${lastName}\nContact Email: ${email}\n\nProject Details:\n${details}`);
+
+        window.location.href = `mailto:info@auckland-qa.com?subject=${subject}&body=${body}`;
+    };
+
     return (
         <div className="flex flex-col min-h-screen">
             <Navbar />
@@ -129,26 +143,26 @@ export default function Contact() {
                                 className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-app-dark/5"
                             >
                                 <h3 className="text-2xl font-bold text-app-dark mb-8">{t("formTitle")}</h3>
-                                <form className="space-y-6">
+                                <form className="space-y-6" onSubmit={handleSubmit}>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
                                             <label className="text-sm font-bold text-app-dark/70 uppercase tracking-wider">{t("formFirstName")}</label>
-                                            <input type="text" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder="John" />
+                                            <input name="firstName" required type="text" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder="John" />
                                         </div>
                                         <div className="space-y-2">
                                             <label className="text-sm font-bold text-app-dark/70 uppercase tracking-wider">{t("formLastName")}</label>
-                                            <input type="text" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder="Doe" />
+                                            <input name="lastName" required type="text" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder="Doe" />
                                         </div>
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-bold text-app-dark/70 uppercase tracking-wider">{t("formEmail")}</label>
-                                        <input type="email" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder="john@example.com" />
+                                        <input name="email" required type="email" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder="john@example.com" />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-bold text-app-dark/70 uppercase tracking-wider">{t("formDetails")}</label>
-                                        <textarea className="w-full p-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all min-h-[150px] resize-y" placeholder={t("formPlaceholder")}></textarea>
+                                        <textarea name="details" required className="w-full p-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all min-h-[150px] resize-y" placeholder={t("formPlaceholder")}></textarea>
                                     </div>
-                                    <Button size="lg" className="w-full h-14 rounded-full font-bold uppercase tracking-widest mt-4">
+                                    <Button type="submit" size="lg" className="w-full h-14 rounded-full font-bold uppercase tracking-widest mt-4">
                                         {t("formSubmit")}
                                     </Button>
                                 </form>

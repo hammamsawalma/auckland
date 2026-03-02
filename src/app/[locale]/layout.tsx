@@ -27,8 +27,30 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: "Auckland for Construction and Development",
-  description: "Specialists in high-end stone finishes.",
+  description: "Specialists in high-end natural stone finishes and architectural facades in Qatar.",
   manifest: '/manifest.json',
+  openGraph: {
+    type: "website",
+    locale: "en_QA",
+    url: "https://auckland-qa.com",
+    title: "Auckland Construction & Development",
+    description: "Specialists in high-end natural stone finishes and architectural facades in Qatar.",
+    siteName: "Auckland",
+    images: [
+      {
+        url: "/images/gallery/gallery-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Auckland Construction Development",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Auckland Construction & Development",
+    description: "Specialists in high-end natural stone finishes and architectural facades.",
+    images: ["/images/gallery/gallery-hero.jpg"],
+  },
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#0c0c0c' },
     { media: '(prefers-color-scheme: dark)', color: '#0c0c0c' },
