@@ -69,7 +69,7 @@ export default function About() {
                             >
                                 <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-2xl">
                                     <Image
-                                        src="/images/gallery/gallery-hero.jpg"
+                                        src="/images/content/stone-bg-1.jpg"
                                         alt="Auckland Craftsmanship"
                                         fill
                                         className="object-cover hover:scale-105 transition-transform duration-700"
@@ -109,8 +109,8 @@ export default function About() {
                             className="aspect-video w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 relative"
                         >
                             <VideoPlayer
-                                src="/videos/factory-drone.mp4"
-                                poster="/images/gallery/gallery-hero.jpg"
+                                src="/videos/factory/Video 1.mp4"
+                                poster="/images/content/stone-texture.jpg"
                             />
                         </motion.div>
                     </div>

@@ -102,7 +102,7 @@ export default function Products() {
                             </div>
                             <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl">
                                 <Image
-                                    src="/images/gallery/gallery-hero.jpg"
+                                    src="/images/content/stone-texture.jpg"
                                     alt="Stone Blocks"
                                     fill
                                     className="object-cover"

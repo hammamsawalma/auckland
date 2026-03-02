@@ -129,7 +129,7 @@ export default function Services() {
                             >
                                 <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                                     <Image
-                                        src="/images/factory/factory-1.jpg"
+                                        src="/images/content/factory-1.jpg"
                                         alt={t("machineryTitle")}
                                         fill
                                         className="object-cover"
