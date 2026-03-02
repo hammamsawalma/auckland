@@ -28,7 +28,7 @@ export function MobileBottomNav() {
                                 }`}
                         >
                             <item.icon className={`h-5 w-5 sm:h-6 sm:w-6 transition-all duration-300 ${isActive ? 'drop-shadow-[0_0_8px_rgba(202,176,120,0.8)]' : ''}`} strokeWidth={isActive ? 2.5 : 2} />
-                            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">
+                            <span className="text-[9px] sm:text-xs font-bold uppercase tracking-wide whitespace-nowrap mt-1 drop-shadow-md">
                                 {t(item.key as Parameters<typeof t>[0])}
                             </span>
                         </Link>

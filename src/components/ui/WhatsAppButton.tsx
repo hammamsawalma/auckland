@@ -33,7 +33,7 @@ export function WhatsAppButton() {
             rel="noopener noreferrer"
             aria-label={tContact("waButton")}
             className={`
-                fixed bottom-6 right-6 z-50 
+                fixed bottom-24 lg:bottom-6 right-6 z-50 
                 flex items-center justify-center 
                 w-14 h-14 
                 bg-[#25D366] text-white 

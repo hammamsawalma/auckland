@@ -39,7 +39,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 uppercase tracking-tighter drop-shadow-lg"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 uppercase tracking-tighter drop-shadow-lg"
             >
               {t("title")} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-app-acc to-yellow-300 drop-shadow-sm">{t("subtitle")}</span>
@@ -78,8 +78,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Brief Introduction Section */}
-        <section className="relative py-32 bg-app-light">
+        <section className="relative pt-32 sm:pt-40 pb-24 md:pb-32 bg-app-light">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -131,7 +131,7 @@ export default function PortfolioHub() {
                                 <button
                                     key={tab}
                                     onClick={() => setMainTab(tab)}
-                                    className={`px-4 md:px-8 py-2 md:py-3 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest transition-all duration-300 ${mainTab === tab
+                                    className={`px-3 sm:px-4 md:px-8 py-2 md:py-3 rounded-full text-[10px] sm:text-xs md:text-sm font-bold uppercase whitespace-nowrap tracking-wide md:tracking-widest transition-all duration-300 ${mainTab === tab
                                         ? "bg-app-acc text-app-dark shadow-[0_0_20px_rgba(202,176,120,0.4)]"
                                         : "text-white/70 hover:text-white hover:bg-white/10"
                                         }`}
@@ -162,7 +162,7 @@ export default function PortfolioHub() {
                                         </div>
 
                                         {/* Sub-Filter Tabs */}
-                                        <div className="flex items-center gap-2 bg-app-light/50 p-1.5 rounded-full border border-app-dark/10">
+                                        <div className="flex items-center gap-2 bg-app-light/50 p-1.5 rounded-full border border-app-dark/10 overflow-x-auto no-scrollbar max-w-full w-full sm:w-auto">
                                             {(["All", "Wakrah", "Al Khor"] as const).map((tab) => (
                                                 <button
                                                     key={tab}

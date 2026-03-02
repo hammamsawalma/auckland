@@ -186,7 +186,7 @@ export default function About() {
                                         visible: { opacity: 1, y: 0 }
                                     }}
                                     key={idx}
-                                    className="flex flex-col p-8 border border-app-dark/10 rounded-2xl shadow-sm hover:shadow-2xl hover:border-app-acc/50 transition-all duration-500 group bg-white relative overflow-hidden"
+                                    className="flex flex-col p-6 md:p-8 border border-app-dark/10 rounded-2xl shadow-sm hover:shadow-2xl hover:border-app-acc/50 transition-all duration-500 group bg-white relative overflow-hidden"
                                 >
                                     <div className="w-16 h-16 bg-app-light rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 group-hover:bg-app-dark transition-all duration-500">
                                         {svc.icon}

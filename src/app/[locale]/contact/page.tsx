@@ -71,7 +71,7 @@ export default function Contact() {
                     <div className="absolute top-0 left-0 w-1/3 h-full bg-app-light rounded-r-[100px] opacity-30 pointer-events-none -z-10 transform -translate-x-16 hidden lg:block"></div>
 
                     <div className="container mx-auto px-4 max-w-6xl">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
                             {/* Contact Information */}
                             <motion.div
@@ -140,7 +140,7 @@ export default function Contact() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl border border-app-dark/5"
+                                className="bg-white p-6 sm:p-8 md:p-12 rounded-3xl shadow-2xl border border-app-dark/5"
                             >
                                 <h3 className="text-2xl font-bold text-app-dark mb-8">{t("formTitle")}</h3>
                                 <form className="space-y-6" onSubmit={handleSubmit}>
