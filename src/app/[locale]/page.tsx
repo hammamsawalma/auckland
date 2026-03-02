@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { ProcessSection } from "@/components/home/ProcessSection";
 import { HighlightsMarquee } from "@/components/home/HighlightsMarquee";
 
 export default function Home() {
@@ -98,7 +97,6 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-app-acc/5 rounded-full blur-[100px] pointer-events-none"></div>
         </section>
 
-        <ProcessSection />
         <HighlightsMarquee />
       </main>
 

@@ -1,11 +1,8 @@
 {
     "Navigation": {
         "home": "الرئيسية",
-        "about": "من نحن",
-        "services": "خدماتنا",
-        "projects": "مشاريعنا",
-        "products": "منتجاتنا",
-        "gallery": "معرض الصور",
+        "about": "خبراتنا",
+        "projects": "أعمالنا والمواد",
         "contact": "اتصل بنا",
         "switchLanguage": "EN"
     },

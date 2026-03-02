@@ -1,11 +1,8 @@
 {
   "Navigation": {
     "home": "Home",
-    "about": "About Us",
-    "services": "Services",
-    "projects": "Projects",
-    "products": "Products",
-    "gallery": "Gallery",
+    "about": "Our Expertise",
+    "projects": "Portfolio & Materials",
     "contact": "Contact Us",
     "switchLanguage": "عربى"
   },

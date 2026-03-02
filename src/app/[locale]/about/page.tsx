@@ -3,15 +3,48 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { VideoPlayer } from "@/components/ui/VideoPlayer";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, MessagesSquare, Calculator, PencilRuler, HardHat, Cog } from "lucide-react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ProcessSection } from "@/components/home/ProcessSection";
 
 export default function About() {
     const t = useTranslations("About");
+    const tProd = useTranslations("Products");
+    const tServ = useTranslations("Services");
 
     const factoryVideos = Array.from({ length: 14 }, (_, i) => `/videos/factory_raw/factory_raw_${i + 1}.mp4`);
+
+    const services = [
+        {
+            title: tServ("service1Title"),
+            description: tServ("service1Desc"),
+            icon: <MessagesSquare className="w-8 h-8 text-app-acc" />
+        },
+        {
+            title: tServ("service2Title"),
+            description: tServ("service2Desc"),
+            icon: <Calculator className="w-8 h-8 text-app-acc" />
+        },
+        {
+            title: tServ("service3Title"),
+            description: tServ("service3Desc"),
+            icon: <PencilRuler className="w-8 h-8 text-app-acc" />
+        },
+        {
+            title: tServ("service4Title"),
+            description: tServ("service4Desc"),
+            icon: <HardHat className="w-8 h-8 text-app-acc" />
+        }
+    ];
+
+    const machinery = [
+        tServ("machine1"),
+        tServ("machine2"),
+        tServ("machine3"),
+        tServ("machine4")
+    ];
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -19,8 +52,8 @@ export default function About() {
 
             <main className="flex-1">
 
-                {/* Mission Section */}
-                <section className="py-24 bg-white relative overflow-hidden">
+                {/* Chapter 1: Mission Section */}
+                <section className="py-24 pt-32 lg:pt-40 bg-white relative overflow-hidden">
                     {/* Decorative Background Curved Shape */}
                     <div className="absolute top-0 right-0 w-1/2 h-full bg-app-light rounded-l-[150px] opacity-50 pointer-events-none -z-10 transform translate-x-32 hidden lg:block"></div>
 
@@ -87,7 +120,144 @@ export default function About() {
                     </div>
                 </section>
 
-                {/* Factory Video Outline Section */}
+                {/* Chapter 2: Global Sourcing (From Products) */}
+                <section className="py-24 bg-app-light relative border-t border-app-dark/5">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="flex flex-col md:flex-row gap-12 items-center"
+                        >
+                            <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl order-last md:order-first">
+                                <Image
+                                    src="/images/content/stone-texture.jpg"
+                                    alt="Stone Blocks"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div className="w-full md:w-1/2 space-y-6">
+                                <h2 className="text-3xl md:text-4xl font-black text-app-dark uppercase tracking-tight">{tProd("sourcingTitle")}</h2>
+                                <p className="text-lg text-app-dark/70 font-light leading-relaxed">
+                                    {tProd("sourcingDesc")}
+                                </p>
+                                <ul className="space-y-4 pt-4">
+                                    <li className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-app-acc shrink-0" />
+                                        <span className="text-app-dark/80 font-medium">{tProd("sourcingFeature1")}</span>
+                                    </li>
+                                    <li className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-app-acc shrink-0" />
+                                        <span className="text-app-dark/80 font-medium">{tProd("sourcingFeature2")}</span>
+                                    </li>
+                                    <li className="flex items-center gap-3">
+                                        <CheckCircle2 className="w-5 h-5 text-app-acc shrink-0" />
+                                        <span className="text-app-dark/80 font-medium">{tProd("sourcingFeature3")}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* Chapter 3: The Engineering Pipeline (Process & Services) */}
+                {/* 3A: Process Section Component directly injected */}
+                <div className="bg-[#121212] pt-12 pb-24">
+                    <ProcessSection />
+                </div>
+
+                {/* 3B: Services Detailed List */}
+                <section className="py-24 bg-white relative">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-black text-app-dark uppercase tracking-tight mb-4">{tServ("title")}</h2>
+                            <p className="text-lg text-app-dark/60 font-light max-w-2xl mx-auto">{tServ("subtitle")}</p>
+                        </div>
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={{
+                                visible: { transition: { staggerChildren: 0.1 } },
+                                hidden: {}
+                            }}
+                            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+                        >
+                            {services.map((svc, idx) => (
+                                <motion.div
+                                    variants={{
+                                        hidden: { opacity: 0, y: 30 },
+                                        visible: { opacity: 1, y: 0 }
+                                    }}
+                                    key={idx}
+                                    className="flex flex-col p-8 border border-app-dark/10 rounded-2xl shadow-sm hover:shadow-2xl hover:border-app-acc/50 transition-all duration-500 group bg-white relative overflow-hidden"
+                                >
+                                    <div className="w-16 h-16 bg-app-light rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 group-hover:bg-app-dark transition-all duration-500">
+                                        {svc.icon}
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-app-dark mb-4 transition-colors">{svc.title}</h3>
+                                    <p className="text-app-dark/70 font-light leading-relaxed">
+                                        {svc.description}
+                                    </p>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+                    </div>
+                </section>
+
+                {/* 3C: CNC Machinery Expertise */}
+                <section className="py-24 bg-app-light relative">
+                    <div className="container mx-auto px-4 max-w-6xl">
+                        <div className="flex flex-col lg:flex-row items-center gap-16">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                                className="w-full lg:w-1/2"
+                            >
+                                <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                                    <Image
+                                        src="/images/content/factory-1.jpg"
+                                        alt={tServ("machineryTitle")}
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                                className="w-full lg:w-1/2 space-y-6"
+                            >
+                                <h2 className="text-3xl md:text-4xl font-black text-app-dark uppercase">{tServ("machineryTitle")}</h2>
+                                <p className="text-lg text-app-dark/70 font-light leading-relaxed">
+                                    {tServ("machineryDesc")}
+                                </p>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                                    {machinery.map((item, idx) => (
+                                        <div key={idx} className="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm border border-app-dark/5">
+                                            <Cog className="w-5 h-5 text-app-acc shrink-0" />
+                                            <span className="font-semibold text-app-dark text-sm">{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        </div>
+                    </div>
+                    {/* SVG Curve Divider Bottom */}
+                    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-30 transform translate-y-px">
+                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-[calc(100%+1.3px)] h-[80px]">
+                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.93,193.36,104.7,237.4,94.04,281.33,70.97,321.39,56.44Z" className="fill-app-dark"></path>
+                        </svg>
+                    </div>
+                </section>
+
+                {/* Chapter 4: Factory Video Outline Section */}
                 <section className="py-32 bg-app-dark text-white relative">
                     <div className="container mx-auto px-4 max-w-6xl relative z-10">
                         <motion.div
@@ -95,7 +265,7 @@ export default function About() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="text-center mb-16"
+                            className="text-center mb-20"
                         >
                             <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-6">{t("facilitiesTitle", { defaultMessage: "Inside Our Facilities" })}</h2>
                             <p className="text-xl text-white/60 font-light max-w-3xl mx-auto">
@@ -141,7 +311,7 @@ export default function About() {
                     </div>
                 </section>
 
-                {/* Quality Banner */}
+                {/* Chapter 5: Quality Banner */}
                 <section className="py-24 bg-app-light text-center">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}

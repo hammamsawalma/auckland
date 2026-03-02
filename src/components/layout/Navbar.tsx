@@ -55,7 +55,7 @@ export function Navbar() {
 
                 {/* Main Navigation */}
                 <nav className="hidden lg:flex items-center gap-4 xl:gap-8">
-                    {["home", "about", "services", "projects", "products", "gallery"].map((item) => (
+                    {["home", "about", "projects"].map((item) => (
                         <Link
                             key={item}
                             href={item === "home" ? "/" : `/${item}`}
