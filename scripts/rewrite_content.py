@@ -1,4 +1,181 @@
-{
+import json
+
+# EN.JSON REWRITE
+en_data = {
+  "Navigation": {
+    "home": "Home",
+    "about": "Our Expertise",
+    "projects": "Portfolio & Materials",
+    "contact": "Contact Us",
+    "switchLanguage": "عربى"
+  },
+  "Services": {
+    "title": "Our Services",
+    "subtitle": "Providing an absolute service from pre-construction to the completion of the project.",
+    "service1Title": "Pre-Design Services and Consultancy",
+    "service1Desc": "Includes engaging in discussions with the clients, architects and builders before preferences are made. We make sure that we give you only the best tips and advices in choosing the right kind of stone and tiles needed for a particular project.",
+    "service2Title": "Budgeting, Estimating and Bidding",
+    "service2Desc": "We do not merely rely on the quantities of stones and marbles and the price for each material, but we also take into consideration the individual aspects required for each project we are working on. We give our customers the assurance that we can handle the complete scope of the project.",
+    "service3Title": "Shop Drawings",
+    "service3Desc": "We always give our best to produce a very detailed and accurate layout of the project. We also provide descriptions for each material required for the implementation of the assignment.",
+    "service4Title": "Stone Supply and Installation",
+    "service4Desc": "Our supplies came from both local and foreign firms. We guarantee the quality selection, delivery, schedules and importing of the required materials.",
+    "ctaTitle": "Ready to bring your vision to life?",
+    "ctaDesc": "Our experts are ready to provide you with the best consultancy and high-end natural stones for your project.",
+    "ctaButton": "Contact Us Today"
+  },
+  "Home": {
+    "title": "Auckland for Construction",
+    "subtitle": "& Development",
+    "tagline": "Producing and selling all kinds of construction stones.",
+    "getStarted": "Get Started",
+    "viewWork": "View Our Work",
+    "whoWeAre": "Who We Are",
+    "description": "Auckland specializes in providing installation services as well as supplies of premium quality natural stones and marbles for commercial and residential building projects. Well equipped with highly developed cutting, Grinding, Polishing, fixing and designing technology of marbles and stones."
+  },
+  "About": {
+    "title": "Our Profile",
+    "subtitle": "Auckland specializes in providing installation services and premium natural stones.",
+    "whoWeAreTitle": "Who We Are",
+    "whoWeAreDesc1": "Auckland Company started its activity with the aim of producing and selling all kinds of construction stones in Qatar markets. Auckland specializes in providing installation services as well as supplies of premium quality natural stones and marbles for commercial and residential building projects. Well equipped with highly developed cutting, Grinding, Polishing, fixing and designing technology of marbles and stones.",
+    "whoWeAreDesc2": "Auckland has maintained over the years an excellent reputation for installing only the top quality natural stones and marbles while providing their clients with excellent and modified services in choosing the right stones and marbles for each venture. Our team consists of goal-oriented and passionate workers who show enthusiasm in providing the best service and careful attention to each client.",
+    "missionTitle": "Our Mission",
+    "missionDesc": "We import materials from several countries, including Jordan, Palestine, Syria, Oman, Italy and Portugal to provide top-quality services to every patron by providing them only the finest customer service in regards to our natural stone and marble materials.",
+    "missionText": "We aspire to provide clients with innovations with the designs and concepts we employ in each of our projects. We aim to gain our customer's loyalty and continued support by providing them with highly satisfactory products and services.",
+    "whyChooseUs": "Why Choose Auckland?",
+    "reason1": "Premium Quality Natural Stones and Marbles",
+    "reason2": "Highly Developed Cutting, Grinding, & Polishing Technology",
+    "reason3": "Excellent and Modified Services for Each Venture",
+    "reasons": [
+      "Producing and selling construction stones",
+      "Commercial and residential projects",
+      "Goal-oriented and passionate workers",
+      "Best service and careful attention",
+      "Importing materials from Italy, Portugal & more",
+      "Detailed and accurate layouts"
+    ],
+    "visionTitle": "Our Vision",
+    "visionSub": "Our Vision",
+    "visionDesc": "We aim to achieve far-above-the-ground status of providing satisfaction to the clients and services that will be highly appreciated by the customers.",
+    "visionText": "This vision will be made possible by the commitment, enthusiasm, and competence of our people.",
+    "whoWeAreLabel": "Who We Are",
+    "facilitiesTitle": "Project Showcase",
+    "facilitiesDesc": "A glimpse into our on-site installation processes and architectural stonework.",
+    "facilitiesText": "Explore drone footage and ground-level views of our specialized commercial and residential villa projects in various stages of construction.",
+    "qualityTitle": "Technology & Installation",
+    "qualityText": "Well equipped with highly developed cutting, Grinding, Polishing, fixing and designing technology of marbles and stones to serve each purpose and concern of our customers.",
+    "quality1Title": "Global Material Sourcing",
+    "quality1Desc": "Importing materials from Jordan, Palestine, Syria, Oman, Italy and Portugal.",
+    "quality2Title": "Design & Pre-Construction",
+    "quality2Desc": "Engaging in discussions with clients and architects before preferences are made.",
+    "quality3Title": "Precision Installation",
+    "quality3Desc": "Our installation technicians guarantee the quality delivery and schedules of required materials.",
+    "fv1Title": "Villa Facade & Architecture",
+    "fv1Desc": "Drone shot panning across the front of a finished white neoclassical villa.",
+    "fv2Title": "Upper Floor Construction",
+    "fv2Desc": "Moving along the upper floor of a building, showing scaffolding and architectural moldings.",
+    "fv3Title": "Decorative Window Frames",
+    "fv3Desc": "Worker guiding the installation of decorative stone frames around expansive windows.",
+    "fv4Title": "Roofline & Cornices",
+    "fv4Desc": "A slow pan across the roofline and decorative cornices of a large neoclassical facade.",
+    "fv5Title": "Residential Village Construction",
+    "fv5Desc": "Aerial drone view of multiple luxury villas in various stages of development.",
+    "fv6Title": "Columns & Architraves",
+    "fv6Desc": "Frontal shot moving from left to right showing detailed columns and ornate window architraves.",
+    "fv7Title": "Site Overview & Material Stacks",
+    "fv7Desc": "Wide aerial drone shot showing a construction site with stacks of stone blocks in the foreground.",
+    "fv8Title": "Structural Alignments",
+    "fv8Desc": "A worker pointing towards a concrete column and vertical pipe installation on a building site.",
+    "fv9Title": "Exterior Wall Detailing",
+    "fv9Desc": "Panning shot of a building's exterior wall showing decorative horizontal stone grooves.",
+    "fv10Title": "Interior to Exterior View",
+    "fv10Desc": "View from an interior window looking out towards the facade of a finished neoclassical building.",
+    "fv11Title": "Corner Scaffolding",
+    "fv11Desc": "Exterior shot of a building corner wrapped in metal scaffolding for stone fixing.",
+    "fv12Title": "Ground Level Perspectives",
+    "fv12Desc": "Pan-up shot of a villa facade from the ground level, showing arched balconies.",
+    "fv13Title": "Detailed Stone Balconies",
+    "fv13Desc": "Close-up ground-up view of the corner of a building's stone balcony with detailed railings.",
+    "fv14Title": "Window Stonework",
+    "fv14Desc": "Close-up shot highlighting the highly detailed stonework around windows under natural lighting."
+  },
+  "Projects": {
+    "title": "Our Projects",
+    "subtitle": "Explore our portfolio of completed residential and commercial works.",
+    "featuredWork": "Featured Installations",
+    "projectCard": "Case Study",
+    "completed": "Completed"
+  },
+  "Contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our experts today for your next high-end stone finishing project.",
+    "heading": "Let's build something extraordinary together.",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Office Location",
+    "address": "Doha, Qatar",
+    "waTitle": "Chat on WhatsApp",
+    "waSubtitle": "Instant responses from our team.",
+    "waButton": "Send Message",
+    "formTitle": "Send us a message",
+    "formFirstName": "First Name",
+    "formLastName": "Last Name",
+    "formEmail": "Email Address",
+    "formDetails": "Project Details",
+    "formPlaceholder": "Tell us about your requirements...",
+    "formSubmit": "Submit Inquiry"
+  },
+  "Gallery": {
+    "title": "Project Gallery",
+    "subtitle": "A glimpse into our distinguished high-end stone finishing projects across Qatar.",
+    "viewLabel": "View Installation Details"
+  },
+  "Products": {
+    "title": "Our Products",
+    "subtitle": "Explore our extensive range of high-quality Granites and Marbles.",
+    "granitesTitle": "Granites",
+    "marblesTitle": "Marbles",
+    "sourcingTitle": "Global Stone Sourcing",
+    "sourcingDesc": "We import materials from several countries, including Jordan, Palestine, Syria, Oman, Italy, and Portugal.",
+    "sourcingFeature1": "Top-quality natural stones",
+    "sourcingFeature2": "Highly satisfactory products",
+    "sourcingFeature3": "Finest customer service"
+  },
+  "ProductDetail": {
+    "back": "Back to Catalog",
+    "visualizer": "Texture Visualizer",
+    "granite": "Premium Granite",
+    "marble": "Luxury Marble",
+    "descGranite": "A highly durable, sophisticated natural stone perfect for both interior and exterior high-end finishes. Known for its distinct veining and resilience.",
+    "descMarble": "An elegant, timeless natural stone characterized by dramatic veining and a polished finish. Perfect for creating striking luxurious interiors.",
+    "thickness": "Available Thickness",
+    "finishes": "Finishes",
+    "inquire": "Inquire About This Stone",
+    "notFound": "Product Not Found"
+  },
+  "Process": {
+    "mainTitle": "Our Expertise",
+    "mainDesc": "Auckland specializes in providing installation services as well as supplies of premium quality natural stones and marbles.",
+    "step1Title": "Global Sourcing",
+    "step1Desc": "We import materials from several countries, including Jordan, Palestine, Syria, Oman, Italy and Portugal to provide top-quality services.",
+    "step2Title": "Technology & Design",
+    "step2Desc": "We provide clients with innovations with the designs and concepts we employ in each of our projects. Equipped with highly developed cutting, grinding, polishing, fixing and designing technology.",
+    "step3Title": "Consultancy & Bidding",
+    "step3Desc": "Engaging in discussions with clients, architects and builders before preferences are made. We do not merely rely on the quantities; we take into consideration individual aspects.",
+    "step4Title": "Expert Installation",
+    "step4Desc": "We guarantee the quality selection, delivery, schedules and importing of the required materials. Our clients can expect only the best service from us.",
+    "check1": "Excellent Reputation",
+    "check2": "Top Quality Materials"
+  },
+  "Footer": {
+    "description": "Auckland Company started its activity with the aim of producing and selling all kinds of construction stones in Qatar markets.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Info",
+    "rights": "All rights reserved."
+  }
+}
+
+ar_data = {
     "Navigation": {
         "home": "الرئيسية",
         "about": "خبراتنا",
@@ -171,3 +348,11 @@
         "rights": "جميع الحقوق محفوظة."
     }
 }
+
+with open('/Users/hammamsawalma/Desktop/Auckland/auckland-web/messages/en.json', 'w', encoding='utf-8') as f:
+    json.dump(en_data, f, indent=4, ensure_ascii=False)
+
+with open('/Users/hammamsawalma/Desktop/Auckland/auckland-web/messages/ar.json', 'w', encoding='utf-8') as f:
+    json.dump(ar_data, f, indent=4, ensure_ascii=False)
+
+print("Translation dictionaries successfully regenerated with pristine content.")

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Analysis Grid</title>
+    <style>
+        body { font-family: sans-serif; background: #111; color: white; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .video-card { background: #222; padding: 10px; border-radius: 8px; }
+        video { width: 100%; border-radius: 4px; }
+        h3 { margin-top: 0; font-size: 16px; color: #ffcc00; }
+    </style>
+</head>
+<body>
+    <h1>Factory Raw Videos Analysis</h1>
+    <div class="grid">
+        <script>
+            for (let i = 1; i <= 14; i++) {
+                document.write(`
+                    <div class="video-card">
+                        <h3>Video ${i}</h3>
+                        <video controls preload="auto">
+                            <source src="./videos/factory_raw/factory_raw_${i}.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                `);
+            }
+        </script>
+    </div>
+</body>
+</html>

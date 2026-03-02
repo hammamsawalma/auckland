@@ -39,12 +39,6 @@ export default function About() {
         }
     ];
 
-    const machinery = [
-        tServ("machine1"),
-        tServ("machine2"),
-        tServ("machine3"),
-        tServ("machine4")
-    ];
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -207,55 +201,7 @@ export default function About() {
                     </div>
                 </section>
 
-                {/* 3C: CNC Machinery Expertise */}
-                <section className="py-24 bg-app-light relative">
-                    <div className="container mx-auto px-4 max-w-6xl">
-                        <div className="flex flex-col lg:flex-row items-center gap-16">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6 }}
-                                className="w-full lg:w-1/2"
-                            >
-                                <div className="relative aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                                    <Image
-                                        src="/images/content/factory-1.jpg"
-                                        alt={tServ("machineryTitle")}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
-                            </motion.div>
-                            <motion.div
-                                initial={{ opacity: 0, x: 50 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6 }}
-                                className="w-full lg:w-1/2 space-y-6"
-                            >
-                                <h2 className="text-3xl md:text-4xl font-black text-app-dark uppercase">{tServ("machineryTitle")}</h2>
-                                <p className="text-lg text-app-dark/70 font-light leading-relaxed">
-                                    {tServ("machineryDesc")}
-                                </p>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                                    {machinery.map((item, idx) => (
-                                        <div key={idx} className="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm border border-app-dark/5">
-                                            <Cog className="w-5 h-5 text-app-acc shrink-0" />
-                                            <span className="font-semibold text-app-dark text-sm">{item}</span>
-                                        </div>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        </div>
-                    </div>
-                    {/* SVG Curve Divider Bottom */}
-                    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-30 transform translate-y-px">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-[calc(100%+1.3px)] h-[80px]">
-                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.93,193.36,104.7,237.4,94.04,281.33,70.97,321.39,56.44Z" className="fill-app-dark"></path>
-                        </svg>
-                    </div>
-                </section>
+
 
                 {/* Chapter 4: Factory Video Outline Section */}
                 <section className="py-32 bg-app-dark text-white relative">
@@ -330,6 +276,6 @@ export default function About() {
             </main>
 
             <Footer />
-        </div>
+        </div >
     );
 }
