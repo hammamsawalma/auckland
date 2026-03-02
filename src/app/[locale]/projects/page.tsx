@@ -65,7 +65,9 @@ export default function PortfolioHub() {
 
     // Reset lightbox when project tab changes
     useEffect(() => {
-        setLightboxIndex(null);
+        // Use a timeout to avoid synchronous setState during render
+        const timeout = setTimeout(() => setLightboxIndex(null), 0);
+        return () => clearTimeout(timeout);
     }, [projectTab, mainTab]);
 
     // Handle Keyboard Navigation for Lightbox

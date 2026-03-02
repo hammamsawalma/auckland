@@ -1,11 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 export const HighlightsMarquee = () => {
-    const t = useTranslations("Navigation");
 
     // Map 15 social images
     const images = Array.from({ length: 15 }, (_, i) => `/images/home/social/social_${i + 1}.jpg`);
@@ -48,7 +45,7 @@ export const HighlightsMarquee = () => {
                             key={index}
                             className="relative h-[350px] md:h-[500px] w-auto flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl group/card shadow-2xl border border-white/5 bg-black/20"
                         >
-                            {/* Native img tag allows natural aspect ratio scaling alongside h-full w-auto */}
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
                                 src={src}
                                 alt={`Auckland Highlight Showcase ${index}`}

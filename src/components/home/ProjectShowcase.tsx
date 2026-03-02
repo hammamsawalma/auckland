@@ -58,10 +58,10 @@ export function ProjectShowcase() {
                             {/* Minimal Text Overlay (Visible on Hover) */}
                             <div className="absolute inset-0 flex flex-col justify-end p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
                                 <h3 className="text-lg font-bold text-white uppercase tracking-wider mb-1 drop-shadow-md">
-                                    {t(`fv${vNum}Title` as any)}
+                                    {t(`fv${vNum}Title` as Parameters<typeof t>[0])}
                                 </h3>
                                 <p className="text-sm font-light text-white/80 line-clamp-2 drop-shadow-sm">
-                                    {t(`fv${vNum}Desc` as any)}
+                                    {t(`fv${vNum}Desc` as Parameters<typeof t>[0])}
                                 </p>
                             </div>
 
@@ -115,10 +115,10 @@ export function ProjectShowcase() {
                                     <span className="px-3 py-1 bg-white/10 text-white/50 text-xs font-bold rounded-full uppercase tracking-widest border border-white/5">
                                         Clip {activeVideo}
                                     </span>
-                                    <h3 className="text-2xl font-bold text-white uppercase tracking-wider">{t(`fv${activeVideo}Title` as any)}</h3>
+                                    <h3 className="text-2xl font-bold text-white uppercase tracking-wider">{t(`fv${activeVideo}Title` as Parameters<typeof t>[0])}</h3>
                                 </div>
                                 <p className="text-lg text-white/70 font-light leading-relaxed">
-                                    {t(`fv${activeVideo}Desc` as any)}
+                                    {t(`fv${activeVideo}Desc` as Parameters<typeof t>[0])}
                                 </p>
                             </div>
                         </motion.div>
