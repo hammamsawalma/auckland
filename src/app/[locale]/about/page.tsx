@@ -102,16 +102,31 @@ export default function About() {
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="aspect-video w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 relative"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "-100px" }}
+                            variants={{
+                                visible: { transition: { staggerChildren: 0.1 } },
+                                hidden: {}
+                            }}
+                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                         >
-                            <VideoPlayer
-                                src="/videos/factory/Video 1.mp4"
-                                poster="/images/content/stone-texture.jpg"
-                            />
+                            {Array.from({ length: 14 }, (_, i) => (
+                                <motion.div
+                                    key={`video-${i}`}
+                                    variants={{
+                                        hidden: { opacity: 0, y: 30, scale: 0.95 },
+                                        visible: { opacity: 1, y: 0, scale: 1 }
+                                    }}
+                                    className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 relative group bg-black"
+                                >
+                                    <VideoPlayer
+                                        src={`/videos/factory_raw/factory_raw_${i + 1}.mp4`}
+                                    />
+                                    {/* Subtle Overlay to blend into the Dark Theme */}
+                                    <div className="absolute inset-0 bg-app-dark/20 pointer-events-none group-hover:bg-transparent transition-colors duration-500"></div>
+                                </motion.div>
+                            ))}
                         </motion.div>
                     </div>
 
