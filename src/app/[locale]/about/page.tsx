@@ -8,13 +8,12 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ProcessSection } from "@/components/home/ProcessSection";
+import { ProjectShowcase } from "@/components/home/ProjectShowcase";
 
 export default function About() {
     const t = useTranslations("About");
     const tProd = useTranslations("Products");
     const tServ = useTranslations("Services");
-
-    const factoryVideos = Array.from({ length: 14 }, (_, i) => `/videos/factory_raw/factory_raw_${i + 1}.mp4`);
 
     const services = [
         {
@@ -203,59 +202,8 @@ export default function About() {
 
 
 
-                {/* Chapter 4: Factory Video Outline Section */}
-                <section className="py-32 bg-app-dark text-white relative">
-                    <div className="container mx-auto px-4 max-w-6xl relative z-10">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="text-center mb-20"
-                        >
-                            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-6">{t("facilitiesTitle", { defaultMessage: "Inside Our Facilities" })}</h2>
-                            <p className="text-xl text-white/60 font-light max-w-3xl mx-auto">
-                                {t("facilitiesText", { defaultMessage: "Take an exclusive look inside our manufacturing plant where raw stone is transformed into architectural masterpieces." })}
-                            </p>
-                        </motion.div>
-
-                        <div className="space-y-20 lg:space-y-32">
-                            {factoryVideos.map((src, i) => (
-                                <motion.div
-                                    key={`video-${i}`}
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.8 }}
-                                    className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16 group"
-                                >
-                                    <div className={`w-full lg:w-3/5 rounded-3xl overflow-hidden shadow-2xl border border-white/10 relative bg-black aspect-video ${i % 2 !== 0 ? 'lg:order-last' : ''}`}>
-                                        <VideoPlayer src={src} />
-                                    </div>
-                                    <div className="w-full lg:w-2/5 flex flex-col justify-center">
-                                        <div className="inline-flex items-center gap-4 mb-4">
-                                            <span className="text-app-acc font-black text-2xl">0{i + 1}</span>
-                                            <div className="h-px bg-white/20 flex-1"></div>
-                                        </div>
-                                        <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight group-hover:text-app-acc transition-colors duration-500">
-                                            {t(`fv${i + 1}Title` as any)}
-                                        </h3>
-                                        <p className="text-lg text-white/60 font-light leading-relaxed">
-                                            {t(`fv${i + 1}Desc` as any)}
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* SVG Curve Divider Bottom */}
-                    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-30 transform translate-y-px">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-[calc(100%+1.3px)] h-[80px]">
-                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.93,193.36,104.7,237.4,94.04,281.33,70.97,321.39,56.44Z" className="fill-app-light"></path>
-                        </svg>
-                    </div>
-                </section>
+                {/* Chapter 4: Cinematic Video Showcase */}
+                <ProjectShowcase />
 
                 {/* Chapter 5: Quality Banner */}
                 <section className="py-24 bg-app-light text-center">
