@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "@/i18n/routing";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
+import { Globe } from "lucide-react";
 
 export function Navbar() {
     const t = useTranslations("Navigation");
+    const activeLocale = useLocale();
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -69,10 +71,19 @@ export function Navbar() {
 
                 {/* Right Actions */}
                 <div className="flex items-center gap-3 md:gap-5">
-                    <div className="flex items-center gap-2 md:gap-3 border-r border-white/20 pr-3 md:pr-5">
-                        <Link href="/" locale="en" className={`text-[10px] md:text-xs font-bold hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>EN</Link>
-                        <span className={`text-[8px] md:text-[10px] ${scrolled ? 'text-white/30' : 'text-white/40'}`}>|</span>
-                        <Link href="/" locale="ar" className={`text-[10px] md:text-xs font-bold font-arabic hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>عربى</Link>
+                    {/* Dynamic Language Toggle */}
+                    <div className="flex items-center border-r border-white/20 pr-3 md:pr-4">
+                        {activeLocale === 'en' ? (
+                            <Link href="/" locale="ar" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                                <Globe className="w-4 h-4" />
+                                <span className="text-xs font-bold font-arabic hidden md:inline-block">عربي</span>
+                            </Link>
+                        ) : (
+                            <Link href="/" locale="en" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                                <Globe className="w-4 h-4" />
+                                <span className="text-[10px] font-bold tracking-widest hidden md:inline-block">EN</span>
+                            </Link>
+                        )}
                     </div>
                     <Link
                         href="/contact"
