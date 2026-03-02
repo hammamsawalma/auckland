@@ -5,13 +5,11 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   output: 'standalone',
-  experimental: {
-    outputFileTracingExcludes: {
-      '*': [
-        'public/videos/**/*',
-        'public/images/**/*'
-      ]
-    }
+  outputFileTracingExcludes: {
+    '*': [
+      'public/videos/**/*',
+      'public/images/**/*'
+    ]
   }
 };
 
