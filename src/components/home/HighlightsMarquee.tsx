@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
-export const SocialFeed = () => {
-    const t = useTranslations("Navigation"); // We can leverage the Navigation dict or just hardcode visually
+export const HighlightsMarquee = () => {
+    const t = useTranslations("Navigation");
 
     // Map 15 social images
     const images = Array.from({ length: 15 }, (_, i) => `/images/home/social/social_${i + 1}.jpg`);
@@ -17,10 +17,10 @@ export const SocialFeed = () => {
         <section className="py-20 bg-app-dark overflow-hidden relative">
             <div className="container mx-auto px-4 text-center mb-12">
                 <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight font-heading">
-                    Auckland <span className="text-app-acc">Social</span>
+                    Featured <span className="text-app-acc">Highlights</span>
                 </h2>
                 <p className="text-app-light/60 mt-4 text-lg font-light tracking-wide">
-                    Connect with our latest developments and architectural inspirations.
+                    Explore our curated gallery of premium architectural finishes.
                 </p>
             </div>
 
@@ -46,22 +46,15 @@ export const SocialFeed = () => {
                     {marqueeImages.map((src, index) => (
                         <div
                             key={index}
-                            className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl group/card shadow-2xl"
+                            className="relative h-[350px] md:h-[500px] w-auto flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl group/card shadow-2xl border border-white/5 bg-black/20"
                         >
-                            <Image
+                            {/* Native img tag allows natural aspect ratio scaling alongside h-full w-auto */}
+                            <img
                                 src={src}
-                                alt={`Auckland Social Update ${index}`}
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover/card:scale-110"
-                                sizes="(max-width: 768px) 300px, 400px"
+                                alt={`Auckland Highlight Showcase ${index}`}
+                                loading="lazy"
+                                className="h-full w-auto object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-105"
                             />
-                            {/* Hover Overlay */}
-                            <div className="absolute inset-0 bg-app-dark/60 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <span className="text-white font-bold tracking-wider uppercase flex items-center gap-2">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
-                                    View Post
-                                </span>
-                            </div>
                         </div>
                     ))}
                 </motion.div>

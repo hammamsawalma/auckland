@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
@@ -53,41 +53,42 @@ export function ProcessSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
                     {/* Sticky Image Reveal Side */}
-                    <div className="hidden lg:block sticky top-32 h-[600px] w-full bg-app-light rounded-3xl overflow-hidden shadow-2xl relative">
-                        {steps.map((step, idx) => (
+                    <div className="hidden lg:block sticky top-32 h-[600px] w-full bg-app-light rounded-3xl overflow-hidden shadow-2xl relative z-10">
+                        <AnimatePresence mode="wait">
                             <motion.div
-                                key={idx}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: activeStep === idx ? 1 : 0 }}
-                                transition={{ duration: 0.5 }}
-                                className={`absolute inset-0 w-full h-full ${activeStep === idx ? "z-20" : "z-10"}`}
+                                key={activeStep}
+                                initial={{ opacity: 0, scale: 1.05 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                exit={{ opacity: 0, scale: 0.95 }}
+                                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                                className="absolute inset-0 w-full h-full"
                             >
                                 <div className="absolute inset-0 bg-app-dark/20 z-10 transition-opacity"></div>
                                 <Image
-                                    src={step.image}
-                                    alt={step.title}
+                                    src={steps[activeStep].image}
+                                    alt={steps[activeStep].title}
                                     fill
                                     className="object-cover object-center"
                                 />
-                                <div className="absolute bottom-10 left-10 z-20 bg-white/90 backdrop-blur-md px-6 py-4 rounded-xl shadow-xl">
-                                    <span className="text-app-acc font-black text-2xl drop-shadow-sm mr-4">0{idx + 1}</span>
-                                    <span className="text-app-dark font-bold text-lg uppercase tracking-wider">{step.title}</span>
+                                <div className="absolute bottom-10 left-10 z-20 bg-white/90 backdrop-blur-md px-6 py-4 rounded-xl shadow-xl flex items-center">
+                                    <span className="text-app-acc font-black text-2xl drop-shadow-sm mr-4">0{activeStep + 1}</span>
+                                    <span className="text-app-dark font-bold text-lg uppercase tracking-wider">{steps[activeStep].title}</span>
                                 </div>
                             </motion.div>
-                        ))}
+                        </AnimatePresence>
                     </div>
 
                     {/* Scrolling Content Side */}
-                    <div className="space-y-32 py-10 pb-[300px]">
+                    <div className="space-y-24 lg:space-y-32 py-10 lg:pb-[300px]">
                         {steps.map((step, idx) => (
                             <motion.div
                                 key={`content-${idx}`}
                                 initial={{ opacity: 0, x: 50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 onViewportEnter={() => setActiveStep(idx)}
-                                viewport={{ once: false, margin: "-40% 0px -40% 0px" }}
+                                viewport={{ amount: 0.5, margin: "-20% 0px -40% 0px" }}
                                 transition={{ duration: 0.7 }}
-                                className="relative"
+                                className={`relative transition-opacity duration-700 ${activeStep === idx ? 'opacity-100' : 'lg:opacity-30'}`}
                             >
                                 <div className="lg:hidden w-full h-64 relative rounded-2xl overflow-hidden mb-8 shadow-lg">
                                     <Image

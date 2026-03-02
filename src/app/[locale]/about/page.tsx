@@ -1,15 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { VideoPlayer } from "@/components/ui/VideoPlayer";
 import { CheckCircle2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
 export default function About() {
     const t = useTranslations("About");
+    const [activeVideoIndex, setActiveVideoIndex] = useState(0);
+
+    const factoryVideos = Array.from({ length: 14 }, (_, i) => `/videos/factory_raw/factory_raw_${i + 1}.mp4`);
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -101,33 +105,60 @@ export default function About() {
                             </p>
                         </motion.div>
 
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={{
-                                visible: { transition: { staggerChildren: 0.1 } },
-                                hidden: {}
-                            }}
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                        >
-                            {Array.from({ length: 14 }, (_, i) => (
+                        <div className="flex flex-col gap-6 lg:gap-8">
+                            {/* Main Featured Video */}
+                            <AnimatePresence mode="wait">
                                 <motion.div
-                                    key={`video-${i}`}
-                                    variants={{
-                                        hidden: { opacity: 0, y: 30, scale: 0.95 },
-                                        visible: { opacity: 1, y: 0, scale: 1 }
-                                    }}
-                                    className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 relative group bg-black"
+                                    key={activeVideoIndex}
+                                    initial={{ opacity: 0, scale: 0.98 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.98 }}
+                                    transition={{ duration: 0.5 }}
+                                    className="w-full aspect-video lg:aspect-[21/9] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-black relative"
                                 >
                                     <VideoPlayer
-                                        src={`/videos/factory_raw/factory_raw_${i + 1}.mp4`}
+                                        src={factoryVideos[activeVideoIndex]}
                                     />
-                                    {/* Subtle Overlay to blend into the Dark Theme */}
-                                    <div className="absolute inset-0 bg-app-dark/20 pointer-events-none group-hover:bg-transparent transition-colors duration-500"></div>
                                 </motion.div>
-                            ))}
-                        </motion.div>
+                            </AnimatePresence>
+
+                            {/* Thumbnail Playlist */}
+                            <div className="w-full overflow-x-auto pb-6 scrollbar-hide">
+                                <div className="flex gap-4 lg:gap-6 px-1 w-max items-center">
+                                    {factoryVideos.map((src, i) => (
+                                        <button
+                                            key={`thumb-${i}`}
+                                            onClick={() => setActiveVideoIndex(i)}
+                                            className={`relative w-40 h-24 md:w-56 md:h-32 rounded-xl overflow-hidden shrink-0 transition-all duration-300 border border-white/5 ${activeVideoIndex === i
+                                                    ? 'ring-2 ring-app-acc ring-offset-4 ring-offset-app-dark scale-[1.03] opacity-100 shadow-[0_0_20px_rgba(212,175,55,0.3)]'
+                                                    : 'opacity-50 hover:opacity-100 hover:scale-[1.02]'
+                                                }`}
+                                        >
+                                            <video
+                                                src={src}
+                                                className="w-full h-full object-cover pointer-events-none"
+                                                muted
+                                                playsInline
+                                                preload="metadata"
+                                                onMouseOver={(e) => {
+                                                    const target = e.currentTarget;
+                                                    target.play().catch(() => { });
+                                                }}
+                                                onMouseOut={(e) => {
+                                                    const target = e.currentTarget;
+                                                    target.pause();
+                                                    target.currentTime = 0;
+                                                }}
+                                            />
+                                            {/* Thumb Overlay */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-start p-3 lg:p-4">
+                                                <span className="text-white font-bold text-xs lg:text-sm tracking-widest drop-shadow-md">CLIP 0{i + 1}</span>
+                                            </div>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     {/* SVG Curve Divider Bottom */}

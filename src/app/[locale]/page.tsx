@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { ProcessSection } from "@/components/home/ProcessSection";
-import { SocialFeed } from "@/components/home/SocialFeed";
+import { HighlightsMarquee } from "@/components/home/HighlightsMarquee";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -99,7 +99,7 @@ export default function Home() {
         </section>
 
         <ProcessSection />
-        <SocialFeed />
+        <HighlightsMarquee />
       </main>
 
       <Footer />
