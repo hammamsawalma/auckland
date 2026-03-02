@@ -1,0 +1,32 @@
+import { MetadataRoute } from 'next';
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://auckland.com.qa';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+    const defaultLastMod = new Date();
+
+    // Core static pages
+    const staticPages = [
+        '',
+        '/about',
+        '/services',
+        '/products',
+        '/projects',
+        '/contact',
+    ].flatMap((route) => [
+        {
+            url: `${BASE_URL}/en${route}`,
+            lastModified: defaultLastMod,
+            changeFrequency: 'monthly' as const,
+            priority: route === '' ? 1 : 0.8,
+        },
+        {
+            url: `${BASE_URL}/ar${route}`,
+            lastModified: defaultLastMod,
+            changeFrequency: 'monthly' as const,
+            priority: route === '' ? 1 : 0.8,
+        }
+    ]);
+
+    return [...staticPages];
+}
