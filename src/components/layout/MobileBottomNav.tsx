@@ -10,9 +10,8 @@ export function MobileBottomNav() {
 
     const navItems = [
         { key: "home", href: "/", icon: Home },
-        { key: "services", href: "/services", icon: HardHat },
+        { key: "about", href: "/about", icon: HardHat },
         { key: "projects", href: "/projects", icon: Pickaxe },
-        { key: "gallery", href: "/gallery", icon: ImageIcon },
         { key: "contact", href: "/contact", icon: Phone },
     ];
 
