@@ -114,7 +114,7 @@ export default function PortfolioHub() {
                             transition={{ duration: 0.8 }}
                             className="text-4xl md:text-5xl font-black text-white mb-6 uppercase tracking-tight"
                         >
-                            Our Portfolio & Materials
+                            {tProj("heroTitle")}
                         </motion.h1>
                         <motion.p
                             initial={{ y: 20, opacity: 0 }}
@@ -122,7 +122,7 @@ export default function PortfolioHub() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="text-lg text-app-light max-w-2xl mx-auto font-light"
                         >
-                            Explore our finished projects, installation gallery, and premium raw stone collection.
+                            {tProj("heroSubtitle")}
                         </motion.p>
                     </div>
 

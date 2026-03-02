@@ -99,6 +99,8 @@
     "Projects": {
         "title": "Our Projects",
         "subtitle": "Explore our portfolio of completed residential and commercial works.",
+        "heroTitle": "Our Portfolio & Materials",
+        "heroSubtitle": "Explore our finished projects, installation gallery, and premium raw stone collection.",
         "featuredWork": "Featured Installations",
         "projectCard": "Case Study",
         "completed": "Completed"
@@ -120,7 +122,9 @@
         "formEmail": "Email Address",
         "formDetails": "Project Details",
         "formPlaceholder": "Tell us about your requirements...",
-        "formSubmit": "Submit Inquiry"
+        "formSubmit": "Submit Inquiry",
+        "mapHqTitle": "Auckland Factory HQ",
+        "mapHqAddress": "Street 101, New Industrial Area, Doha, Qatar"
     },
     "Gallery": {
         "title": "Project Gallery",
@@ -169,5 +173,10 @@
         "quickLinks": "Quick Links",
         "contactInfo": "Contact Info",
         "rights": "All rights reserved."
+    },
+    "Highlights": {
+        "titleStart": "Featured",
+        "titleEnd": "Highlights",
+        "subtitle": "Explore our curated gallery of premium architectural finishes."
     }
 }

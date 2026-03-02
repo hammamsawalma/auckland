@@ -197,8 +197,8 @@ export default function Contact() {
                                     <MapPin className="w-5 h-5 text-app-acc drop-shadow-md" />
                                 </div>
                                 <div className="flex flex-col">
-                                    <h4 className="text-white font-bold text-sm tracking-widest uppercase mb-0.5">Auckland Factory HQ</h4>
-                                    <p className="text-white/60 text-xs font-light">Street 101, New Industrial Area, Doha, Qatar</p>
+                                    <h4 className="text-white font-bold text-sm tracking-widest uppercase mb-0.5">{t("mapHqTitle")}</h4>
+                                    <p className="text-white/60 text-xs font-light">{t("mapHqAddress")}</p>
                                 </div>
                             </div>
                         </motion.div>

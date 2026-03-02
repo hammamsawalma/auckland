@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export const HighlightsMarquee = () => {
+    const t = useTranslations("Highlights");
 
     // Map 15 social images
     const images = Array.from({ length: 15 }, (_, i) => `/images/home/social/social_${i + 1}.jpg`);
@@ -14,10 +16,10 @@ export const HighlightsMarquee = () => {
         <section className="py-20 bg-app-dark overflow-hidden relative">
             <div className="container mx-auto px-4 text-center mb-12">
                 <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tight font-heading">
-                    Featured <span className="text-app-acc">Highlights</span>
+                    {t("titleStart")} <span className="text-app-acc">{t("titleEnd")}</span>
                 </h2>
                 <p className="text-app-light/60 mt-4 text-lg font-light tracking-wide">
-                    Explore our curated gallery of premium architectural finishes.
+                    {t("subtitle")}
                 </p>
             </div>
 
