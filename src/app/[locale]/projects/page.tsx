@@ -3,13 +3,15 @@
 import Image from "next/image";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Projects() {
     const t = useTranslations("Projects");
     const [activeTab, setActiveTab] = useState<"All" | "Wakrah" | "Al Khor">("All");
+    const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
     // Map 59 Wakrah Images and 35 Al Khor Images
     const wakrahImages = Array.from({ length: 59 }, (_, i) => `/images/projects/wakrah/wakrah_${i + 1}.jpg`);
@@ -29,6 +31,33 @@ export default function Projects() {
     };
 
     const currentImages = getAllImages();
+
+    // Reset lightbox when tab changes
+    useEffect(() => {
+        setLightboxIndex(null);
+    }, [activeTab]);
+
+    // Handle Keyboard Navigation
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (lightboxIndex === null) return;
+            if (e.key === "ArrowRight") setLightboxIndex((prev) => (prev! + 1) % currentImages.length);
+            if (e.key === "ArrowLeft") setLightboxIndex((prev) => (prev! - 1 + currentImages.length) % currentImages.length);
+            if (e.key === "Escape") setLightboxIndex(null);
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [lightboxIndex, currentImages.length]);
+
+    // Disable background scroll when lightbox is open
+    useEffect(() => {
+        if (lightboxIndex !== null) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+        return () => { document.body.style.overflow = "auto"; };
+    }, [lightboxIndex]);
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -112,7 +141,9 @@ export default function Projects() {
                                             hidden: { opacity: 0, y: 40, scale: 0.95 },
                                             visible: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 100 } }
                                         }}
-                                        className="break-inside-avoid relative rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group/item cursor-pointer mb-6 border border-app-dark/5"
+                                        className="break-inside-avoid relative rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group/item cursor-pointer mb-6 border border-app-dark/5 bg-app-dark/5 animate-pulse"
+                                        style={{ minHeight: "300px" }} // Added to ensure skeleton has initial height footprint
+                                        onClick={() => setLightboxIndex(idx)}
                                     >
                                         <Image
                                             src={src}
@@ -121,6 +152,11 @@ export default function Projects() {
                                             height={800}
                                             className="w-full h-auto object-cover transition-transform duration-700 group-hover/item:scale-105"
                                             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                            loading="lazy"
+                                            onLoad={(e) => {
+                                                // Remove the pulse animation once the image actually loads into the DOM boundary
+                                                (e.target as HTMLImageElement).parentElement?.classList.remove('animate-pulse', 'bg-app-dark/5');
+                                            }}
                                         />
 
                                         {/* Dynamic Gradient Overlay */}
@@ -139,6 +175,69 @@ export default function Projects() {
 
                     </div>
                 </section>
+
+                {/* Lightbox Modal */}
+                <AnimatePresence>
+                    {lightboxIndex !== null && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="fixed inset-0 z-[100] flex items-center justify-center bg-app-dark/95 backdrop-blur-md"
+                            onClick={() => setLightboxIndex(null)}
+                        >
+                            <button
+                                className="absolute top-6 right-6 lg:top-10 lg:right-10 text-white/50 hover:text-white transition-colors z-[110] bg-app-dark/50 hover:bg-app-dark/80 p-2 rounded-full"
+                                onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+                            >
+                                <X className="w-8 h-8" />
+                            </button>
+
+                            <button
+                                className="absolute left-4 lg:left-10 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-[110] bg-app-dark/50 hover:bg-app-dark/80 p-3 rounded-full"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setLightboxIndex((prev) => (prev! - 1 + currentImages.length) % currentImages.length);
+                                }}
+                            >
+                                <ChevronLeft className="w-8 h-8" />
+                            </button>
+
+                            <button
+                                className="absolute right-4 lg:right-10 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-[110] bg-app-dark/50 hover:bg-app-dark/80 p-3 rounded-full"
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setLightboxIndex((prev) => (prev! + 1) % currentImages.length);
+                                }}
+                            >
+                                <ChevronRight className="w-8 h-8" />
+                            </button>
+
+                            <motion.div
+                                key={lightboxIndex}
+                                initial={{ opacity: 0, scale: 0.9, x: 20 }}
+                                animate={{ opacity: 1, scale: 1, x: 0 }}
+                                exit={{ opacity: 0, scale: 0.9, x: -20 }}
+                                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                                className="relative w-full max-w-5xl max-h-[85vh] h-full mx-4 lg:mx-20"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <Image
+                                    src={currentImages[lightboxIndex]}
+                                    alt="Project Full View"
+                                    fill
+                                    className="object-contain"
+                                    quality={100}
+                                    priority
+                                />
+                                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-app-dark/80 backdrop-blur-md text-white/80 px-4 py-2 rounded-full text-sm font-medium tracking-widest uppercase">
+                                    {lightboxIndex + 1} / {currentImages.length}
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
             </main>
             <Footer />

@@ -155,6 +155,40 @@ export default function Contact() {
                             </motion.div>
 
                         </div>
+
+                        {/* Interactive Location Map */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
+                            className="mt-20 w-full h-[400px] rounded-3xl overflow-hidden shadow-2xl border border-app-dark/10 relative group bg-app-light"
+                        >
+                            {/* CSS filters approach to create a dark-themed map from standard Google Maps */}
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115598.8159196629!2d51.3533924!3d25.1213038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c4c114ec370b%3A0xc3cfbdc216fb9324!2sNew%20Industrial%20Area%2C%20Qatar!5e0!3m2!1sen!2sus!4v1714415822026!5m2!1sen!2sus"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0, filter: 'grayscale(100%) invert(90%) contrast(85%) hue-rotate(180deg)' }}
+                                allowFullScreen={false}
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className="absolute inset-0 z-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500 mix-blend-multiply"
+                            ></iframe>
+                            <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-3xl z-10"></div>
+
+                            {/* Overlay Label */}
+                            <div className="absolute top-6 left-6 z-20 bg-app-dark/95 backdrop-blur-md px-6 py-4 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.3)] border border-white/5 flex items-center gap-4 group-hover:translate-x-2 transition-transform duration-500">
+                                <div className="w-10 h-10 rounded-full bg-app-acc/10 flex items-center justify-center shrink-0">
+                                    <MapPin className="w-5 h-5 text-app-acc drop-shadow-md" />
+                                </div>
+                                <div className="flex flex-col">
+                                    <h4 className="text-white font-bold text-sm tracking-widest uppercase mb-0.5">Auckland Factory HQ</h4>
+                                    <p className="text-white/60 text-xs font-light">Street 101, New Industrial Area, Doha, Qatar</p>
+                                </div>
+                            </div>
+                        </motion.div>
+
                     </div>
                 </section>
 

@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
+import { useState } from "react";
 
 export function ProcessSection() {
     const t = useTranslations("Process");
+    const [activeStep, setActiveStep] = useState(0);
 
     const steps = [
         {
@@ -56,10 +58,9 @@ export function ProcessSection() {
                             <motion.div
                                 key={idx}
                                 initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ margin: "-50% 0px -50% 0px" }}
+                                animate={{ opacity: activeStep === idx ? 1 : 0 }}
                                 transition={{ duration: 0.5 }}
-                                className="absolute inset-0 w-full h-full"
+                                className={`absolute inset-0 w-full h-full ${activeStep === idx ? "z-20" : "z-10"}`}
                             >
                                 <div className="absolute inset-0 bg-app-dark/20 z-10 transition-opacity"></div>
                                 <Image
@@ -77,13 +78,14 @@ export function ProcessSection() {
                     </div>
 
                     {/* Scrolling Content Side */}
-                    <div className="space-y-32 py-10">
+                    <div className="space-y-32 py-10 pb-[300px]">
                         {steps.map((step, idx) => (
                             <motion.div
                                 key={`content-${idx}`}
                                 initial={{ opacity: 0, x: 50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: false, margin: "-20%" }}
+                                onViewportEnter={() => setActiveStep(idx)}
+                                viewport={{ once: false, margin: "-40% 0px -40% 0px" }}
                                 transition={{ duration: 0.7 }}
                                 className="relative"
                             >
