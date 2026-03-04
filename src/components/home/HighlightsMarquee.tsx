@@ -1,16 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export const HighlightsMarquee = () => {
     const t = useTranslations("Highlights");
-    const locale = useLocale();
-    const isRtl = locale === "ar";
 
     // Map 15 social images
     const images = Array.from({ length: 15 }, (_, i) => `/images/home/social/social_${i + 1}.jpg`);
+
+    // Duplicate the array so the marquee loops infinitely without breaking visually
+    const marqueeImages = [...images, ...images];
 
     return (
         <section className="py-20 bg-app-dark overflow-hidden relative">
@@ -29,35 +30,33 @@ export const HighlightsMarquee = () => {
                 <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-app-dark to-transparent z-10 pointer-events-none"></div>
 
                 <motion.div
-                    className="flex w-max"
+                    className="flex gap-6 px-3"
                     animate={{
-                        x: isRtl ? ["0%", "50%"] : ["0%", "-50%"],
+                        x: [0, -10350], // Adjust based on (width + gap) * 15
                     }}
                     transition={{
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        duration: 100,
-                        ease: "linear",
+                        x: {
+                            repeat: Infinity,
+                            repeatType: "loop",
+                            duration: 100,
+                            ease: "linear",
+                        },
                     }}
                 >
-                    {[0, 1].map((part) => (
-                        <div key={part} className="flex gap-6 pe-6">
-                            {images.map((src, index) => (
-                                <div
-                                    key={index}
-                                    className="relative h-[350px] md:h-[500px] w-auto flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl group/card shadow-2xl border border-white/5 bg-black/20"
-                                >
-                                    {/* Explicit width and height for Lighthouse Core Web Vitals */}
-                                    <Image
-                                        src={src}
-                                        alt={`Auckland Highlight Showcase ${index}`}
-                                        loading="lazy"
-                                        width={350}
-                                        height={500}
-                                        className="h-full w-auto object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-105"
-                                    />
-                                </div>
-                            ))}
+                    {marqueeImages.map((src, index) => (
+                        <div
+                            key={index}
+                            className="relative h-[350px] md:h-[500px] w-auto flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl group/card shadow-2xl border border-white/5 bg-black/20"
+                        >
+                            {/* Explicit width and height for Lighthouse Core Web Vitals */}
+                            <Image
+                                src={src}
+                                alt={`Auckland Highlight Showcase ${index}`}
+                                loading="lazy"
+                                width={350}
+                                height={500}
+                                className="h-full w-auto object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-105"
+                            />
                         </div>
                     ))}
                 </motion.div>
