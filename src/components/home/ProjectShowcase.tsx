@@ -44,15 +44,16 @@ export function ProjectShowcase() {
                                 className="w-full h-full object-cover transform scale-[1.01] group-hover:scale-105 transition-transform duration-700 blur-[1px] brightness-75 group-hover:blur-0 group-hover:brightness-100"
                                 preload="metadata"
                                 muted
+                                loop
                                 playsInline
                                 onMouseOver={e => (e.target as HTMLVideoElement).play()}
                                 onMouseOut={e => {
                                     const vid = e.target as HTMLVideoElement;
                                     vid.pause();
-                                    vid.currentTime = 0;
+                                    vid.currentTime = 0.001;
                                 }}
                             >
-                                <source src={`/videos/factory_raw/factory_raw_${vNum}.mp4`} type="video/mp4" />
+                                <source src={`/videos/factory_raw/factory_raw_${vNum}.mp4#t=0.001`} type="video/mp4" />
                                 <track kind="captions" src="/captions/empty.vtt" label="English" default={false} />
                             </video>
 
@@ -107,7 +108,7 @@ export function ProjectShowcase() {
                                     controls
                                     autoPlay
                                     playsInline
-                                    src={`/videos/factory_raw/factory_raw_${activeVideo}.mp4`}
+                                    src={`/videos/factory_raw/factory_raw_${activeVideo}.mp4#t=0.001`}
                                 >
                                     <track kind="captions" src="/captions/empty.vtt" label="English" default={false} />
                                 </video>

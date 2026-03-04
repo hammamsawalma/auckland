@@ -32,7 +32,7 @@ export default function Home() {
               preload="metadata"
               className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover object-center scale-[1.05]"
             >
-              <source src="/videos/hero-drone.mp4" type="video/mp4" />
+              <source src="/videos/hero-drone.mp4#t=0.001" type="video/mp4" />
               <track kind="captions" src="/captions/empty.vtt" label="English" default={false} />
             </video>
           </div>

@@ -174,7 +174,7 @@ export default function PortfolioHub() {
                                                         : "text-app-dark/60 hover:text-app-dark hover:bg-white"
                                                         }`}
                                                 >
-                                                    {tab === "Wakrah" ? "Wakrah Villa" : tab === "Al Khor" ? "Al Khor Residence" : "All Projects"}
+                                                    {tab === "Wakrah" ? tProj("tabWakrah") : tab === "Al Khor" ? tProj("tabAlKhor") : tProj("tabAll")}
                                                 </button>
                                             ))}
                                         </div>
@@ -192,7 +192,7 @@ export default function PortfolioHub() {
                                     >
                                         {currentProjectImages.map((src, idx) => {
                                             const isWakrah = src.includes("wakrah");
-                                            const projectName = isWakrah ? "Wakrah Private Villa" : "Al Khor VIP Residence";
+                                            const projectName = isWakrah ? tProj("wakrahTitle") : tProj("alkhorTitle");
 
                                             return (
                                                 <motion.div
@@ -220,7 +220,7 @@ export default function PortfolioHub() {
                                                     <div className="absolute inset-0 bg-gradient-to-t from-app-dark/90 via-app-dark/20 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-300">
                                                         <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover/item:translate-y-0 transition-transform duration-300">
                                                             <span className="inline-block px-3 py-1 bg-app-acc text-white text-xs font-bold uppercase tracking-wider rounded-sm mb-2 shadow-lg">
-                                                                {isWakrah ? "Wakrah" : "Al Khor"}
+                                                                {isWakrah ? tProj("wakrahLabel") : tProj("alkhorLabel")}
                                                             </span>
                                                             <h3 className="text-white font-bold text-xl drop-shadow-md">{projectName}</h3>
                                                         </div>
@@ -268,7 +268,7 @@ export default function PortfolioHub() {
                                             >
                                                 <Image
                                                     src={src}
-                                                    alt={`Auckland Project ${idx + 1}`}
+                                                    alt={tProj("projectCard") + " " + (idx + 1)}
                                                     fill
                                                     className="object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-in-out"
                                                 />
@@ -420,7 +420,7 @@ export default function PortfolioHub() {
                             >
                                 <Image
                                     src={currentProjectImages[lightboxIndex]}
-                                    alt="Project Full View"
+                                    alt={tProj("projectCard")}
                                     fill
                                     className="object-contain"
                                     quality={100}

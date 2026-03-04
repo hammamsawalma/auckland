@@ -55,7 +55,7 @@ export default function BlogPage({ params: { locale } }: { params: { locale: str
                                 <span className="text-app-acc text-sm font-bold uppercase tracking-widest">{t("title")}</span>
                             </div>
                             <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white uppercase tracking-tight leading-none">
-                                INDUSTRY INSIGHTS
+                                {t("heroTitle")}
                             </h1>
                             <p className="text-xl text-white/70 font-light leading-relaxed max-w-2xl mx-auto">
                                 {t("subtitle")}
@@ -82,7 +82,7 @@ export default function BlogPage({ params: { locale } }: { params: { locale: str
                                             <span className="text-white/20 font-heading font-black text-4xl uppercase tracking-widest">Auckland</span>
                                         </div>
                                         <div className="absolute top-6 left-6 bg-app-acc text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
-                                            Article
+                                            {t("articleBadge")}
                                         </div>
                                     </div>
 
@@ -111,10 +111,10 @@ export default function BlogPage({ params: { locale } }: { params: { locale: str
                         {/* SEO Text Footer for targeting Long Tail Keywords directly on page */}
                         <div className="max-w-7xl mx-auto mt-24 p-12 border-t border-app-dark/10 bg-white rounded-3xl shadow-xl">
                             <div className="inline-block px-4 py-2 bg-app-light rounded-sm mb-6">
-                                <h2 className="text-app-acc text-xs font-bold uppercase tracking-widest relative z-10">Targeted Market Expertise</h2>
+                                <h2 className="text-app-acc text-xs font-bold uppercase tracking-widest relative z-10">{t("targetMarketTitle")}</h2>
                             </div>
                             <p className="text-app-dark/60 text-sm leading-loose font-light max-w-4xl">
-                                {isAr ? "نحن في شركة أوكلاند نقدم أفضل حلول تشقق واجهات الفلل في قطر من خلال اختيار أفضل حجر للواجهات يتحمل حرارة الخليج. نستورد ونوفر موردين حجر سوري قطر ونركب واجهات حجر عماني قطر بالإضافة إلى تقديم أحدث ديكورات أرابيسك حجر للفلل والتصاميم النيو كلاسيك بحجر سوري. تفوق دائم على عيوب بديل الرخام للواجهات بأسعار تنافسية. تشطيبات فلل مستدامة وتوريد وتركيب الدوحة." : "Auckland Construction & Development offers premium heat resistant stone facades suitable for the Gulf. Avoid the pitfalls of GRC and synthetic materials with our natural stone installation in Qatar, featuring Omani marble and Syrian stone resilient to high humidity and temperatures. We specialize in luxury fit-out for modern heritage villas and CNC marble designs."}
+                                {t("targetMarketDesc")}
                             </p>
                         </div>
                     </div>

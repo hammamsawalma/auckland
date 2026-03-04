@@ -43,4 +43,21 @@
   [dir="rtl"] {
     @apply font-arabic;
   }
+
+  /* Override fonts and letter-spacing for Arabic text to prevent cursive breakage */
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4,
+  [dir="rtl"] h5,
+  [dir="rtl"] h6,
+  [dir="rtl"] .font-heading,
+  [dir="rtl"] .tracking-widest,
+  [dir="rtl"] .tracking-wider,
+  [dir="rtl"] .tracking-wide,
+  [dir="rtl"] .tracking-tight,
+  [dir="rtl"] .tracking-tighter {
+    @apply font-arabic;
+    letter-spacing: 0 !important;
+  }
 }

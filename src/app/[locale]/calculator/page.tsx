@@ -30,7 +30,7 @@ export default function CalculatorPage() {
                                 <span className="text-app-acc text-sm font-bold uppercase tracking-widest">{t("title")}</span>
                             </div>
                             <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white uppercase tracking-tight leading-none">
-                                ESTIMATE YOUR PROJECT
+                                {t("heroTitle")}
                             </h1>
                             <p className="text-xl text-white/70 font-light leading-relaxed max-w-3xl mx-auto">
                                 {t("subtitle")}

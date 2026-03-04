@@ -105,7 +105,14 @@
         "heroSubtitle": "Explore our finished projects, installation gallery, and premium raw stone collection.",
         "featuredWork": "Featured Installations",
         "projectCard": "Case Study",
-        "completed": "Completed"
+        "completed": "Completed",
+        "tabAll": "All Projects",
+        "tabWakrah": "Wakrah Villa",
+        "tabAlKhor": "Al Khor Residence",
+        "wakrahTitle": "Wakrah Private Villa",
+        "alkhorTitle": "Al Khor VIP Residence",
+        "wakrahLabel": "Wakrah",
+        "alkhorLabel": "Al Khor"
     },
     "Contact": {
         "title": "Contact Us",
@@ -188,6 +195,7 @@
     },
     "Calculator": {
         "title": "Facade Cost Calculator",
+        "heroTitle": "ESTIMATE YOUR PROJECT",
         "subtitle": "Estimate the cost of your natural stone facade instantly.",
         "areaLabel": "Facade Area (sqm)",
         "stoneTypeLabel": "Type of Stone",
@@ -206,6 +214,10 @@
     },
     "Blog": {
         "title": "Insights & Articles",
+        "heroTitle": "INDUSTRY INSIGHTS",
+        "articleBadge": "Article",
+        "targetMarketTitle": "Targeted Market Expertise",
+        "targetMarketDesc": "Auckland Construction & Development offers premium heat resistant stone facades suitable for the Gulf. Avoid the pitfalls of GRC and synthetic materials with our natural stone installation in Qatar, featuring Omani marble and Syrian stone resilient to high humidity and temperatures. We specialize in luxury fit-out for modern heritage villas and CNC marble designs.",
         "subtitle": "Discover the latest trends in luxury stone fit-outs, facade sustainability, and modern construction in the GCC.",
         "readMore": "Read Article"
     }

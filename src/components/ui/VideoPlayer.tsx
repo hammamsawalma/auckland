@@ -19,10 +19,11 @@ export function VideoPlayer({ src, poster, className = "" }: VideoPlayerProps) {
                 controls
                 preload="metadata"
                 poster={poster}
+                playsInline
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
             >
-                <source src={src} type="video/mp4" />
+                <source src={`${src}${!poster && !src.includes('#t=') ? '#t=0.001' : ''}`} type="video/mp4" />
                 <track kind="captions" src="/captions/empty.vtt" label="English" default={false} />
             </video>
 
