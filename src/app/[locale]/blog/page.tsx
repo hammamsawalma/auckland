@@ -7,33 +7,12 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { motion } from "framer-motion";
 
-// Placeholder data for SEO articles
-const articles = [
-    {
-        id: "facade-heat-resolution",
-        image: "/hero-bg.jpg", // Replace with valid image
-        titleEn: "Resolving Villa Facade Cracks: Why Syrian Stone Surpasses Alternatives in Gulf Heat",
-        titleAr: "حلول تشقق واجهات الفلل: لماذا يتفوق الحجر السوري في حرارة الخليج؟",
-        excerptEn: "Discover how the structural density of Syrian and Omani stone prevents thermal expansion and humidity damage compared to GRC and Paint.",
-        excerptAr: "تعرف على كيفية تغلب الحجر السوري والعماني على الرطوبة والحرارة العالية وتفوقه على بديل الرخام في واجهات قطر.",
-        date: "2024-03-15",
-        authorEn: "Auckland Engineering",
-        authorAr: "أوكلاند الهندسية"
-    },
-    {
-        id: "modern-heritage-villas",
-        image: "/hero-bg.jpg", // Replace with valid image
-        titleEn: "Modern Heritage: Blending Omani Marble with Arches in Qatari Villas",
-        titleAr: "التراث الحديث: دمج الرخام العماني مع تصميم الأقواس في فيلات قطر",
-        excerptEn: "Explore the 2026 trend of 'Warm Modernism' combining sustainable luxury interiors with traditional CNC carved stone.",
-        excerptAr: "استكشف اتجاهات التصميم الفاخر لعام ٢٠٢٦ من خلال دمج الأقواس المنحوتة CNC والحجر العماني الصديق للبيئة.",
-        date: "2024-03-10",
-        authorEn: "Auckland Design",
-        authorAr: "أوكلاند للتصميم"
-    }
-];
+import { articles } from "@/lib/blog-data";
 
-export default function BlogPage({ params: { locale } }: { params: { locale: string } }) {
+import { use } from "react";
+
+export default function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
+    const { locale } = use(params);
     const t = useTranslations("Blog");
     const isAr = locale === 'ar';
 
@@ -78,36 +57,38 @@ export default function BlogPage({ params: { locale } }: { params: { locale: str
                                     viewport={{ once: true }}
                                     className="bg-white border border-black/5 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-app-dark/10 transition-shadow duration-300 group"
                                 >
-                                    <div className="relative h-72 w-full bg-app-dark/5 overflow-hidden">
-                                        {/* Image placeholder */}
-                                        <div className="absolute inset-0 bg-app-dark/80 group-hover:scale-105 transition-transform duration-700 flex items-center justify-center">
-                                            <span className={(isAr ? "font-arabic tracking-normal " : "font-heading tracking-widest ") + "text-white/20 font-black text-4xl uppercase"}>
-                                                {isAr ? "أوكلاند" : "Auckland"}
-                                            </span>
-                                        </div>
-                                        <div className="absolute top-6 left-6 bg-app-acc text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
-                                            {t("articleBadge")}
-                                        </div>
-                                    </div>
-
-                                    <div className="p-8 lg:p-10">
-                                        <div className="flex items-center gap-6 text-app-dark/40 text-xs font-bold uppercase tracking-widest mb-6 border-b border-black/5 pb-6">
-                                            <span className="flex items-center gap-2 text-app-acc"><Calendar className="w-4 h-4" /> {article.date}</span>
-                                            <span className="flex items-center gap-2"><User className="w-4 h-4" /> {isAr ? article.authorAr : article.authorEn}</span>
+                                    <Link href={`/blog/${article.id}`} className="block h-full cursor-pointer">
+                                        <div className="relative h-72 w-full bg-app-dark/5 overflow-hidden">
+                                            {/* Image placeholder */}
+                                            <div className="absolute inset-0 bg-app-dark/80 group-hover:scale-105 transition-transform duration-700 flex items-center justify-center">
+                                                <span className={(isAr ? "font-arabic tracking-normal " : "font-heading tracking-widest ") + "text-white/20 font-black text-4xl uppercase"}>
+                                                    {isAr ? "أوكلاند" : "Auckland"}
+                                                </span>
+                                            </div>
+                                            <div className="absolute top-6 left-6 bg-app-acc text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+                                                {t("articleBadge")}
+                                            </div>
                                         </div>
 
-                                        <h2 className="text-2xl font-black text-app-dark mb-4 leading-tight group-hover:text-app-acc transition-colors">
-                                            {isAr ? article.titleAr : article.titleEn}
-                                        </h2>
-                                        <p className="text-app-dark/60 font-light mb-8 leading-relaxed line-clamp-3">
-                                            {isAr ? article.excerptAr : article.excerptEn}
-                                        </p>
+                                        <div className="p-8 lg:p-10 flex flex-col items-start justify-start">
+                                            <div className="flex items-center gap-6 text-app-dark/40 text-xs font-bold uppercase tracking-widest mb-6 border-b border-black/5 pb-6 w-full">
+                                                <span className="flex items-center gap-2 text-app-acc"><Calendar className="w-4 h-4" /> {isAr ? article.dateAr : article.dateEn}</span>
+                                                <span className="flex items-center gap-2"><User className="w-4 h-4" /> {isAr ? article.authorAr : article.authorEn}</span>
+                                            </div>
 
-                                        <Link href={`/blog/${article.id}`} className="inline-flex items-center gap-2 text-app-acc font-bold uppercase tracking-wider text-sm hover:text-app-dark transition-colors mt-auto">
-                                            {t("readMore")}
-                                            <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-                                        </Link>
-                                    </div>
+                                            <h2 className="text-2xl font-black text-app-dark mb-4 leading-tight group-hover:text-app-acc transition-colors">
+                                                {isAr ? article.titleAr : article.titleEn}
+                                            </h2>
+                                            <p className="text-app-dark/60 font-light mb-8 leading-relaxed line-clamp-3">
+                                                {isAr ? article.excerptAr : article.excerptEn}
+                                            </p>
+
+                                            <div className="inline-flex items-center gap-2 text-app-acc font-bold uppercase tracking-wider text-sm group-hover:text-app-dark transition-colors mt-auto pointer-events-none">
+                                                {t("readMore")}
+                                                <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </motion.div>
                             ))}
                         </div>

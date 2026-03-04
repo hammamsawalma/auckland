@@ -19,9 +19,9 @@
 
   /* Fonts */
   --font-inter: var(--font-inter);
-  --font-tajawal: var(--font-tajawal);
+  --font-khebrat: "Khebrat", sans-serif;
   --font-sans: var(--font-inter);
-  --font-arabic: var(--font-tajawal);
+  --font-arabic: var(--font-khebrat);
   --font-heading: var(--font-outfit);
 }
 

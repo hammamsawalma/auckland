@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Tajawal, Outfit } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -8,17 +8,12 @@ import dynamic from "next/dynamic";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 
 const WhatsAppButton = dynamic(() => import("@/components/ui/WhatsAppButton").then(mod => mod.WhatsAppButton));
+import "../font-test.css";
 import "../globals.css";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-});
-
-const tajawal = Tajawal({
-  variable: "--font-tajawal",
-  subsets: ["arabic", "latin"],
-  weight: ["300", "400", "500", "700"],
 });
 
 const outfit = Outfit({
@@ -102,7 +97,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={dir}>
       <body
-        className={`${inter.variable} ${tajawal.variable} ${outfit.variable} antialiased bg-app-light text-app-dark`}
+        className={`${inter.variable} ${outfit.variable} antialiased bg-app-light text-app-dark`}
       >
         <NextIntlClientProvider messages={messages}>
           <div className="pb-16 sm:pb-20 lg:pb-0 flex flex-col min-h-screen">

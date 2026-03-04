@@ -1,11 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 
 export const HighlightsMarquee = () => {
     const t = useTranslations("Highlights");
+    const locale = useLocale();
+    const isRtl = locale === "ar";
 
     // Map 15 social images
     const images = Array.from({ length: 15 }, (_, i) => `/images/home/social/social_${i + 1}.jpg`);
@@ -25,14 +27,14 @@ export const HighlightsMarquee = () => {
             </div>
 
             {/* Infinite Marquee Container */}
-            <div className="relative w-full flex overflow-hidden group">
+            <div className="relative w-full flex overflow-hidden group" dir="ltr">
                 {/* Left Gradient Mask */}
                 <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-app-dark to-transparent z-10 pointer-events-none"></div>
 
                 <motion.div
                     className="flex gap-6 px-3"
                     animate={{
-                        x: [0, -10350], // Adjust based on (width + gap) * 15
+                        x: isRtl ? [-10350, 0] : [0, -10350], // Adjust based on (width + gap) * 15
                     }}
                     transition={{
                         x: {
