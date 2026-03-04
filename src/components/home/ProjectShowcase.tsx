@@ -118,7 +118,7 @@ export function ProjectShowcase() {
                             <div className="p-6 md:p-8 bg-app-dark/95 backdrop-blur-md border-t border-white/10 shrink-0">
                                 <div className="flex items-center gap-4 mb-2">
                                     <span className="px-3 py-1 bg-white/10 text-white/70 text-xs font-bold rounded-full uppercase tracking-widest border border-white/5">
-                                        Clip {activeVideo}
+                                        {t("clipLabel")} {activeVideo}
                                     </span>
                                     <h3 className="text-2xl font-bold text-white uppercase tracking-wider">{t(`fv${activeVideo}Title` as Parameters<typeof t>[0])}</h3>
                                 </div>
