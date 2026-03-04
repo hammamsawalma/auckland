@@ -83,8 +83,8 @@ export default function Contact() {
                                         </div>
                                         <div>
                                             <h3 className="font-bold text-app-dark mb-1">{t("phone")}</h3>
-                                            <p className="text-app-dark/70 font-light text-lg">+974 6698 0665</p>
-                                            <p className="text-app-dark/70 font-light text-lg">+974 3354 6826</p>
+                                            <p className="text-app-dark/70 font-light text-lg" dir="ltr">+974 6698 0665</p>
+                                            <p className="text-app-dark/70 font-light text-lg" dir="ltr">+974 3354 6826</p>
                                         </div>
                                     </div>
 
