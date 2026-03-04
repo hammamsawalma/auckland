@@ -47,21 +47,21 @@ export default function PortfolioHub() {
 
     // Materials Data
     const granites = [
-        "Colonial white", "Colonial gold", "Shiva gold", "Alaska white", "Alaska gold",
-        "Crystal yellow", "Moon white", "P-white", "Lavender blue", "Misty yellow",
-        "Pink guarana", "Desert brown", "White galaxy", "Grey sardo", "Steel grey",
-        "Santa sicilia", "Urban classic", "Black beauty", "Black galaxy", "Tan brown",
-        "Kuppam green", "Black pearl", "Blue pearl", "Rosy pink", "Paradiso", "Jhansi red"
-    ];
+        "g_colonialWhite", "g_colonialGold", "g_shivaGold", "g_alaskaWhite", "g_alaskaGold",
+        "g_crystalYellow", "g_moonWhite", "g_pWhite", "g_lavenderBlue", "g_mistyYellow",
+        "g_pinkGuarana", "g_desertBrown", "g_whiteGalaxy", "g_greySardo", "g_steelGrey",
+        "g_santaSicilia", "g_urbanClassic", "g_blackBeauty", "g_blackGalaxy", "g_tanBrown",
+        "g_kuppamGreen", "g_blackPearl", "g_bluePearl", "g_rosyPink", "g_paradiso", "g_jhansiRed"
+    ] as const;
 
     const marbles = [
-        "Crema marfil", "Crema uno", "Cappuccino", "Volakas white", "Carrara white",
-        "Mugla white", "Omani beij", "Vietnam white", "Sunny gold", "Indian green",
-        "Rosalia pink", "Indus gold", "Black and gold", "Armani grey", "Black marquina",
-        "Maroon scuro", "Orchid jade", "Tundra grey", "Grey emperador", "Light emperador",
-        "Dark emperador", "Travertine", "Perlato sicilia", "Afyun sugar", "Marmara white",
-        "White wood", "Grey wood"
-    ];
+        "m_cremaMarfil", "m_cremaUno", "m_cappuccino", "m_volakasWhite", "m_carraraWhite",
+        "m_muglaWhite", "m_omaniBeij", "m_vietnamWhite", "m_sunnyGold", "m_indianGreen",
+        "m_rosaliaPink", "m_indusGold", "m_blackAndGold", "m_armaniGrey", "m_blackMarquina",
+        "m_maroonScuro", "m_orchidJade", "m_tundraGrey", "m_greyEmperador", "m_lightEmperador",
+        "m_darkEmperador", "m_travertine", "m_perlatoSicilia", "m_afyunSugar", "m_marmaraWhite",
+        "m_whiteWood", "m_greyWood"
+    ] as const;
 
     // Reset lightbox when project tab changes
     useEffect(() => {
@@ -319,7 +319,7 @@ export default function PortfolioHub() {
                                                     >
                                                         <div className="absolute inset-0 bg-app-light/30 group-hover:bg-app-dark transition-colors duration-300 z-10"></div>
                                                         <span className="relative z-20 font-medium text-sm md:text-base capitalize text-app-dark group-hover:text-white transition-colors duration-300 px-4 text-center">
-                                                            {item}
+                                                            {tProd(item as any)}
                                                         </span>
                                                     </motion.div>
                                                 </Link>
@@ -353,7 +353,7 @@ export default function PortfolioHub() {
                                                     >
                                                         <div className="absolute inset-0 bg-app-light/30 group-hover:bg-app-dark transition-colors duration-300 z-10"></div>
                                                         <span className="relative z-20 font-medium text-sm md:text-base capitalize text-app-dark group-hover:text-white transition-colors duration-300 px-4 text-center">
-                                                            {item}
+                                                            {tProd(item as any)}
                                                         </span>
                                                     </motion.div>
                                                 </Link>
