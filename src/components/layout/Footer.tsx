@@ -2,12 +2,13 @@
 
 import { Link } from "@/i18n/routing";
 import { Facebook, Instagram, Linkedin, MapPin, Mail, Phone } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 
 export function Footer() {
     const tNav = useTranslations("Navigation");
     const tFoot = useTranslations("Footer");
+    const activeLocale = useLocale();
 
     return (
         <footer className="relative bg-[#121212] text-white pt-20 pb-12 overflow-hidden">
@@ -31,11 +32,11 @@ export function Footer() {
                                 />
                             </div>
                             <div className="flex flex-col">
-                                <span className="font-heading font-black text-3xl leading-none text-white tracking-widest group-hover:text-app-acc transition-colors">
-                                    AUCKLAND
+                                <span className={(activeLocale === 'ar' ? "font-arabic tracking-normal text-3xl " : "font-heading tracking-widest text-3xl ") + "font-black leading-none text-white group-hover:text-app-acc transition-colors"}>
+                                    {tFoot("brandName")}
                                 </span>
-                                <span className="font-sans text-[10px] text-white/70 tracking-[0.3em] mt-2 uppercase">
-                                    Construction Development
+                                <span className={(activeLocale === 'ar' ? "font-arabic tracking-normal text-xs " : "font-sans tracking-[0.3em] uppercase text-[10px] ") + "text-white/70 mt-2"}>
+                                    {tFoot("brandSub")}
                                 </span>
                             </div>
                         </Link>
@@ -67,7 +68,7 @@ export function Footer() {
                         <div className="flex flex-col gap-4 text-sm text-white/70">
                             <div className="flex items-start gap-4">
                                 <MapPin className="w-5 h-5 text-app-acc shrink-0" />
-                                <span className="pt-0.5 leading-tight">Mesaieed Industrial City,<br />Doha, Qatar</span>
+                                <span className="pt-0.5 leading-tight" dangerouslySetInnerHTML={{ __html: tFoot("address") }}></span>
                             </div>
                             <div className="flex items-center gap-4">
                                 <Phone className="w-5 h-5 text-app-acc shrink-0" />
@@ -85,7 +86,7 @@ export function Footer() {
 
                     {/* Social Column */}
                     <div className="flex flex-col gap-6">
-                        <h4 className="font-bold text-lg text-white tracking-wider uppercase">Follow Us</h4>
+                        <h4 className="font-bold text-lg text-white tracking-wider uppercase">{tFoot("followUs")}</h4>
                         <div className="flex items-center gap-3">
                             <a href="#" aria-label="Facebook" className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-app-acc hover:border-app-acc hover:text-app-dark transition-all text-white/80 group">
                                 <Facebook className="w-4 h-4 group-hover:scale-110 transition-transform" />
@@ -99,7 +100,7 @@ export function Footer() {
                         </div>
                         <div className="mt-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
                             <p className="text-xs text-white/70 text-center leading-relaxed">
-                                Partner with us to build environments that stand the test of time.
+                                {tFoot("partnerMsg")}
                             </p>
                         </div>
                     </div>
@@ -109,12 +110,12 @@ export function Footer() {
             {/* Bottom Bar */}
             <div className="container mx-auto px-4 max-w-6xl relative z-20">
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-xs text-white/70 font-light">
-                        © {new Date().getFullYear()} Auckland for Construction and Development. {tFoot("rights")}
+                    <p className="text-xs text-white/70 font-light flex items-center gap-1">
+                        &copy; {new Date().getFullYear()} {tFoot("copyright")} {tFoot("rights")}
                     </p>
                     <div className="flex items-center gap-6 text-xs text-white/70 font-light">
-                        <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+                        <Link href="#" className="hover:text-white transition-colors">{tFoot("privacy")}</Link>
+                        <Link href="#" className="hover:text-white transition-colors">{tFoot("terms")}</Link>
                     </div>
                 </div>
             </div>

@@ -131,12 +131,6 @@ export function ProjectShowcase() {
                 )}
             </AnimatePresence>
 
-            {/* SVG Curve Divider Bottom */}
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-30 transform translate-y-px pointer-events-none">
-                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-[calc(100%+1.3px)] h-[80px]">
-                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.93,193.36,104.7,237.4,94.04,281.33,70.97,321.39,56.44Z" className="fill-app-light"></path>
-                </svg>
-            </div>
         </section>
     );
 }

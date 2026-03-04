@@ -63,10 +63,10 @@ export function FacadeCalculator() {
                                     max="5000"
                                     value={area}
                                     onChange={(e) => setArea(Number(e.target.value))}
-                                    className="w-full h-14 bg-white/5 border border-white/10 rounded-l-xl px-4 text-white focus:outline-none focus:border-app-acc transition-colors"
+                                    className="w-full h-14 bg-white/5 border border-white/10 rounded-s-xl px-4 text-white focus:outline-none focus:border-app-acc transition-colors"
                                 />
-                                <div className="h-14 px-4 bg-white/10 border border-white/10 border-l-0 rounded-r-xl flex items-center text-white/50 text-sm">
-                                    m²
+                                <div className="h-14 px-4 bg-white/10 border border-white/10 border-s-0 rounded-e-xl flex items-center text-white/50 text-sm">
+                                    {t("unitSqM")}
                                 </div>
                             </div>
                         </div>
@@ -79,7 +79,7 @@ export function FacadeCalculator() {
                                     <button
                                         key={type}
                                         onClick={() => setStoneType(type as any)}
-                                        className={`px-4 py-3 rounded-xl border text-left text-sm transition-all duration-300 ${stoneType === type ? "border-app-acc bg-app-acc/10 text-white font-bold" : "border-white/10 text-white/50 hover:border-white/30"}`}
+                                        className={`px-4 py-3 rounded-xl border text-start text-sm transition-all duration-300 ${stoneType === type ? "border-app-acc bg-app-acc/10 text-white font-bold" : "border-white/10 text-white/50 hover:border-white/30"}`}
                                     >
                                         {t(type as any)}
                                     </button>
@@ -95,7 +95,7 @@ export function FacadeCalculator() {
                                     <button
                                         key={method}
                                         onClick={() => setInstallation(method as any)}
-                                        className={`px-4 py-3 rounded-xl border text-left text-sm transition-all duration-300 ${installation === method ? "border-app-acc bg-app-acc/10 text-white font-bold shadow-[0_0_15px_rgba(202,176,120,0.15)]" : "border-white/10 text-white/50 hover:border-white/30"}`}
+                                        className={`px-4 py-3 rounded-xl border text-start text-sm transition-all duration-300 ${installation === method ? "border-app-acc bg-app-acc/10 text-white font-bold shadow-[0_0_15px_rgba(202,176,120,0.15)]" : "border-white/10 text-white/50 hover:border-white/30"}`}
                                     >
                                         {t(method as any)}
                                     </button>
@@ -138,7 +138,7 @@ export function FacadeCalculator() {
                     ) : (
                         <div className="text-center text-white/30 flex flex-col items-center">
                             <Calculator className="w-16 h-16 mb-4 opacity-20" />
-                            <p className="text-sm font-heading font-medium uppercase tracking-widest">Select options to calculate</p>
+                            <p className="text-sm font-heading font-medium uppercase tracking-widest">{t("selectOptions")}</p>
                         </div>
                     )}
                 </div>

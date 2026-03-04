@@ -17,7 +17,8 @@ const articles = [
         excerptEn: "Discover how the structural density of Syrian and Omani stone prevents thermal expansion and humidity damage compared to GRC and Paint.",
         excerptAr: "تعرف على كيفية تغلب الحجر السوري والعماني على الرطوبة والحرارة العالية وتفوقه على بديل الرخام في واجهات قطر.",
         date: "2024-03-15",
-        author: "Auckland Engineering"
+        authorEn: "Auckland Engineering",
+        authorAr: "أوكلاند الهندسية"
     },
     {
         id: "modern-heritage-villas",
@@ -27,7 +28,8 @@ const articles = [
         excerptEn: "Explore the 2026 trend of 'Warm Modernism' combining sustainable luxury interiors with traditional CNC carved stone.",
         excerptAr: "استكشف اتجاهات التصميم الفاخر لعام ٢٠٢٦ من خلال دمج الأقواس المنحوتة CNC والحجر العماني الصديق للبيئة.",
         date: "2024-03-10",
-        author: "Auckland Design"
+        authorEn: "Auckland Design",
+        authorAr: "أوكلاند للتصميم"
     }
 ];
 
@@ -79,7 +81,9 @@ export default function BlogPage({ params: { locale } }: { params: { locale: str
                                     <div className="relative h-72 w-full bg-app-dark/5 overflow-hidden">
                                         {/* Image placeholder */}
                                         <div className="absolute inset-0 bg-app-dark/80 group-hover:scale-105 transition-transform duration-700 flex items-center justify-center">
-                                            <span className="text-white/20 font-heading font-black text-4xl uppercase tracking-widest">Auckland</span>
+                                            <span className={(isAr ? "font-arabic tracking-normal " : "font-heading tracking-widest ") + "text-white/20 font-black text-4xl uppercase"}>
+                                                {isAr ? "أوكلاند" : "Auckland"}
+                                            </span>
                                         </div>
                                         <div className="absolute top-6 left-6 bg-app-acc text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
                                             {t("articleBadge")}
@@ -89,7 +93,7 @@ export default function BlogPage({ params: { locale } }: { params: { locale: str
                                     <div className="p-8 lg:p-10">
                                         <div className="flex items-center gap-6 text-app-dark/40 text-xs font-bold uppercase tracking-widest mb-6 border-b border-black/5 pb-6">
                                             <span className="flex items-center gap-2 text-app-acc"><Calendar className="w-4 h-4" /> {article.date}</span>
-                                            <span className="flex items-center gap-2"><User className="w-4 h-4" /> {article.author}</span>
+                                            <span className="flex items-center gap-2"><User className="w-4 h-4" /> {isAr ? article.authorAr : article.authorEn}</span>
                                         </div>
 
                                         <h2 className="text-2xl font-black text-app-dark mb-4 leading-tight group-hover:text-app-acc transition-colors">

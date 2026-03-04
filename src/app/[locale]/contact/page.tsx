@@ -59,12 +59,6 @@ export default function Contact() {
                         </motion.p>
                     </div>
 
-                    {/* SVG Curve Divider Bottom */}
-                    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-30 transform translate-y-px">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-[calc(100%+1.3px)] h-[80px]">
-                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.93,193.36,104.7,237.4,94.04,281.33,70.97,321.39,56.44Z" className="fill-white"></path>
-                        </svg>
-                    </div>
                 </section>
 
                 <section className="py-24 bg-white relative">
@@ -148,16 +142,16 @@ export default function Contact() {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
                                             <label className="text-sm font-bold text-app-dark/70 uppercase tracking-wider">{t("formFirstName")}</label>
-                                            <input name="firstName" required type="text" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder="John" />
+                                            <input name="firstName" required type="text" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder={t("placeholderFirstName")} />
                                         </div>
                                         <div className="space-y-2">
                                             <label className="text-sm font-bold text-app-dark/70 uppercase tracking-wider">{t("formLastName")}</label>
-                                            <input name="lastName" required type="text" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder="Doe" />
+                                            <input name="lastName" required type="text" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder={t("placeholderLastName")} />
                                         </div>
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-bold text-app-dark/70 uppercase tracking-wider">{t("formEmail")}</label>
-                                        <input name="email" required type="email" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder="john@example.com" />
+                                        <input name="email" required type="email" className="w-full h-14 px-4 bg-app-light/30 rounded-xl border border-transparent focus:bg-white focus:outline-none focus:border-app-acc focus:ring-1 focus:ring-app-acc transition-all" placeholder={t("placeholderEmail")} />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-bold text-app-dark/70 uppercase tracking-wider">{t("formDetails")}</label>
@@ -207,14 +201,6 @@ export default function Contact() {
                     </div>
                 </section>
 
-                <div className="h-16 bg-white relative">
-                    {/* Fake section to provide space for SVG Curve */}
-                    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-30 transform translate-y-px rotate-180">
-                        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-[calc(100%+1.3px)] h-[80px]">
-                            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.93,193.36,104.7,237.4,94.04,281.33,70.97,321.39,56.44Z" className="fill-app-dark"></path>
-                        </svg>
-                    </div>
-                </div>
 
             </main>
 

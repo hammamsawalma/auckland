@@ -132,6 +132,9 @@
         "formDetails": "Project Details",
         "formPlaceholder": "Tell us about your requirements...",
         "formSubmit": "Submit Inquiry",
+        "placeholderFirstName": "John",
+        "placeholderLastName": "Doe",
+        "placeholderEmail": "john@example.com",
         "mapHqTitle": "Auckland Factory HQ",
         "mapHqAddress": "Street 101, New Industrial Area, Doha, Qatar"
     },
@@ -232,9 +235,17 @@
     },
     "Footer": {
         "description": "Auckland Company started its activity with the aim of producing and selling all kinds of construction stones in Qatar markets.",
+        "brandName": "AUCKLAND",
+        "brandSub": "Construction Development",
         "quickLinks": "Quick Links",
         "contactInfo": "Contact Info",
-        "rights": "All rights reserved."
+        "address": "Mesaieed Industrial City,<br />Doha, Qatar",
+        "followUs": "Follow Us",
+        "partnerMsg": "Partner with us to build environments that stand the test of time.",
+        "copyright": "Auckland for Construction and Development.",
+        "rights": "All rights reserved.",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service"
     },
     "Highlights": {
         "titleStart": "Featured",
@@ -250,7 +261,8 @@
         "title": "Facade Cost Calculator",
         "heroTitle": "ESTIMATE YOUR PROJECT",
         "subtitle": "Estimate the cost of your natural stone facade instantly.",
-        "areaLabel": "Facade Area (sqm)",
+        "areaLabel": "Facade Area",
+        "unitSqM": "m²",
         "stoneTypeLabel": "Type of Stone",
         "syrian": "Syrian Stone (High Durability & Heat Resistance)",
         "omani": "Omani Marble (Luxury & Elegance)",
@@ -263,7 +275,8 @@
         "estimatedCost": "Estimated Cost",
         "currency": "QAR",
         "disclaimer": "This is a rough estimate. Contact us for a precise quotation based on your exact architectural design.",
-        "contactCta": "Request Final Quote"
+        "contactCta": "Request Final Quote",
+        "selectOptions": "Select options to calculate"
     },
     "Blog": {
         "title": "Insights & Articles",

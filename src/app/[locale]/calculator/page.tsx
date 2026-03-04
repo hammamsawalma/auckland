@@ -17,7 +17,7 @@ export default function CalculatorPage() {
                 {/* Hero Section */}
                 <section className="py-24 pt-32 lg:pt-40 bg-app-dark relative overflow-hidden h-fit lg:h-[70vh] flex flex-col justify-center">
                     {/* Decorative Background Curved Shape */}
-                    <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 rounded-l-[150px] opacity-50 pointer-events-none -z-10 transform translate-x-32 hidden lg:block"></div>
+                    <div className="absolute top-0 end-0 w-1/2 h-full bg-white/5 rounded-s-[150px] opacity-50 pointer-events-none -z-10 transform translate-x-32 rtl:-translate-x-32 hidden lg:block"></div>
 
                     <div className="container mx-auto px-4 max-w-7xl relative z-10 text-center">
                         <motion.div
@@ -41,7 +41,7 @@ export default function CalculatorPage() {
 
                 <section className="py-20 bg-app-light relative overflow-hidden">
                     {/* Decorative Elements */}
-                    <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-96 h-96 bg-app-acc/10 rounded-full blur-[100px] pointer-events-none"></div>
+                    <div className="absolute -start-32 top-1/2 -translate-y-1/2 w-96 h-96 bg-app-acc/10 rounded-full blur-[100px] pointer-events-none"></div>
 
                     <div className="container mx-auto px-4">
                         <FacadeCalculator />

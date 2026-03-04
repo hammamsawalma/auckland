@@ -8,6 +8,7 @@ import { Globe } from "lucide-react";
 
 export function Navbar() {
     const t = useTranslations("Navigation");
+    const tFoot = useTranslations("Footer");
     const activeLocale = useLocale();
     const [scrolled, setScrolled] = useState(false);
 
@@ -46,11 +47,11 @@ export function Navbar() {
                         />
                     </div>
                     <div className="flex flex-col border-l border-white/20 pl-3">
-                        <span className="font-heading font-bold text-lg md:text-xl leading-none text-white group-hover:text-app-acc transition-colors drop-shadow-md tracking-wider">
-                            AUCKLAND
+                        <span className={(activeLocale === 'ar' ? "font-arabic tracking-normal text-xl " : "font-heading tracking-wider text-lg lg:text-xl ") + "font-bold leading-none text-white group-hover:text-app-acc transition-colors drop-shadow-md"}>
+                            {tFoot("brandName")}
                         </span>
-                        <span className={`font-sans text-[8px] md:text-[10px] tracking-widest mt-1 uppercase text-white/70 drop-shadow-md transition-opacity duration-300 ${scrolled ? 'opacity-0 h-0 hidden md:block md:opacity-100 md:h-auto' : 'opacity-100 hidden md:block'}`}>
-                            Construction Development
+                        <span className={(activeLocale === 'ar' ? "font-arabic tracking-normal " : "font-sans tracking-widest uppercase ") + `text-[8px] md:text-[10px] mt-1 text-white/70 drop-shadow-md transition-opacity duration-300 ${scrolled ? 'opacity-0 h-0 hidden md:block md:opacity-100 md:h-auto' : 'opacity-100 hidden md:block'}`}>
+                            {tFoot("brandSub")}
                         </span>
                     </div>
                 </Link>
