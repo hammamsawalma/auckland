@@ -1,7 +1,11 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { ArrowRight, Calendar, User } from "lucide-react";
-import Image from "next/image";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { motion } from "framer-motion";
 
 // Placeholder data for SEO articles
 const articles = [
@@ -32,56 +36,91 @@ export default function BlogPage({ params: { locale } }: { params: { locale: str
     const isAr = locale === 'ar';
 
     return (
-        <main className="min-h-screen bg-app-dark pt-32 pb-20 px-4">
-            <div className="max-w-7xl mx-auto border-b border-white/10 pb-12 mb-12">
-                <div className="text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 uppercase tracking-wider">{t("title")}</h1>
-                    <p className="text-white/60 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-                        {t("subtitle")}
-                    </p>
-                </div>
-            </div>
+        <div className="flex flex-col min-h-screen">
+            <Navbar />
 
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                {articles.map((article) => (
-                    <div key={article.id} className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:border-app-acc/50 transition-all duration-300 group">
-                        <div className="relative h-64 w-full bg-black/50 overflow-hidden">
-                            {/* In a real app, use the actual Next.js Image component with accurate src */}
-                            <div className="absolute inset-0 bg-app-acc/10 group-hover:scale-105 transition-transform duration-700"></div>
-                            <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full text-xs text-white uppercase tracking-wider">
-                                Insights
+            <main className="flex-1">
+                {/* Hero Section */}
+                <section className="py-24 pt-32 lg:pt-40 bg-app-dark relative overflow-hidden h-fit lg:h-[60vh] flex flex-col justify-center">
+                    <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 rounded-l-[150px] opacity-50 pointer-events-none -z-10 transform translate-x-32 hidden lg:block"></div>
+
+                    <div className="container mx-auto px-4 max-w-6xl text-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="space-y-6"
+                        >
+                            <div className="inline-block px-4 py-2 bg-white/10 rounded-sm mb-4">
+                                <span className="text-app-acc text-sm font-bold uppercase tracking-widest">{t("title")}</span>
                             </div>
+                            <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-white uppercase tracking-tight leading-none">
+                                INDUSTRY INSIGHTS
+                            </h1>
+                            <p className="text-xl text-white/70 font-light leading-relaxed max-w-2xl mx-auto">
+                                {t("subtitle")}
+                            </p>
+                        </motion.div>
+                    </div>
+                </section>
+
+                <section className="py-20 bg-app-light relative overflow-hidden min-h-[50vh]">
+                    <div className="container mx-auto px-4 max-w-7xl">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                            {articles.map((article, idx) => (
+                                <motion.div
+                                    key={article.id}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                                    viewport={{ once: true }}
+                                    className="bg-white border border-black/5 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-app-dark/10 transition-shadow duration-300 group"
+                                >
+                                    <div className="relative h-72 w-full bg-app-dark/5 overflow-hidden">
+                                        {/* Image placeholder */}
+                                        <div className="absolute inset-0 bg-app-dark/80 group-hover:scale-105 transition-transform duration-700 flex items-center justify-center">
+                                            <span className="text-white/20 font-heading font-black text-4xl uppercase tracking-widest">Auckland</span>
+                                        </div>
+                                        <div className="absolute top-6 left-6 bg-app-acc text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg">
+                                            Article
+                                        </div>
+                                    </div>
+
+                                    <div className="p-8 lg:p-10">
+                                        <div className="flex items-center gap-6 text-app-dark/40 text-xs font-bold uppercase tracking-widest mb-6 border-b border-black/5 pb-6">
+                                            <span className="flex items-center gap-2 text-app-acc"><Calendar className="w-4 h-4" /> {article.date}</span>
+                                            <span className="flex items-center gap-2"><User className="w-4 h-4" /> {article.author}</span>
+                                        </div>
+
+                                        <h2 className="text-2xl font-black text-app-dark mb-4 leading-tight group-hover:text-app-acc transition-colors">
+                                            {isAr ? article.titleAr : article.titleEn}
+                                        </h2>
+                                        <p className="text-app-dark/60 font-light mb-8 leading-relaxed line-clamp-3">
+                                            {isAr ? article.excerptAr : article.excerptEn}
+                                        </p>
+
+                                        <Link href={`/blog/${article.id}`} className="inline-flex items-center gap-2 text-app-acc font-bold uppercase tracking-wider text-sm hover:text-app-dark transition-colors mt-auto">
+                                            {t("readMore")}
+                                            <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+                                        </Link>
+                                    </div>
+                                </motion.div>
+                            ))}
                         </div>
 
-                        <div className="p-8">
-                            <div className="flex items-center gap-4 text-white/40 text-xs uppercase tracking-widest mb-4">
-                                <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {article.date}</span>
-                                <span className="flex items-center gap-1.5"><User className="w-3.5 h-3.5" /> {article.author}</span>
+                        {/* SEO Text Footer for targeting Long Tail Keywords directly on page */}
+                        <div className="max-w-7xl mx-auto mt-24 p-12 border-t border-app-dark/10 bg-white rounded-3xl shadow-xl">
+                            <div className="inline-block px-4 py-2 bg-app-light rounded-sm mb-6">
+                                <h2 className="text-app-acc text-xs font-bold uppercase tracking-widest relative z-10">Targeted Market Expertise</h2>
                             </div>
-
-                            <h2 className="text-xl md:text-2xl font-bold text-white mb-4 leading-snug group-hover:text-app-acc transition-colors">
-                                {isAr ? article.titleAr : article.titleEn}
-                            </h2>
-                            <p className="text-white/60 font-light mb-8 leading-relaxed line-clamp-3">
-                                {isAr ? article.excerptAr : article.excerptEn}
+                            <p className="text-app-dark/60 text-sm leading-loose font-light max-w-4xl">
+                                {isAr ? "نحن في شركة أوكلاند نقدم أفضل حلول تشقق واجهات الفلل في قطر من خلال اختيار أفضل حجر للواجهات يتحمل حرارة الخليج. نستورد ونوفر موردين حجر سوري قطر ونركب واجهات حجر عماني قطر بالإضافة إلى تقديم أحدث ديكورات أرابيسك حجر للفلل والتصاميم النيو كلاسيك بحجر سوري. تفوق دائم على عيوب بديل الرخام للواجهات بأسعار تنافسية. تشطيبات فلل مستدامة وتوريد وتركيب الدوحة." : "Auckland Construction & Development offers premium heat resistant stone facades suitable for the Gulf. Avoid the pitfalls of GRC and synthetic materials with our natural stone installation in Qatar, featuring Omani marble and Syrian stone resilient to high humidity and temperatures. We specialize in luxury fit-out for modern heritage villas and CNC marble designs."}
                             </p>
-
-                            <Link href={`/blog/${article.id}`} className="inline-flex items-center gap-2 text-app-acc font-bold uppercase tracking-wider text-sm hover:text-white transition-colors">
-                                {t("readMore")}
-                                <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-                            </Link>
                         </div>
                     </div>
-                ))}
-            </div>
-
-            {/* SEO Text Footer for targeting Long Tail Keywords directly on page */}
-            <div className="max-w-7xl mx-auto mt-20 p-8 border border-white/5 bg-black/20 rounded-2xl">
-                <h2 className="text-white/40 text-sm font-bold uppercase tracking-widest mb-4">Targeted Market Expertise</h2>
-                <p className="text-white/30 text-xs leading-loose">
-                    {isAr ? "نحن في شركة أوكلاند نقدم أفضل حلول تشقق واجهات الفلل في قطر من خلال اختيار أفضل حجر للواجهات يتحمل حرارة الخليج. نستورد ونوفر موردين حجر سوري قطر ونركب واجهات حجر عماني قطر بالإضافة إلى تقديم أحدث ديكورات أرابيسك حجر للفلل والتصاميم النيو كلاسيك بحجر سوري. تفوق دائم على عيوب بديل الرخام للواجهات بأسعار تنافسية. تشطيبات فلل مستدامة وتوريد وتركيب الدوحة." : "Auckland Construction & Development offers premium heat resistant stone facades suitable for the Gulf. Avoid the pitfalls of GRC and synthetic materials with our natural stone installation in Qatar, featuring Omani marble and Syrian stone resilient to high humidity and temperatures. We specialize in luxury fit-out for modern heritage villas and CNC marble designs."}
-                </p>
-            </div>
-        </main>
+                </section>
+            </main>
+            <Footer />
+        </div>
     );
 }

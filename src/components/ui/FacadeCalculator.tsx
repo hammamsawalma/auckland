@@ -46,7 +46,7 @@ export function FacadeCalculator() {
                         <div className="w-12 h-12 rounded-xl bg-app-acc/20 flex items-center justify-center">
                             <Calculator className="w-6 h-6 text-app-acc" />
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-white uppercase tracking-wider">{t("title")}</h2>
+                        <h2 className="text-2xl md:text-3xl font-heading font-black text-white tracking-widest">{t("title")}</h2>
                     </div>
                     <p className="text-white/60 font-light mb-8 leading-relaxed">
                         {t("subtitle")}
@@ -55,7 +55,7 @@ export function FacadeCalculator() {
                     <div className="space-y-6">
                         {/* Area Input */}
                         <div>
-                            <label className="block text-sm font-medium text-white/80 uppercase tracking-widest mb-3">{t("areaLabel")}</label>
+                            <label className="block text-sm font-heading font-medium text-white/80 uppercase tracking-widest mb-3">{t("areaLabel")}</label>
                             <div className="flex items-center">
                                 <input
                                     type="number"
@@ -73,13 +73,13 @@ export function FacadeCalculator() {
 
                         {/* Stone Type */}
                         <div>
-                            <label className="block text-sm font-medium text-white/80 uppercase tracking-widest mb-3">{t("stoneTypeLabel")}</label>
+                            <label className="block text-sm font-heading font-medium text-white/80 uppercase tracking-widest mb-3">{t("stoneTypeLabel")}</label>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                 {["syrian", "omani", "limestone", "grc"].map((type) => (
                                     <button
                                         key={type}
                                         onClick={() => setStoneType(type as any)}
-                                        className={`px-4 py-3 rounded-xl border text-left text-sm transition-all duration-300 ${stoneType === type ? "border-app-acc bg-app-acc/10 text-white font-medium" : "border-white/10 text-white/50 hover:border-white/30"}`}
+                                        className={`px-4 py-3 rounded-xl border text-left text-sm transition-all duration-300 ${stoneType === type ? "border-app-acc bg-app-acc/10 text-white font-bold" : "border-white/10 text-white/50 hover:border-white/30"}`}
                                     >
                                         {t(type as any)}
                                     </button>
@@ -89,13 +89,13 @@ export function FacadeCalculator() {
 
                         {/* Installation Method */}
                         <div>
-                            <label className="block text-sm font-medium text-white/80 uppercase tracking-widest mb-3">{t("installationLabel")}</label>
+                            <label className="block text-sm font-heading font-medium text-white/80 uppercase tracking-widest mb-3">{t("installationLabel")}</label>
                             <div className="grid grid-cols-1 gap-3">
                                 {["mechanical", "wet"].map((method) => (
                                     <button
                                         key={method}
                                         onClick={() => setInstallation(method as any)}
-                                        className={`px-4 py-3 rounded-xl border text-left text-sm transition-all duration-300 ${installation === method ? "border-app-acc bg-app-acc/10 text-white font-medium shadow-[0_0_15px_rgba(202,176,120,0.15)]" : "border-white/10 text-white/50 hover:border-white/30"}`}
+                                        className={`px-4 py-3 rounded-xl border text-left text-sm transition-all duration-300 ${installation === method ? "border-app-acc bg-app-acc/10 text-white font-bold shadow-[0_0_15px_rgba(202,176,120,0.15)]" : "border-white/10 text-white/50 hover:border-white/30"}`}
                                     >
                                         {t(method as any)}
                                     </button>
@@ -105,7 +105,7 @@ export function FacadeCalculator() {
 
                         <button
                             onClick={handleCalculate}
-                            className="w-full h-14 bg-app-acc text-app-dark font-bold uppercase tracking-widest rounded-xl hover:bg-app-acc/90 transition-colors shadow-lg mt-4"
+                            className="w-full h-14 bg-app-acc text-app-dark font-heading font-black uppercase tracking-widest rounded-xl hover:bg-white transition-colors shadow-lg mt-4"
                         >
                             {t("calculateBtn")}
                         </button>
@@ -120,17 +120,17 @@ export function FacadeCalculator() {
                             animate={{ opacity: 1, scale: 1 }}
                             className="text-center w-full"
                         >
-                            <h3 className="text-white/60 text-sm font-bold uppercase tracking-widest mb-4">{t("estimatedCost")}</h3>
+                            <h3 className="text-white/60 text-sm font-heading font-black uppercase tracking-widest mb-4">{t("estimatedCost")}</h3>
                             <div className="flex items-end justify-center gap-2 mb-8 text-app-acc">
-                                <span className="text-5xl md:text-6xl font-black tracking-tighter">{estimatedCost.toLocaleString()}</span>
-                                <span className="text-xl font-bold pb-2">{t("currency")}</span>
+                                <span className="text-5xl md:text-6xl font-heading font-black tracking-tighter">{estimatedCost.toLocaleString()}</span>
+                                <span className="text-xl font-heading font-bold pb-2">{t("currency")}</span>
                             </div>
 
                             <p className="text-white/40 text-xs text-center max-w-xs mx-auto leading-relaxed mb-8">
                                 {t("disclaimer")}
                             </p>
 
-                            <Link href="/contact" className="inline-flex items-center justify-center gap-2 w-full h-12 bg-white text-app-dark font-bold uppercase tracking-wider rounded-xl hover:bg-white/90 transition-colors">
+                            <Link href="/contact" className="inline-flex items-center justify-center gap-2 w-full h-12 bg-white text-app-dark font-heading font-black uppercase tracking-wider rounded-xl hover:bg-app-acc transition-colors hover:scale-105 duration-300">
                                 {t("contactCta")}
                                 <ArrowRight className="w-4 h-4 rtl:rotate-180" />
                             </Link>
@@ -138,7 +138,7 @@ export function FacadeCalculator() {
                     ) : (
                         <div className="text-center text-white/30 flex flex-col items-center">
                             <Calculator className="w-16 h-16 mb-4 opacity-20" />
-                            <p className="text-sm uppercase tracking-widest font-medium">Select options to calculate</p>
+                            <p className="text-sm font-heading font-medium uppercase tracking-widest">Select options to calculate</p>
                         </div>
                     )}
                 </div>
