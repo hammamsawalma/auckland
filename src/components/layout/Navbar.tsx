@@ -57,12 +57,12 @@ export function Navbar() {
                 </Link>
 
                 {/* Main Navigation */}
-                <nav className="hidden lg:flex items-center gap-4 xl:gap-8 whitespace-nowrap">
+                <nav className="hidden lg:flex items-center lg:gap-3 xl:gap-6 whitespace-nowrap flex-1 justify-center">
                     {["home", "about", "projects", "calculator", "blog"].map((item) => (
                         <Link
                             key={item}
                             href={item === "home" ? "/" : `/${item}`}
-                            className={`text-[13px] font-bold tracking-widest uppercase transition-colors hover:text-app-acc ${scrolled ? 'text-white/90 hover:text-white' : 'text-white drop-shadow-md'
+                            className={`whitespace-nowrap lg:text-[11px] xl:text-[13px] font-bold tracking-widest uppercase transition-colors hover:text-app-acc ${scrolled ? 'text-white/90 hover:text-white' : 'text-white drop-shadow-md'
                                 }`}
                         >
                             {t(item as Parameters<typeof t>[0])}
