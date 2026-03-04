@@ -57,7 +57,7 @@ export function Navbar() {
                 </Link>
 
                 {/* Main Navigation */}
-                <nav className="hidden lg:flex items-center gap-4 xl:gap-8">
+                <nav className="hidden lg:flex items-center gap-4 xl:gap-8 whitespace-nowrap">
                     {["home", "about", "projects", "calculator", "blog"].map((item) => (
                         <Link
                             key={item}
@@ -68,12 +68,30 @@ export function Navbar() {
                             {t(item as Parameters<typeof t>[0])}
                         </Link>
                     ))}
+
+                    {/* Line Separator */}
+                    <div className="h-4 w-[1px] bg-white/20 mx-1 md:mx-2" />
+
+                    {/* Dynamic Language Toggle */}
+                    <div className="flex items-center">
+                        {activeLocale === 'en' ? (
+                            <Link href="/" locale="ar" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                                <Globe className="w-4 h-4" />
+                                <span className="text-xs font-bold font-arabic hidden md:inline-block">عربي</span>
+                            </Link>
+                        ) : (
+                            <Link href="/" locale="en" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                                <Globe className="w-4 h-4" />
+                                <span className="text-[10px] font-bold tracking-widest hidden md:inline-block">EN</span>
+                            </Link>
+                        )}
+                    </div>
                 </nav>
 
                 {/* Right Actions */}
                 <div className="flex items-center gap-3 md:gap-5">
-                    {/* Dynamic Language Toggle */}
-                    <div className="flex items-center border-r border-white/20 pr-3 md:pr-4">
+                    {/* Mobile Dynamic Language Toggle */}
+                    <div className="flex lg:hidden items-center border-r border-white/20 pr-3 md:pr-4">
                         {activeLocale === 'en' ? (
                             <Link href="/" locale="ar" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
                                 <Globe className="w-4 h-4" />
