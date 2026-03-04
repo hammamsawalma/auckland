@@ -23,7 +23,7 @@ export function VideoPlayer({ src, poster, className = "" }: VideoPlayerProps) {
                 onPause={() => setIsPlaying(false)}
             >
                 <source src={src} type="video/mp4" />
-                Your browser does not support the video tag.
+                <track kind="captions" src="/captions/empty.vtt" label="English" default={false} />
             </video>
 
             {/* Custom Play Overlay - Visible when not playing to explicitly denote a video element */}

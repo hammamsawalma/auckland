@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Inter, Tajawal, Outfit } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import dynamic from "next/dynamic";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+
+const WhatsAppButton = dynamic(() => import("@/components/ui/WhatsAppButton").then(mod => mod.WhatsAppButton));
 import "../globals.css";
 
 const inter = Inter({
@@ -25,49 +27,59 @@ const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
-export const metadata: Metadata = {
-  title: "Auckland for Construction and Development",
-  description: "Specialists in high-end natural stone finishes and architectural facades in Qatar.",
-  manifest: '/manifest.json',
-  openGraph: {
-    type: "website",
-    locale: "en_QA",
-    url: "https://auckland-qa.com",
-    title: "Auckland Construction & Development",
-    description: "Specialists in high-end natural stone finishes and architectural facades in Qatar.",
-    siteName: "Auckland",
-    images: [
-      {
-        url: "/images/gallery/gallery-hero.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Auckland Construction Development",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Auckland Construction & Development",
-    description: "Specialists in high-end natural stone finishes and architectural facades.",
-    images: ["/images/gallery/gallery-hero.jpg"],
-  },
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#0c0c0c' },
-    { media: '(prefers-color-scheme: dark)', color: '#0c0c0c' },
-  ],
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'black-translucent',
-    title: 'Auckland',
-  },
-};
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "SEO" });
+
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://auckland-qa.com';
+
+  return {
+    title: {
+      template: `%s | ${t("title")}`,
+      default: t("title"),
+    },
+    description: t("description"),
+    keywords: t("keywords"),
+    metadataBase: new URL(BASE_URL),
+    manifest: '/manifest.json',
+    openGraph: {
+      type: "website",
+      locale: locale === "ar" ? "ar_QA" : "en_QA",
+      url: `${BASE_URL}/${locale}`,
+      title: t("title"),
+      description: t("description"),
+      siteName: t("title"),
+      images: [
+        {
+          url: "/images/gallery/gallery-hero.jpg",
+          width: 1200,
+          height: 630,
+          alt: t("title"),
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("title"),
+      description: t("description"),
+      images: ["/images/gallery/gallery-hero.jpg"],
+    },
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: 'black-translucent',
+      title: 'Auckland',
+    },
+  };
+}
 
 export const viewport = {
   themeColor: '#0c0c0c',
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false, // Prevents zooming to sustain native app feel
   viewportFit: 'cover',
 };
 

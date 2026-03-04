@@ -3,6 +3,8 @@
         "home": "Home",
         "about": "Our Expertise",
         "projects": "Portfolio & Materials",
+        "calculator": "Calculator",
+        "blog": "Insights",
         "contact": "Contact Us",
         "switchLanguage": "عربى"
     },
@@ -178,5 +180,33 @@
         "titleStart": "Featured",
         "titleEnd": "Highlights",
         "subtitle": "Explore our curated gallery of premium architectural finishes."
+    },
+    "SEO": {
+        "title": "Auckland Construction & Development",
+        "description": "Leading natural stone contractors in Qatar and the GCC. Specialists in Syrian stone, Omani marble, architectural facades, and luxury interior fit-out services.",
+        "keywords": "natural stone installation Qatar, Syrian stone supplier, Omani marble, stone facade Doha, luxury fit-out company Qatar, heat resistant stone facades, sustainable luxury interiors, CNC marble design, GRC vs natural stone, modern heritage villas"
+    },
+    "Calculator": {
+        "title": "Facade Cost Calculator",
+        "subtitle": "Estimate the cost of your natural stone facade instantly.",
+        "areaLabel": "Facade Area (sqm)",
+        "stoneTypeLabel": "Type of Stone",
+        "syrian": "Syrian Stone (High Durability & Heat Resistance)",
+        "omani": "Omani Marble (Luxury & Elegance)",
+        "limestone": "Limestone (Classic Finish)",
+        "grc": "GRC (Alternative)",
+        "installationLabel": "Installation Method",
+        "mechanical": "Mechanical (Recommended for Gulf Heat)",
+        "wet": "Wet/Adhesive (Standard)",
+        "calculateBtn": "Get Estimate",
+        "estimatedCost": "Estimated Cost",
+        "currency": "QAR",
+        "disclaimer": "This is a rough estimate. Contact us for a precise quotation based on your exact architectural design.",
+        "contactCta": "Request Final Quote"
+    },
+    "Blog": {
+        "title": "Insights & Articles",
+        "subtitle": "Discover the latest trends in luxury stone fit-outs, facade sustainability, and modern construction in the GCC.",
+        "readMore": "Read Article"
     }
 }

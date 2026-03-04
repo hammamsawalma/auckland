@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://auckland.com.qa';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://auckland-qa.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const defaultLastMod = new Date();

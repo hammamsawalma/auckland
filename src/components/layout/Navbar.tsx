@@ -35,7 +35,7 @@ export function Navbar() {
                     }`}
             >
                 {/* Logo Area */}
-                <Link href="/" className="flex flex-row items-center gap-3 group shrink-0">
+                <Link href="/" aria-label="Auckland Homepage" className="flex flex-row items-center gap-3 group shrink-0">
                     <div className="relative w-8 h-8 md:w-10 md:h-10 shrink-0">
                         <Image
                             src="/images/acd-icon.png"
@@ -57,7 +57,7 @@ export function Navbar() {
 
                 {/* Main Navigation */}
                 <nav className="hidden lg:flex items-center gap-4 xl:gap-8">
-                    {["home", "about", "projects"].map((item) => (
+                    {["home", "about", "projects", "calculator", "blog"].map((item) => (
                         <Link
                             key={item}
                             href={item === "home" ? "/" : `/${item}`}

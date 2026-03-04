@@ -23,7 +23,7 @@ export function ProjectShowcase() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight mb-6">{t("facilitiesTitle", { defaultMessage: "Project Showcase" })}</h2>
-                    <p className="text-xl text-white/60 font-light max-w-3xl mx-auto">
+                    <p className="text-xl text-white/70 font-light max-w-3xl mx-auto">
                         {t("facilitiesText", { defaultMessage: "Explore our specialized commercial and residential villa projects in various stages of construction." })}
                     </p>
                 </motion.div>
@@ -53,6 +53,7 @@ export function ProjectShowcase() {
                                 }}
                             >
                                 <source src={`/videos/factory_raw/factory_raw_${vNum}.mp4`} type="video/mp4" />
+                                <track kind="captions" src="/captions/empty.vtt" label="English" default={false} />
                             </video>
 
                             {/* Minimal Text Overlay (Visible on Hover) */}
@@ -88,6 +89,7 @@ export function ProjectShowcase() {
 
                         <button
                             onClick={() => setActiveVideo(null)}
+                            aria-label="Close modal"
                             className="absolute top-6 right-6 z-[110] w-12 h-12 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-colors border border-white/20 text-white"
                         >
                             <X className="w-6 h-6" />
@@ -106,13 +108,15 @@ export function ProjectShowcase() {
                                     autoPlay
                                     playsInline
                                     src={`/videos/factory_raw/factory_raw_${activeVideo}.mp4`}
-                                />
+                                >
+                                    <track kind="captions" src="/captions/empty.vtt" label="English" default={false} />
+                                </video>
                             </div>
 
                             {/* Cinematic Description Bar */}
                             <div className="p-6 md:p-8 bg-app-dark/95 backdrop-blur-md border-t border-white/10 shrink-0">
                                 <div className="flex items-center gap-4 mb-2">
-                                    <span className="px-3 py-1 bg-white/10 text-white/50 text-xs font-bold rounded-full uppercase tracking-widest border border-white/5">
+                                    <span className="px-3 py-1 bg-white/10 text-white/70 text-xs font-bold rounded-full uppercase tracking-widest border border-white/5">
                                         Clip {activeVideo}
                                     </span>
                                     <h3 className="text-2xl font-bold text-white uppercase tracking-wider">{t(`fv${activeVideo}Title` as Parameters<typeof t>[0])}</h3>

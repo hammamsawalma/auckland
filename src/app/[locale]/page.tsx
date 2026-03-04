@@ -4,6 +4,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { HighlightsMarquee } from "@/components/home/HighlightsMarquee";
@@ -21,17 +22,30 @@ export default function Home() {
           {/* Background Overlay */}
           <div className="absolute inset-0 bg-app-dark/40 z-10 transition-opacity duration-1000"></div>
 
-          {/* Background Background Video */}
-          <div className="absolute inset-0 w-full h-full bg-app-dark overflow-hidden">
+          {/* Background Background Video (Desktop Only) */}
+          <div className="absolute inset-0 w-full h-full bg-app-dark overflow-hidden hidden md:block">
             <video
               autoPlay
               loop
               muted
               playsInline
+              preload="metadata"
               className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover object-center scale-[1.05]"
             >
               <source src="/videos/hero-drone.mp4" type="video/mp4" />
+              <track kind="captions" src="/captions/empty.vtt" label="English" default={false} />
             </video>
+          </div>
+
+          {/* Background Fallback Image (Mobile Only) */}
+          <div className="absolute inset-0 w-full h-full bg-app-dark overflow-hidden md:hidden">
+            <Image
+              src="/images/hero-fallback.jpg"
+              alt="Auckland Hero Background"
+              fill
+              priority
+              className="object-cover object-center"
+            />
           </div>
 
           <div className="relative z-20 container mx-auto px-4 text-center mt-20">
@@ -86,7 +100,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="container mx-auto px-4 text-center max-w-4xl relative z-10"
           >
-            <h2 className="text-4xl md:text-5xl font-black text-app-dark mb-8 uppercase tracking-tight">{t("whoWeAre")}</h2>
+            <h1 className="text-4xl md:text-5xl font-black text-app-dark mb-8 uppercase tracking-tight">{t("whoWeAre")}</h1>
             <p className="text-xl md:text-2xl text-app-dark/80 leading-relaxed font-light">
               {t("description")}
             </p>

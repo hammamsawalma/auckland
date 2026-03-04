@@ -36,6 +36,7 @@ export default function Contact() {
                         src="/images/contact/contact-hero.jpg"
                         alt={t("title")}
                         fill
+                        sizes="100vw"
                         className="object-cover object-center"
                         priority
                     />
@@ -87,7 +88,7 @@ export default function Contact() {
                                             <Phone className="w-6 h-6 text-app-acc" />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-app-dark mb-1">{t("phone")}</h4>
+                                            <h3 className="font-bold text-app-dark mb-1">{t("phone")}</h3>
                                             <p className="text-app-dark/70 font-light text-lg">+974 6698 0665</p>
                                             <p className="text-app-dark/70 font-light text-lg">+974 3354 6826</p>
                                         </div>
@@ -98,7 +99,7 @@ export default function Contact() {
                                             <Mail className="w-6 h-6 text-app-acc" />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-app-dark mb-1">{t("email")}</h4>
+                                            <h3 className="font-bold text-app-dark mb-1">{t("email")}</h3>
                                             <p className="text-app-dark/70 font-light text-lg">info@auckland-qa.com</p>
                                         </div>
                                     </div>
@@ -108,7 +109,7 @@ export default function Contact() {
                                             <MapPin className="w-6 h-6 text-app-acc" />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-app-dark mb-1">{t("location")}</h4>
+                                            <h3 className="font-bold text-app-dark mb-1">{t("location")}</h3>
                                             <p className="text-app-dark/70 font-light text-lg max-w-xs">
                                                 {t("address")}
                                             </p>

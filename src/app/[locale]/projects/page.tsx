@@ -380,14 +380,16 @@ export default function PortfolioHub() {
                             onClick={() => setLightboxIndex(null)}
                         >
                             <button
-                                className="absolute top-6 right-6 lg:top-10 lg:right-10 text-white/50 hover:text-white transition-colors z-[110] bg-app-dark/50 hover:bg-app-dark/80 p-2 rounded-full"
+                                aria-label="Close Lightbox"
+                                className="absolute top-6 right-6 lg:top-10 lg:right-10 text-white/70 hover:text-white transition-colors z-[110] bg-app-dark/50 hover:bg-app-dark/80 p-2 rounded-full"
                                 onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
                             >
                                 <X className="w-8 h-8" />
                             </button>
 
                             <button
-                                className="absolute left-4 lg:left-10 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-[110] bg-app-dark/50 hover:bg-app-dark/80 p-3 rounded-full"
+                                aria-label="Previous Image"
+                                className="absolute left-4 lg:left-10 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[110] bg-app-dark/50 hover:bg-app-dark/80 p-3 rounded-full"
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     setLightboxIndex((prev) => (prev! - 1 + currentProjectImages.length) % currentProjectImages.length);
@@ -397,7 +399,8 @@ export default function PortfolioHub() {
                             </button>
 
                             <button
-                                className="absolute right-4 lg:right-10 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-[110] bg-app-dark/50 hover:bg-app-dark/80 p-3 rounded-full"
+                                aria-label="Next Image"
+                                className="absolute right-4 lg:right-10 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-[110] bg-app-dark/50 hover:bg-app-dark/80 p-3 rounded-full"
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     setLightboxIndex((prev) => (prev! + 1) % currentProjectImages.length);

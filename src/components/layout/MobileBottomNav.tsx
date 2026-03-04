@@ -24,7 +24,7 @@ export function MobileBottomNav() {
                         <Link
                             key={item.key}
                             href={item.href}
-                            className={`flex flex-col items-center justify-center w-full h-full gap-1 transition-all duration-300 ${isActive ? "text-app-acc scale-105" : "text-white/50 hover:text-white/80"
+                            className={`flex flex-col items-center justify-center w-full h-full gap-1 transition-all duration-300 ${isActive ? "text-app-acc scale-105" : "text-white/70 hover:text-white/90"
                                 }`}
                         >
                             <item.icon className={`h-5 w-5 sm:h-6 sm:w-6 transition-all duration-300 ${isActive ? 'drop-shadow-[0_0_8px_rgba(202,176,120,0.8)]' : ''}`} strokeWidth={isActive ? 2.5 : 2} />

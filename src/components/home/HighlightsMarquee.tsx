@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export const HighlightsMarquee = () => {
     const t = useTranslations("Highlights");
@@ -47,11 +48,13 @@ export const HighlightsMarquee = () => {
                             key={index}
                             className="relative h-[350px] md:h-[500px] w-auto flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl group/card shadow-2xl border border-white/5 bg-black/20"
                         >
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
+                            {/* Explicit width and height for Lighthouse Core Web Vitals */}
+                            <Image
                                 src={src}
                                 alt={`Auckland Highlight Showcase ${index}`}
                                 loading="lazy"
+                                width={350}
+                                height={500}
                                 className="h-full w-auto object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/card:scale-105"
                             />
                         </div>

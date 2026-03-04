@@ -5,8 +5,27 @@ const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
   output: 'standalone',
-  images: {
-    unoptimized: true,
+  async headers() {
+    return [
+      {
+        source: '/videos/:all*(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/images/:all*(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
   },
   outputFileTracingExcludes: {
     '*': [

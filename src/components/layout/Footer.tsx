@@ -27,7 +27,7 @@ export function Footer() {
 
                     {/* Brand Column */}
                     <div className="flex flex-col gap-6 lg:pr-8">
-                        <Link href="/" className="flex flex-col group inline-block gap-3">
+                        <Link href="/" aria-label="Auckland Homepage" className="flex flex-col group inline-block gap-3">
                             <div className="relative w-14 h-14">
                                 <Image
                                     src="/images/acd-icon.png"
@@ -40,12 +40,12 @@ export function Footer() {
                                 <span className="font-heading font-black text-3xl leading-none text-white tracking-widest group-hover:text-app-acc transition-colors">
                                     AUCKLAND
                                 </span>
-                                <span className="font-sans text-[10px] text-white/50 tracking-[0.3em] mt-2 uppercase">
+                                <span className="font-sans text-[10px] text-white/70 tracking-[0.3em] mt-2 uppercase">
                                     Construction Development
                                 </span>
                             </div>
                         </Link>
-                        <p className="text-sm text-white/60 leading-relaxed font-light">
+                        <p className="text-sm text-white/70 leading-relaxed font-light">
                             {tFoot("description")}
                         </p>
                     </div>
@@ -54,11 +54,11 @@ export function Footer() {
                     <div className="flex flex-col gap-6">
                         <h4 className="font-bold text-lg text-white tracking-wider uppercase">{tFoot("quickLinks")}</h4>
                         <div className="flex flex-col gap-3">
-                            {["home", "about", "projects", "contact"].map((item) => (
+                            {["home", "about", "projects", "calculator", "blog", "contact"].map((item) => (
                                 <Link
                                     key={item}
                                     href={`/${item}`}
-                                    className="text-sm text-white/60 hover:text-app-acc transition-colors w-fit flex items-center gap-2 group"
+                                    className="text-sm text-white/70 hover:text-app-acc transition-colors w-fit flex items-center gap-2 group"
                                 >
                                     <span className="w-1.5 h-1.5 rounded-full bg-app-acc/0 group-hover:bg-app-acc transition-colors"></span>
                                     {tNav(item as Parameters<typeof tNav>[0])}
@@ -70,7 +70,7 @@ export function Footer() {
                     {/* Contact Column */}
                     <div className="flex flex-col gap-6">
                         <h4 className="font-bold text-lg text-white tracking-wider uppercase">{tFoot("contactInfo")}</h4>
-                        <div className="flex flex-col gap-4 text-sm text-white/60">
+                        <div className="flex flex-col gap-4 text-sm text-white/70">
                             <div className="flex items-start gap-4">
                                 <MapPin className="w-5 h-5 text-app-acc shrink-0" />
                                 <span className="pt-0.5 leading-tight">Mesaieed Industrial City,<br />Doha, Qatar</span>
@@ -93,18 +93,18 @@ export function Footer() {
                     <div className="flex flex-col gap-6">
                         <h4 className="font-bold text-lg text-white tracking-wider uppercase">Follow Us</h4>
                         <div className="flex items-center gap-3">
-                            <a href="#" className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-app-acc hover:border-app-acc hover:text-app-dark transition-all text-white/80 group">
+                            <a href="#" aria-label="Facebook" className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-app-acc hover:border-app-acc hover:text-app-dark transition-all text-white/80 group">
                                 <Facebook className="w-4 h-4 group-hover:scale-110 transition-transform" />
                             </a>
-                            <a href="#" className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-app-acc hover:border-app-acc hover:text-app-dark transition-all text-white/80 group">
+                            <a href="#" aria-label="Instagram" className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-app-acc hover:border-app-acc hover:text-app-dark transition-all text-white/80 group">
                                 <Instagram className="w-4 h-4 group-hover:scale-110 transition-transform" />
                             </a>
-                            <a href="#" className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-app-acc hover:border-app-acc hover:text-app-dark transition-all text-white/80 group">
+                            <a href="#" aria-label="LinkedIn" className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center hover:bg-app-acc hover:border-app-acc hover:text-app-dark transition-all text-white/80 group">
                                 <Linkedin className="w-4 h-4 group-hover:scale-110 transition-transform" />
                             </a>
                         </div>
                         <div className="mt-4 p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                            <p className="text-xs text-white/60 text-center leading-relaxed">
+                            <p className="text-xs text-white/70 text-center leading-relaxed">
                                 Partner with us to build environments that stand the test of time.
                             </p>
                         </div>
@@ -115,10 +115,10 @@ export function Footer() {
             {/* Bottom Bar */}
             <div className="container mx-auto px-4 max-w-6xl relative z-20">
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-xs text-white/40 font-light">
+                    <p className="text-xs text-white/70 font-light">
                         © {new Date().getFullYear()} Auckland for Construction and Development. {tFoot("rights")}
                     </p>
-                    <div className="flex items-center gap-6 text-xs text-white/40 font-light">
+                    <div className="flex items-center gap-6 text-xs text-white/70 font-light">
                         <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
                         <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
                     </div>
