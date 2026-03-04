@@ -31,7 +31,7 @@ export function Navbar() {
         >
             <div
                 className={`flex items-center justify-between gap-2 xl:gap-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden ${scrolled
-                    ? 'w-full max-w-6xl h-16 bg-[#171717]/95 backdrop-blur-md rounded-full border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.3)] px-4 lg:px-6'
+                    ? 'w-full max-w-[70rem] h-16 bg-[#171717]/95 backdrop-blur-md rounded-full border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.3)] px-4 lg:px-6'
                     : 'w-full w-full h-24 bg-gradient-to-b from-black/50 to-transparent px-6 lg:px-12'
                     }`}
             >
@@ -89,7 +89,7 @@ export function Navbar() {
                 </nav>
 
                 {/* Right Actions */}
-                <div className="flex items-center lg:flex-1 justify-end gap-2 md:gap-5 shrink-0">
+                <div className="flex items-center lg:flex-1 justify-end gap-2 md:gap-5 shrink-0 lg:pr-2 xl:pr-0">
                     {/* Mobile Dynamic Language Toggle */}
                     <div className="flex lg:hidden items-center border-r border-white/20 pr-3 md:pr-4">
                         {activeLocale === 'en' ? (
@@ -107,7 +107,7 @@ export function Navbar() {
                     <Link
                         href="/contact"
                         className={`hidden lg:inline-flex h-8 xl:h-10 px-4 xl:px-6 items-center justify-center lg:text-[10px] xl:text-xs font-bold uppercase tracking-widest transition-all duration-300 hover:scale-105 shrink-0 ${scrolled
-                            ? "bg-app-acc text-app-dark rounded-full shadow-[0_0_15px_rgba(202,176,120,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:bg-white"
+                            ? "bg-app-acc text-app-dark rounded-full shadow-[0_0_15px_rgba(202,176,120,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:bg-white m-1 md:m-0"
                             : "bg-white text-app-dark rounded-full hover:bg-white/90 shadow-lg"
                             }`}
                     >
