@@ -1,7 +1,7 @@
 "use client";
 
 import { MessageCircle } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 
 export function WhatsAppButton() {
@@ -22,9 +22,13 @@ export function WhatsAppButton() {
         return () => window.removeEventListener("scroll", toggleVisibility);
     }, []);
 
+    const activeLocale = useLocale();
+    const defaultMessage = activeLocale === 'ar'
+        ? "مرحباً! أنا مهتم بخدمات شركة أوكلاند."
+        : "Hello! I am interested in Auckland's services.";
     // Format the number for WhatsApp API
     const phoneNumber = "97466980665";
-    const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello! I am interested in Auckland's services.")}`;
+    const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
 
     return (
         <a

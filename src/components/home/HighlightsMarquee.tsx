@@ -10,7 +10,12 @@ export const HighlightsMarquee = () => {
     const isRtl = locale === "ar";
 
     // Map 15 social images
-    const images = Array.from({ length: 15 }, (_, i) => `/images/home/social/social_${i + 1}.jpg`);
+    const defaultImages = Array.from({ length: 15 }, (_, i) => `/images/home/social/social_${i + 1}.jpg`);
+    const images = locale === "en" ? defaultImages.map(src => {
+        if (src.includes("social_2.jpg")) return "/images/home/social/social_1.jpg";
+        if (src.includes("social_4.jpg")) return "/images/home/social/social_5.jpg";
+        return src;
+    }) : defaultImages;
 
     // Duplicate the array so the marquee loops infinitely without breaking visually
     const marqueeImages = [...images, ...images];
