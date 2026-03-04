@@ -1,12 +1,13 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { Home, HardHat, Pickaxe, Image as ImageIcon, Phone } from "lucide-react";
 
 export function MobileBottomNav() {
     const t = useTranslations("Navigation");
     const pathname = usePathname();
+    const activeLocale = useLocale();
 
     const navItems = [
         { key: "home", href: "/", icon: Home },
@@ -28,7 +29,7 @@ export function MobileBottomNav() {
                                 }`}
                         >
                             <item.icon className={`h-5 w-5 sm:h-6 sm:w-6 transition-all duration-300 ${isActive ? 'drop-shadow-[0_0_8px_rgba(202,176,120,0.8)]' : ''}`} strokeWidth={isActive ? 2.5 : 2} />
-                            <span className="text-[9px] sm:text-xs font-bold uppercase tracking-wide whitespace-nowrap mt-1 drop-shadow-md">
+                            <span className={(activeLocale === 'ar' ? "font-arabic tracking-normal text-xs sm:text-sm " : "tracking-wide text-[9px] sm:text-xs ") + "font-bold uppercase whitespace-nowrap mt-1 drop-shadow-md"}>
                                 {t(item.key as Parameters<typeof t>[0])}
                             </span>
                         </Link>

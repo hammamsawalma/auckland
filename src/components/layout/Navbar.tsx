@@ -46,7 +46,7 @@ export function Navbar() {
                             priority
                         />
                     </div>
-                    <div className="flex flex-col border-l border-white/20 pl-2 xl:pl-3">
+                    <div className="flex flex-col border-s border-white/20 ps-2 xl:ps-3">
                         <span className={(activeLocale === 'ar' ? "font-arabic tracking-normal text-xl " : "font-heading lg:tracking-wider xl:tracking-widest lg:text-lg xl:text-xl ") + "font-bold leading-none text-white group-hover:text-app-acc transition-colors drop-shadow-md"}>
                             {tFoot("brandName")}
                         </span>
@@ -62,7 +62,7 @@ export function Navbar() {
                         <Link
                             key={item}
                             href={item === "home" ? "/" : `/${item}`}
-                            className={`whitespace-nowrap lg:text-[9px] xl:text-[13px] font-bold lg:tracking-wide xl:tracking-[0.15em] uppercase transition-colors hover:text-app-acc ${scrolled ? 'text-white/90 hover:text-white' : 'text-white drop-shadow-md'
+                            className={(activeLocale === 'ar' ? "font-arabic tracking-normal text-sm lg:text-base " : "lg:text-[9px] xl:text-[13px] lg:tracking-wide xl:tracking-[0.15em] ") + `whitespace-nowrap font-bold uppercase transition-colors hover:text-app-acc ${scrolled ? 'text-white/90 hover:text-white' : 'text-white drop-shadow-md'
                                 }`}
                         >
                             {t(item as Parameters<typeof t>[0])}
@@ -91,7 +91,7 @@ export function Navbar() {
                 {/* Right Actions */}
                 <div className="flex items-center justify-end lg:gap-2 md:gap-4 shrink-0">
                     {/* Mobile Dynamic Language Toggle */}
-                    <div className="flex lg:hidden items-center border-r border-white/20 pr-3 md:pr-4">
+                    <div className="flex lg:hidden items-center">
                         {activeLocale === 'en' ? (
                             <Link href="/" locale="ar" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
                                 <Globe className="w-4 h-4" />
@@ -106,9 +106,9 @@ export function Navbar() {
                     </div>
                     <Link
                         href="/contact"
-                        className={`hidden lg:inline-flex items-center justify-center font-bold uppercase lg:tracking-wider xl:tracking-[0.15em] transition-all duration-300 hover:scale-105 shrink-0 ${scrolled
-                            ? "bg-app-acc text-app-dark rounded-full shadow-[0_0_15px_rgba(202,176,120,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:bg-white h-7 xl:h-9 px-3 xl:px-6 lg:text-[8px] xl:text-[11px] m-1"
-                            : "bg-white text-app-dark rounded-full hover:bg-white/90 shadow-lg h-9 xl:h-11 px-4 xl:px-7 lg:text-[9px] xl:text-[12px]"
+                        className={(activeLocale === 'ar' ? "font-arabic tracking-normal text-sm lg:text-base " : "lg:tracking-wider xl:tracking-[0.15em] lg:text-[9px] xl:text-[12px] ") + `hidden lg:inline-flex items-center justify-center font-bold uppercase transition-all duration-300 hover:scale-105 shrink-0 ${scrolled
+                            ? "bg-app-acc text-app-dark rounded-full shadow-[0_0_15px_rgba(202,176,120,0.3)] hover:shadow-[0_0_20px_rgba(255,255,255,0.4)] hover:bg-white h-7 xl:h-9 px-3 xl:px-6 m-1"
+                            : "bg-white text-app-dark rounded-full hover:bg-white/90 shadow-lg h-9 xl:h-11 px-4 xl:px-7"
                             }`}
                     >
                         {t("contact")}
