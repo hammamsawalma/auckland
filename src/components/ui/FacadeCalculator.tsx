@@ -13,6 +13,7 @@ export function FacadeCalculator() {
     const [stoneType, setStoneType] = useState<"syrian" | "omani" | "limestone" | "grc">("syrian");
     const [installation, setInstallation] = useState<"mechanical" | "wet">("mechanical");
     const [estimatedCost, setEstimatedCost] = useState<number | null>(null);
+    const [areaError, setAreaError] = useState<string | null>(null);
 
     // Approximate Prices in QAR per sqm (Material + Install)
     const basePrices = {
@@ -28,6 +29,12 @@ export function FacadeCalculator() {
     };
 
     const handleCalculate = () => {
+        if (isNaN(area) || area < 50 || area > 5000) {
+            setAreaError("Please enter a valid area between 50 and 5,000 m².");
+            setEstimatedCost(null);
+            return;
+        }
+        setAreaError(null);
         const basePrice = basePrices[stoneType];
         const installMultiplier = installMultipliers[installation];
         const total = area * basePrice * installMultiplier;
@@ -62,13 +69,17 @@ export function FacadeCalculator() {
                                     min="50"
                                     max="5000"
                                     value={area}
-                                    onChange={(e) => setArea(Number(e.target.value))}
-                                    className="w-full h-14 bg-white/5 border border-white/10 rounded-s-xl px-4 text-white focus:outline-none focus:border-app-acc transition-colors"
+                                    onChange={(e) => { setArea(Number(e.target.value)); setAreaError(null); }}
+                                    className={`w-full h-14 bg-white/5 border rounded-s-xl px-4 text-white focus:outline-none transition-colors ${areaError ? "border-red-500 focus:border-red-500" : "border-white/10 focus:border-app-acc"
+                                        }`}
                                 />
                                 <div className="h-14 px-4 bg-white/10 border border-white/10 border-s-0 rounded-e-xl flex items-center text-white/50 text-sm">
                                     {t("unitSqM")}
                                 </div>
                             </div>
+                            {areaError && (
+                                <p className="text-red-400 text-xs mt-2">{areaError}</p>
+                            )}
                         </div>
 
                         {/* Stone Type */}
@@ -78,10 +89,10 @@ export function FacadeCalculator() {
                                 {["syrian", "omani", "limestone", "grc"].map((type) => (
                                     <button
                                         key={type}
-                                        onClick={() => setStoneType(type as any)}
+                                        onClick={() => setStoneType(type as "syrian" | "omani" | "limestone" | "grc")}
                                         className={`px-4 py-3 rounded-xl border text-start text-sm transition-all duration-300 ${stoneType === type ? "border-app-acc bg-app-acc/10 text-white font-bold" : "border-white/10 text-white/50 hover:border-white/30"}`}
                                     >
-                                        {t(type as any)}
+                                        {t(type as "syrian" | "omani" | "limestone" | "grc")}
                                     </button>
                                 ))}
                             </div>
@@ -94,10 +105,10 @@ export function FacadeCalculator() {
                                 {["mechanical", "wet"].map((method) => (
                                     <button
                                         key={method}
-                                        onClick={() => setInstallation(method as any)}
+                                        onClick={() => setInstallation(method as "mechanical" | "wet")}
                                         className={`px-4 py-3 rounded-xl border text-start text-sm transition-all duration-300 ${installation === method ? "border-app-acc bg-app-acc/10 text-white font-bold shadow-[0_0_15px_rgba(202,176,120,0.15)]" : "border-white/10 text-white/50 hover:border-white/30"}`}
                                     >
-                                        {t(method as any)}
+                                        {t(method as "mechanical" | "wet")}
                                     </button>
                                 ))}
                             </div>

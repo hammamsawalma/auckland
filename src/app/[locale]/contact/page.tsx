@@ -5,24 +5,36 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
+import { useRef } from "react";
+import { WA_NUMBER } from "@/lib/constants";
 
 export default function Contact() {
     const t = useTranslations("Contact");
+    const locale = useLocale();
+    const formRef = useRef<HTMLFormElement>(null);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        const firstName = formData.get('firstName');
-        const lastName = formData.get('lastName');
-        const email = formData.get('email');
-        const details = formData.get('details');
+        const data = new FormData(e.currentTarget);
+        const firstName = data.get("firstName") as string;
+        const lastName = data.get("lastName") as string;
+        const email = data.get("email") as string;
+        const details = data.get("details") as string;
 
-        const subject = encodeURIComponent(`Auckland Website Inquiry: ${firstName} ${lastName}`);
-        const body = encodeURIComponent(`Client Name: ${firstName} ${lastName}\nContact Email: ${email}\n\nProject Details:\n${details}`);
+        const isAr = locale === "ar";
+        const msg = isAr
+            ? `مرحباً، أنا ${firstName} ${lastName}.\nبريدي الإلكتروني: ${email}\n\nتفاصيل الطلب:\n${details}`
+            : `Hello, I'm ${firstName} ${lastName}.\nMy email: ${email}\n\nProject details:\n${details}`;
 
-        window.location.href = `mailto:info@auckland-qa.com?subject=${subject}&body=${body}`;
+        window.open(
+            `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+        formRef.current?.reset();
     };
 
     return (
@@ -94,7 +106,7 @@ export default function Contact() {
                                         </div>
                                         <div>
                                             <h3 className="font-bold text-app-dark mb-1">{t("email")}</h3>
-                                            <p className="text-app-dark/70 font-light text-lg">info@auckland-qa.com</p>
+                                            <p className="text-app-dark/70 font-light text-lg">info@aucklandcd.com</p>
                                         </div>
                                     </div>
 
@@ -138,7 +150,8 @@ export default function Contact() {
                                 className="bg-white p-6 sm:p-8 md:p-12 rounded-3xl shadow-2xl border border-app-dark/5"
                             >
                                 <h3 className="text-2xl font-bold text-app-dark mb-8">{t("formTitle")}</h3>
-                                <form className="space-y-6" onSubmit={handleSubmit}>
+
+                                <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
                                             <label className="text-sm font-bold text-app-dark/70 uppercase tracking-wider">{t("formFirstName")}</label>
@@ -182,6 +195,7 @@ export default function Contact() {
                                 allowFullScreen={false}
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
+                                sandbox="allow-scripts allow-same-origin"
                                 className="absolute inset-0 z-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500 mix-blend-multiply"
                             ></iframe>
                             <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-3xl z-10"></div>

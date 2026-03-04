@@ -2,7 +2,7 @@ import { LucideIcon } from "lucide-react";
 
 export type Article = {
     id: string;
-    image: string;
+    image?: string;
     titleEn: string;
     titleAr: string;
     excerptEn: string;
@@ -19,7 +19,7 @@ export type Article = {
 export const articles: Article[] = [
     {
         id: "facade-heat-resolution",
-        image: "/hero-bg.jpg", // Replace with valid image
+        image: "/images/gallery/gallery-hero.jpg",
         titleEn: "Resolving Villa Facade Cracks: Why Syrian Stone Surpasses Alternatives in Gulf Heat",
         titleAr: "معالجة تشققات واجهات الفلل: لماذا يتفوق الحجر السوري في مواجهة حرارة الخليج العالية؟",
         excerptEn: "Discover how the structural density of Syrian and Omani stone prevents thermal expansion and humidity damage compared to GRC and Paint.",
@@ -33,7 +33,7 @@ export const articles: Article[] = [
     },
     {
         id: "modern-heritage-villas",
-        image: "/hero-bg.jpg", // Replace with valid image
+        image: "/images/gallery/gallery-hero.jpg",
         titleEn: "Modern Heritage: Blending Omani Marble with Arches in Qatari Villas",
         titleAr: "التراث برؤية معاصرة: دمج الرخام العماني مع تصميم الأقواس في الفلل القطرية",
         excerptEn: "Explore the 2026 trend of 'Warm Modernism' combining sustainable luxury interiors with traditional CNC carved stone.",

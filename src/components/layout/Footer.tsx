@@ -52,7 +52,7 @@ export function Footer() {
                             {["home", "about", "projects", "calculator", "blog", "contact"].map((item) => (
                                 <Link
                                     key={item}
-                                    href={`/${item}`}
+                                    href={item === "home" ? "/" : `/${item}`}
                                     className="text-sm text-white/70 hover:text-app-acc transition-colors w-fit flex items-center gap-2 group"
                                 >
                                     <span className="w-1.5 h-1.5 rounded-full bg-app-acc/0 group-hover:bg-app-acc transition-colors"></span>
@@ -68,7 +68,11 @@ export function Footer() {
                         <div className="flex flex-col gap-4 text-sm text-white/70">
                             <div className="flex items-start gap-4">
                                 <MapPin className="w-5 h-5 text-app-acc shrink-0" />
-                                <span className="pt-0.5 leading-tight" dangerouslySetInnerHTML={{ __html: tFoot("address") }}></span>
+                                <span className="pt-0.5 leading-tight">
+                                    {tFoot("address").split("\n").map((line: string, i: number, arr: string[]) => (
+                                        <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+                                    ))}
+                                </span>
                             </div>
                             <div className="flex items-center gap-4">
                                 <Phone className="w-5 h-5 text-app-acc shrink-0" />
@@ -79,7 +83,7 @@ export function Footer() {
                             </div>
                             <div className="flex items-center gap-4">
                                 <Mail className="w-5 h-5 text-app-acc shrink-0" />
-                                <a href="mailto:info@auckland-qa.com" className="hover:text-app-acc transition-colors">info@auckland-qa.com</a>
+                                <a href="mailto:info@aucklandcd.com" className="hover:text-app-acc transition-colors">info@aucklandcd.com</a>
                             </div>
                         </div>
                     </div>
@@ -114,7 +118,7 @@ export function Footer() {
                         &copy; {new Date().getFullYear()} {tFoot("copyright")} {tFoot("rights")}
                     </p>
                     <div className="flex items-center gap-6 text-xs text-white/70 font-light">
-                        <Link href="#" className="hover:text-white transition-colors">{tFoot("privacy")}</Link>
+                        <Link href="/privacy" className="hover:text-white transition-colors">{tFoot("privacy")}</Link>
                         <Link href="#" className="hover:text-white transition-colors">{tFoot("terms")}</Link>
                     </div>
                 </div>

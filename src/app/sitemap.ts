@@ -1,18 +1,19 @@
 import { MetadataRoute } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://auckland-qa.com';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.aucklandcd.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const defaultLastMod = new Date();
 
-    // Core static pages
+    // Only include routes that actually exist in the app
     const staticPages = [
-        '',
+        '',           // home
         '/about',
-        '/services',
-        '/products',
         '/projects',
+        '/calculator',
+        '/blog',
         '/contact',
+        '/privacy',
     ].flatMap((route) => [
         {
             url: `${BASE_URL}/en${route}`,
@@ -30,3 +31,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return [...staticPages];
 }
+

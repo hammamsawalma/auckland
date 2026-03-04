@@ -5,6 +5,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import dynamic from "next/dynamic";
+import { LazyMotion, domAnimation } from "framer-motion";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 
 const WhatsAppButton = dynamic(() => import("@/components/ui/WhatsAppButton").then(mod => mod.WhatsAppButton));
@@ -30,7 +31,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "SEO" });
 
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://auckland-qa.com';
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.aucklandcd.com';
 
   return {
     title: {
@@ -100,11 +101,13 @@ export default async function RootLayout({
         className={`${inter.variable} ${outfit.variable} antialiased bg-app-light text-app-dark`}
       >
         <NextIntlClientProvider messages={messages}>
-          <div className="pb-16 sm:pb-20 lg:pb-0 flex flex-col min-h-screen">
-            {children}
-          </div>
-          <MobileBottomNav />
-          <WhatsAppButton />
+          <LazyMotion features={domAnimation}>
+            <div className="pb-16 sm:pb-20 lg:pb-0 flex flex-col min-h-screen">
+              {children}
+            </div>
+            <MobileBottomNav />
+            <WhatsAppButton />
+          </LazyMotion>
         </NextIntlClientProvider>
       </body>
     </html>

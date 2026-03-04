@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "@/i18n/routing";
+import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { Globe } from "lucide-react";
@@ -10,6 +10,7 @@ export function Navbar() {
     const t = useTranslations("Navigation");
     const tFoot = useTranslations("Footer");
     const activeLocale = useLocale();
+    const pathname = usePathname();
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -75,12 +76,12 @@ export function Navbar() {
                     {/* Dynamic Language Toggle */}
                     <div className="flex items-center shrink-0">
                         {activeLocale === 'en' ? (
-                            <Link href="/" locale="ar" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                            <Link href={pathname} locale="ar" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
                                 <Globe className="w-3 h-3 xl:w-4 xl:h-4" />
                                 <span className="lg:text-[9px] xl:text-xs font-bold font-arabic hidden md:inline-block">عربي</span>
                             </Link>
                         ) : (
-                            <Link href="/" locale="en" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                            <Link href={pathname} locale="en" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
                                 <Globe className="w-3 h-3 xl:w-4 xl:h-4" />
                                 <span className="text-[9px] xl:text-[11px] font-bold lg:tracking-wide xl:tracking-widest hidden md:inline-block">EN</span>
                             </Link>
@@ -93,12 +94,12 @@ export function Navbar() {
                     {/* Mobile Dynamic Language Toggle */}
                     <div className="flex lg:hidden items-center">
                         {activeLocale === 'en' ? (
-                            <Link href="/" locale="ar" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                            <Link href={pathname} locale="ar" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
                                 <Globe className="w-4 h-4" />
                                 <span className="text-xs font-bold font-arabic hidden md:inline-block">عربي</span>
                             </Link>
                         ) : (
-                            <Link href="/" locale="en" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                            <Link href={pathname} locale="en" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
                                 <Globe className="w-4 h-4" />
                                 <span className="text-[10px] font-bold tracking-widest hidden md:inline-block">EN</span>
                             </Link>

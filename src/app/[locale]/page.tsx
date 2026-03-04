@@ -30,6 +30,7 @@ export default function Home() {
               muted
               playsInline
               preload="metadata"
+              poster="/images/hero-fallback.jpg"
               className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover object-center scale-[1.05]"
             >
               <source src="/videos/hero-drone.mp4#t=0.001" type="video/mp4" />
@@ -94,7 +95,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="container mx-auto px-4 text-center max-w-4xl relative z-10"
           >
-            <h1 className="text-4xl md:text-5xl font-black text-app-dark mb-8 uppercase tracking-tight">{t("whoWeAre")}</h1>
+            <h2 className="text-4xl md:text-5xl font-black text-app-dark mb-8 uppercase tracking-tight">{t("whoWeAre")}</h2>
             <p className="text-xl md:text-2xl text-app-dark/80 leading-relaxed font-light">
               {t("description")}
             </p>

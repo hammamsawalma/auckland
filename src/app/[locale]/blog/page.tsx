@@ -1,20 +1,23 @@
-"use client";
-
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/routing";
 import { ArrowRight, Calendar, User } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { motion } from "framer-motion";
-
 import { articles } from "@/lib/blog-data";
+import type { Metadata } from "next";
 
-import { use } from "react";
+type Props = { params: Promise<{ locale: string }> };
 
-export default function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
-    const { locale } = use(params);
-    const t = useTranslations("Blog");
-    const isAr = locale === 'ar';
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: "Blog" });
+    return { title: t("heroTitle"), description: t("subtitle") };
+}
+
+export default async function BlogPage({ params }: Props) {
+    const { locale } = await params;
+    const t = await getTranslations({ locale, namespace: "Blog" });
+    const isAr = locale === "ar";
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -26,12 +29,7 @@ export default function BlogPage({ params }: { params: Promise<{ locale: string 
                     <div className="absolute top-0 right-0 w-1/2 h-full bg-white/5 rounded-l-[150px] opacity-50 pointer-events-none -z-10 transform translate-x-32 hidden lg:block"></div>
 
                     <div className="container mx-auto px-4 max-w-6xl text-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="space-y-6"
-                        >
+                        <div className="space-y-6">
                             <div className="inline-block px-4 py-2 bg-white/10 rounded-sm mb-4">
                                 <span className="text-app-acc text-sm font-bold uppercase tracking-widest">{t("title")}</span>
                             </div>
@@ -41,20 +39,16 @@ export default function BlogPage({ params }: { params: Promise<{ locale: string 
                             <p className="text-xl text-white/70 font-light leading-relaxed max-w-2xl mx-auto">
                                 {t("subtitle")}
                             </p>
-                        </motion.div>
+                        </div>
                     </div>
                 </section>
 
                 <section className="py-20 bg-app-light relative overflow-hidden min-h-[50vh]">
                     <div className="container mx-auto px-4 max-w-7xl">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                            {articles.map((article, idx) => (
-                                <motion.div
+                            {articles.map((article) => (
+                                <div
                                     key={article.id}
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.6, delay: idx * 0.1 }}
-                                    viewport={{ once: true }}
                                     className="bg-white border border-black/5 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-app-dark/10 transition-shadow duration-300 group"
                                 >
                                     <Link href={`/blog/${article.id}`} className="block h-full cursor-pointer">
@@ -89,11 +83,11 @@ export default function BlogPage({ params }: { params: Promise<{ locale: string 
                                             </div>
                                         </div>
                                     </Link>
-                                </motion.div>
+                                </div>
                             ))}
                         </div>
 
-                        {/* SEO Text Footer for targeting Long Tail Keywords directly on page */}
+                        {/* SEO Text Footer */}
                         <div className="max-w-7xl mx-auto mt-24 p-12 border-t border-app-dark/10 bg-white rounded-3xl shadow-xl">
                             <div className="inline-block px-4 py-2 bg-app-light rounded-sm mb-6">
                                 <h2 className="text-app-acc text-xs font-bold uppercase tracking-widest relative z-10">{t("targetMarketTitle")}</h2>
