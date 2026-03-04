@@ -68,7 +68,7 @@ export function Footer() {
                         <div className="flex flex-col gap-4 text-sm text-white/70">
                             <div className="flex items-start gap-4">
                                 <MapPin className="w-5 h-5 text-app-acc shrink-0" />
-                                <span className="pt-0.5 leading-tight">
+                                <span className="pt-0.5 leading-tight" dir="auto">
                                     {tFoot("address").split("\n").map((line: string, i: number, arr: string[]) => (
                                         <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
                                     ))}
@@ -119,7 +119,7 @@ export function Footer() {
                     </p>
                     <div className="flex items-center gap-6 text-xs text-white/70 font-light">
                         <Link href="/privacy" className="hover:text-white transition-colors">{tFoot("privacy")}</Link>
-                        <Link href="#" className="hover:text-white transition-colors">{tFoot("terms")}</Link>
+                        <Link href="/terms" className="hover:text-white transition-colors">{tFoot("terms")}</Link>
                     </div>
                 </div>
             </div>

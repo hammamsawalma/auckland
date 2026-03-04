@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/blog',
         '/contact',
         '/privacy',
+        '/terms',
     ].flatMap((route) => [
         {
             url: `${BASE_URL}/en${route}`,
