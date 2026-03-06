@@ -79,6 +79,13 @@ export async function generateMetadata({
       description: t("description"),
       images: ["/images/gallery/gallery-hero.webp"],
     },
+    icons: {
+      icon: [
+        { url: '/favicon.png', type: 'image/png' },
+      ],
+      shortcut: '/favicon.png',
+      apple: '/favicon.png',
+    },
     appleWebApp: {
       capable: true,
       statusBarStyle: 'black-translucent',
