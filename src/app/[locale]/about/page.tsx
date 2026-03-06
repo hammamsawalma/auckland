@@ -70,7 +70,7 @@ export default function About() {
                                 </p>
 
                                 <div className="pt-8 border-t border-app-dark/10">
-                                    <h3 className="text-xl font-bold text-app-dark mb-4">{t("whyChooseUs", { defaultMessage: "Why Choose Auckland?" })}</h3>
+                                    <h2 className="text-xl font-bold text-app-dark mb-4">{t("whyChooseUs", { defaultMessage: "Why Choose Auckland?" })}</h2>
                                     <ul className="space-y-4">
                                         <motion.li initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="flex items-start gap-4">
                                             <CheckCircle2 className="w-6 h-6 text-app-acc shrink-0 mt-1" />
@@ -104,7 +104,7 @@ export default function About() {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-app-dark/80 to-transparent"></div>
                                     <div className="absolute bottom-8 left-8 right-8">
-                                        <h3 className="text-3xl font-bold text-white mb-2">{t("visionTitle", { defaultMessage: "Our Vision" })}</h3>
+                                        <h2 className="text-3xl font-bold text-white mb-2">{t("visionTitle", { defaultMessage: "Our Vision" })}</h2>
                                         <p className="text-white/80 line-clamp-3">{t("visionText", { defaultMessage: "To be the undisputed leader in natural stone development across the Middle East." })}</p>
                                     </div>
                                 </div>

@@ -47,7 +47,7 @@ export function Footer() {
 
                     {/* Quick Links Column */}
                     <div className="flex flex-col gap-6">
-                        <h4 className="font-bold text-lg text-white tracking-wider uppercase">{tFoot("quickLinks")}</h4>
+                        <h3 className="font-bold text-lg text-white tracking-wider uppercase">{tFoot("quickLinks")}</h3>
                         <div className="flex flex-col gap-3">
                             {["home", "about", "projects", "calculator", "blog", "contact"].map((item) => (
                                 <Link
@@ -64,7 +64,7 @@ export function Footer() {
 
                     {/* Contact Column */}
                     <div className="flex flex-col gap-6">
-                        <h4 className="font-bold text-lg text-white tracking-wider uppercase">{tFoot("contactInfo")}</h4>
+                        <h3 className="font-bold text-lg text-white tracking-wider uppercase">{tFoot("contactInfo")}</h3>
                         <div className="flex flex-col gap-4 text-sm text-white/70">
                             <div className="flex items-start gap-4">
                                 <MapPin className="w-5 h-5 text-app-acc shrink-0" />
@@ -90,7 +90,7 @@ export function Footer() {
 
                     {/* Contact / WhatsApp Column */}
                     <div className="flex flex-col gap-6">
-                        <h4 className="font-bold text-lg text-white tracking-wider uppercase">{tFoot("followUs")}</h4>
+                        <h3 className="font-bold text-lg text-white tracking-wider uppercase">{tFoot("followUs")}</h3>
                         <a
                             href="https://wa.me/97466980665"
                             target="_blank"

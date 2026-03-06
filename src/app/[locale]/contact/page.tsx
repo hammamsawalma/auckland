@@ -126,7 +126,7 @@ export default function Contact() {
                                 {/* Optional WhatsApp CTA */}
                                 <div className="mt-14 p-8 bg-gradient-to-br from-[#25D366]/10 to-transparent rounded-2xl border border-[#25D366]/20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
                                     <div>
-                                        <h4 className="font-bold text-[#128C7E] mb-2 text-lg">{t("waTitle")}</h4>
+                                        <h3 className="font-bold text-[#128C7E] mb-2 text-lg">{t("waTitle")}</h3>
                                         <p className="text-sm text-[#128C7E] opacity-80">{t("waSubtitle")}</p>
                                     </div>
                                     <a
@@ -207,7 +207,7 @@ export default function Contact() {
                                 </div>
                                 <div className="flex flex-col">
                                     <h4 className="text-white font-bold text-sm tracking-widest uppercase mb-0.5">{t("mapHqTitle")}</h4>
-                                    <p className="text-white/60 text-xs font-light">{t("mapHqAddress")}</p>
+                                    <p className="text-white/80 text-xs font-light">{t("mapHqAddress")}</p>
                                 </div>
                             </div>
                         </motion.div>

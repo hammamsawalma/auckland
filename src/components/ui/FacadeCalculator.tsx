@@ -55,7 +55,7 @@ export function FacadeCalculator() {
                         </div>
                         <h2 className="text-2xl md:text-3xl font-heading font-black text-white tracking-widest">{t("title")}</h2>
                     </div>
-                    <p className="text-white/60 font-light mb-8 leading-relaxed">
+                    <p className="text-white/80 font-light mb-8 leading-relaxed">
                         {t("subtitle")}
                     </p>
 
@@ -73,7 +73,7 @@ export function FacadeCalculator() {
                                     className={`w-full h-14 bg-white/5 border rounded-s-xl px-4 text-white focus:outline-none transition-colors ${areaError ? "border-red-500 focus:border-red-500" : "border-white/10 focus:border-app-acc"
                                         }`}
                                 />
-                                <div className="h-14 px-4 bg-white/10 border border-white/10 border-s-0 rounded-e-xl flex items-center text-white/50 text-sm">
+                                <div className="h-14 px-4 bg-white/10 border border-white/10 border-s-0 rounded-e-xl flex items-center text-white/70 text-sm">
                                     {t("unitSqM")}
                                 </div>
                             </div>
@@ -90,7 +90,7 @@ export function FacadeCalculator() {
                                     <button
                                         key={type}
                                         onClick={() => setStoneType(type as "syrian" | "omani" | "limestone" | "grc")}
-                                        className={`px-4 py-3 rounded-xl border text-start text-sm transition-all duration-300 ${stoneType === type ? "border-app-acc bg-app-acc/10 text-white font-bold" : "border-white/10 text-white/50 hover:border-white/30"}`}
+                                        className={`px-4 py-3 rounded-xl border text-start text-sm transition-all duration-300 ${stoneType === type ? "border-app-acc bg-app-acc/10 text-white font-bold" : "border-white/10 text-white/70 hover:border-white/30"}`}
                                     >
                                         {t(type as "syrian" | "omani" | "limestone" | "grc")}
                                     </button>
@@ -106,7 +106,7 @@ export function FacadeCalculator() {
                                     <button
                                         key={method}
                                         onClick={() => setInstallation(method as "mechanical" | "wet")}
-                                        className={`px-4 py-3 rounded-xl border text-start text-sm transition-all duration-300 ${installation === method ? "border-app-acc bg-app-acc/10 text-white font-bold shadow-[0_0_15px_rgba(202,176,120,0.15)]" : "border-white/10 text-white/50 hover:border-white/30"}`}
+                                        className={`px-4 py-3 rounded-xl border text-start text-sm transition-all duration-300 ${installation === method ? "border-app-acc bg-app-acc/10 text-white font-bold shadow-[0_0_15px_rgba(202,176,120,0.15)]" : "border-white/10 text-white/70 hover:border-white/30"}`}
                                     >
                                         {t(method as "mechanical" | "wet")}
                                     </button>
@@ -131,13 +131,13 @@ export function FacadeCalculator() {
                             animate={{ opacity: 1, scale: 1 }}
                             className="text-center w-full"
                         >
-                            <h3 className="text-white/60 text-sm font-heading font-black uppercase tracking-widest mb-4">{t("estimatedCost")}</h3>
+                            <h3 className="text-white/80 text-sm font-heading font-black uppercase tracking-widest mb-4">{t("estimatedCost")}</h3>
                             <div className="flex items-end justify-center gap-2 mb-8 text-app-acc">
                                 <span className="text-5xl md:text-6xl font-heading font-black tracking-tighter">{estimatedCost.toLocaleString()}</span>
                                 <span className="text-xl font-heading font-bold pb-2">{t("currency")}</span>
                             </div>
 
-                            <p className="text-white/40 text-xs text-center max-w-xs mx-auto leading-relaxed mb-8">
+                            <p className="text-white/70 text-xs text-center max-w-xs mx-auto leading-relaxed mb-8">
                                 {t("disclaimer")}
                             </p>
 
@@ -147,8 +147,8 @@ export function FacadeCalculator() {
                             </Link>
                         </motion.div>
                     ) : (
-                        <div className="text-center text-white/30 flex flex-col items-center">
-                            <Calculator className="w-16 h-16 mb-4 opacity-20" />
+                        <div className="text-center text-white/60 flex flex-col items-center">
+                            <Calculator className="w-16 h-16 mb-4 opacity-40" />
                             <p className="text-sm font-heading font-medium uppercase tracking-widest">{t("selectOptions")}</p>
                         </div>
                     )}
