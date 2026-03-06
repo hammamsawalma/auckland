@@ -40,7 +40,7 @@ export function Navbar() {
                 <Link href="/" aria-label="Auckland Homepage" className="flex flex-row items-center lg:gap-2 xl:gap-3 group shrink-0">
                     <div className="relative w-8 h-8 md:w-9 md:h-9 xl:w-10 xl:h-10 shrink-0">
                         <Image
-                            src="/images/acd-icon.png"
+                            src="/v2_images/acd-icon.png"
                             alt="Auckland Construction Logo"
                             fill
                             className="object-contain drop-shadow-lg group-hover:scale-105 transition-transform duration-300"

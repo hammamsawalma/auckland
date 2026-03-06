@@ -25,7 +25,7 @@ export function Footer() {
                         <Link href="/" aria-label="Auckland Homepage" className="flex flex-col group inline-block gap-3">
                             <div className="relative w-14 h-14">
                                 <Image
-                                    src="/images/acd-icon.png"
+                                    src="/v2_images/acd-icon.png"
                                     alt="Auckland Construction Logo"
                                     fill
                                     className="object-contain drop-shadow-lg group-hover:scale-110 transition-transform duration-500"

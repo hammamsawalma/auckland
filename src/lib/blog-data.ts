@@ -18,7 +18,7 @@ export type Article = {
 export const articles: Article[] = [
     {
         id: "facade-heat-resolution",
-        image: "/images/gallery/gallery-hero.webp",
+        image: "/v2_images/gallery/gallery-hero.webp",
         titleEn: "Resolving Villa Facade Cracks: Why Syrian Stone Surpasses Alternatives in Gulf Heat",
         titleAr: "معالجة تشققات واجهات الفلل: لماذا يتفوق الحجر السوري في مواجهة حرارة الخليج العالية؟",
         excerptEn: "Discover how the structural density of Syrian and Omani stone prevents thermal expansion and humidity damage compared to GRC and Paint.",
@@ -32,7 +32,7 @@ export const articles: Article[] = [
     },
     {
         id: "modern-heritage-villas",
-        image: "/images/gallery/gallery-hero.webp",
+        image: "/v2_images/gallery/gallery-hero.webp",
         titleEn: "Modern Heritage: Blending Omani Marble with Arches in Qatari Villas",
         titleAr: "التراث برؤية معاصرة: دمج الرخام العماني مع تصميم الأقواس في الفلل القطرية",
         excerptEn: "Explore the 2026 trend of 'Warm Modernism' combining sustainable luxury interiors with traditional CNC carved stone.",
@@ -46,7 +46,7 @@ export const articles: Article[] = [
     },
     {
         id: "grc-vs-natural-stone-qatar",
-        image: "/images/gallery/gallery-hero.webp",
+        image: "/v2_images/gallery/gallery-hero.webp",
         titleEn: "GRC vs. Natural Stone for Qatar Villas: The Complete 2026 Comparison",
         titleAr: "GRC مقابل الحجر الطبيعي للفلل القطرية: المقارنة الكاملة لعام 2026",
         excerptEn: "Architects and developers in Qatar face a critical choice: GRC panels or natural stone cladding? The definitive comparison covering cost, durability, weight and long-term performance in Gulf conditions.",
@@ -60,7 +60,7 @@ export const articles: Article[] = [
     },
     {
         id: "syrian-stone-facade-cost-doha",
-        image: "/images/gallery/gallery-hero.webp",
+        image: "/v2_images/gallery/gallery-hero.webp",
         titleEn: "Syrian Stone Facade Cost in Doha: Full 2026 Price Guide",
         titleAr: "تكلفة واجهات الحجر السوري في الدوحة: دليل الأسعار الكامل لعام 2026",
         excerptEn: "Planning a stone facade in Qatar? This guide breaks down the real cost of Syrian stone cladding in Doha — material pricing, installation labour, and what affects your final quote.",

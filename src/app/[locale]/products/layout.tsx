@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Natural Stone & GRC Material Library — Auckland Construction Qatar',
         description: 'Premium Syrian Stone, Omani Marble, Limestone and GRC panels — imported, fabricated & installed in Qatar.',
-        images: [{ url: `${BASE_URL}/images/gallery/gallery-hero.webp`, width: 1200, height: 630 }],
+        images: [{ url: `${BASE_URL}/v2_images/gallery/gallery-hero.webp`, width: 1200, height: 630 }],
     },
 };
 

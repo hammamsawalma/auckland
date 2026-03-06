@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             title: t("title"),
             description: t("subtitle"),
             url,
-            images: [{ url: '/images/gallery/gallery-hero.webp', width: 1200, height: 630, alt: t("title") }],
+            images: [{ url: '/v2_images/gallery/gallery-hero.webp', width: 1200, height: 630, alt: t("title") }],
         },
     };
 }

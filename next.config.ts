@@ -72,7 +72,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/images/:all*(.*)',
+        source: '/v2_images/:all*(.*)',
         headers: [
           {
             key: 'Cache-Control',
@@ -86,7 +86,7 @@ const nextConfig: NextConfig = {
   outputFileTracingExcludes: {
     '*': [
       'public/videos/**/*',
-      'public/images/**/*'
+      'public/v2_images/**/*'
     ]
   }
 };

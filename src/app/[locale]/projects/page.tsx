@@ -22,8 +22,8 @@ export default function PortfolioHub() {
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
     // Projects Data
-    const wakrahImages = Array.from({ length: 59 }, (_, i) => `/images/projects/wakrah/wakrah_${i + 1}.webp`);
-    const alKhorImages = Array.from({ length: 35 }, (_, i) => `/images/projects/alkhor/alkhor_${i + 1}.webp`);
+    const wakrahImages = Array.from({ length: 59 }, (_, i) => `/v2_images/projects/wakrah/wakrah_${i + 1}.webp`);
+    const alKhorImages = Array.from({ length: 35 }, (_, i) => `/v2_images/projects/alkhor/alkhor_${i + 1}.webp`);
 
     const getAllProjectImages = () => {
         if (projectTab === "Wakrah") return wakrahImages;
@@ -40,9 +40,9 @@ export default function PortfolioHub() {
 
     // Gallery Data
     const galleryImages = [
-        "/images/gallery/1.jpg", "/images/gallery/2.jpg", "/images/gallery/3.jpg",
-        "/images/gallery/4.jpg", "/images/gallery/5.jpg", "/images/gallery/6.jpg",
-        "/images/gallery/7.jpg", "/images/gallery/8.jpg", "/images/gallery/9.jpg",
+        "/v2_images/gallery/1.jpg", "/v2_images/gallery/2.jpg", "/v2_images/gallery/3.jpg",
+        "/v2_images/gallery/4.jpg", "/v2_images/gallery/5.jpg", "/v2_images/gallery/6.jpg",
+        "/v2_images/gallery/7.jpg", "/v2_images/gallery/8.jpg", "/v2_images/gallery/9.jpg",
     ];
 
     // Materials Data
@@ -101,7 +101,7 @@ export default function PortfolioHub() {
                 <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 bg-app-dark/60 z-10"></div>
                     <Image
-                        src="/images/gallery/gallery-hero.webp"
+                        src="/v2_images/gallery/gallery-hero.webp"
                         alt="Portfolio Hub"
                         fill
                         className="object-cover object-center"

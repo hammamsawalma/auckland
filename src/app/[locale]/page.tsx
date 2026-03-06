@@ -26,12 +26,12 @@ export default function Home() {
           <div className="absolute inset-0 bg-app-dark/40 z-10 transition-opacity duration-1000"></div>
 
           {/* Desktop Video — conditionally rendered only on ≥768px via JS media query */}
-          <HeroVideo poster="/images/hero-fallback.webp" />
+          <HeroVideo poster="/v2_images/hero-fallback.webp" />
 
           {/* Mobile Fallback Image — always rendered on mobile, desktop video hides it via JS */}
           <div className="absolute inset-0 w-full h-full bg-app-dark overflow-hidden md:hidden">
             <Image
-              src="/images/hero-fallback.webp"
+              src="/v2_images/hero-fallback.webp"
               alt="Auckland Hero Background"
               fill
               priority
