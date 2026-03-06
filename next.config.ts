@@ -62,6 +62,16 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/fonts/:all*(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            // Fonts never change — keep them immutable
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         source: '/images/:all*(.*)',
         headers: [
           {
