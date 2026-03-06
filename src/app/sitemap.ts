@@ -15,9 +15,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/calculator',
         '/blog',
         '/contact',
-        '/reviews',
         '/privacy',
         '/terms',
+        // /reviews is intentionally excluded — it has noindex and is a client-facing tool only
     ].flatMap((route) => [
         {
             url: `${BASE_URL}/en${route}`,

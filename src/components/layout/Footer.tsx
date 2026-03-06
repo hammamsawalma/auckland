@@ -114,7 +114,7 @@ export function Footer() {
 
             {/* Trust + Review Strip */}
             <div className="container mx-auto px-4 max-w-6xl relative z-20 mb-8">
-                <div className="flex flex-wrap items-center justify-between gap-4 py-5 px-6 rounded-2xl bg-white/3 border border-white/8">
+                <div className="flex flex-wrap items-center justify-between gap-4 py-5 px-6 rounded-2xl bg-white/5 border border-white/10">
                     <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-white/50">
                         <span className="text-white/70 font-bold text-sm">{activeLocale === 'ar' ? 'مصادر الاستيراد:' : 'Sourced from:'}</span>
                         <span>🇸🇾 {activeLocale === 'ar' ? 'سوريا' : 'Syria'}</span>

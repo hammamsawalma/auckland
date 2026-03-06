@@ -6,8 +6,12 @@ import { Footer } from "@/components/layout/Footer";
 import { Star, MessageCircle, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
-// Replace with your actual Google Business Profile review link once GBP is created
-const GOOGLE_REVIEW_URL = "https://g.page/r/YOUR_PLACE_ID/review";
+// ⚠️ REPLACE with your real Google Business Profile review link once GBP is created:
+// Format: https://g.page/r/YOUR_PLACE_ID_HERE/review
+// Until then, this points to a Google Maps search so the button isn't broken for visitors.
+const GOOGLE_REVIEW_URL =
+    process.env.NEXT_PUBLIC_GBP_REVIEW_URL ||
+    "https://www.google.com/search?q=Auckland+Construction+Development+Doha+Qatar#lrd=0x0:0x0,1";
 
 export default function ReviewsPage() {
     const locale = useLocale();
