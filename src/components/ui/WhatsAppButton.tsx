@@ -49,7 +49,7 @@ export function WhatsAppButton() {
         >
             {/* The pulsing ring animation behind the icon */}
             <div className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-30"></div>
-            <MessageCircle className="w-8 h-8 relative z-10" />
+            <MessageCircle className="w-8 h-8 relative z-10" aria-hidden="true" />
         </a>
     );
 }

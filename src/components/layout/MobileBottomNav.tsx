@@ -25,10 +25,12 @@ export function MobileBottomNav() {
                         <Link
                             key={item.key}
                             href={item.href}
+                            aria-label={t(item.key as Parameters<typeof t>[0])}
+                            aria-current={isActive ? 'page' : undefined}
                             className={`flex flex-col items-center justify-center w-full h-full gap-1 transition-all duration-300 ${isActive ? "text-app-acc scale-105" : "text-white/70 hover:text-white/90"
                                 }`}
                         >
-                            <item.icon className={`h-5 w-5 sm:h-6 sm:w-6 transition-all duration-300 ${isActive ? 'drop-shadow-[0_0_8px_rgba(202,176,120,0.8)]' : ''}`} strokeWidth={isActive ? 2.5 : 2} />
+                            <item.icon aria-hidden="true" className={`h-5 w-5 sm:h-6 sm:w-6 transition-all duration-300 ${isActive ? 'drop-shadow-[0_0_8px_rgba(202,176,120,0.8)]' : ''}`} strokeWidth={isActive ? 2.5 : 2} />
                             <span className={(activeLocale === 'ar' ? "font-arabic tracking-normal text-xs sm:text-sm " : "tracking-wide text-[9px] sm:text-xs ") + "font-bold uppercase whitespace-nowrap mt-1 drop-shadow-md"}>
                                 {t(item.key as Parameters<typeof t>[0])}
                             </span>

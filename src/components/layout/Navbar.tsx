@@ -76,13 +76,13 @@ export function Navbar() {
                     {/* Dynamic Language Toggle */}
                     <div className="flex items-center shrink-0">
                         {activeLocale === 'en' ? (
-                            <Link href={pathname} locale="ar" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
-                                <Globe className="w-3 h-3 xl:w-4 xl:h-4" />
+                            <Link href={pathname} locale="ar" aria-label="Switch to Arabic" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                                <Globe className="w-3 h-3 xl:w-4 xl:h-4" aria-hidden="true" />
                                 <span className="lg:text-[9px] xl:text-xs font-bold font-arabic hidden md:inline-block">عربي</span>
                             </Link>
                         ) : (
-                            <Link href={pathname} locale="en" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
-                                <Globe className="w-3 h-3 xl:w-4 xl:h-4" />
+                            <Link href={pathname} locale="en" aria-label="Switch to English" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                                <Globe className="w-3 h-3 xl:w-4 xl:h-4" aria-hidden="true" />
                                 <span className="text-[9px] xl:text-[11px] font-bold lg:tracking-wide xl:tracking-widest hidden md:inline-block">EN</span>
                             </Link>
                         )}
@@ -94,13 +94,13 @@ export function Navbar() {
                     {/* Mobile Dynamic Language Toggle */}
                     <div className="flex lg:hidden items-center">
                         {activeLocale === 'en' ? (
-                            <Link href={pathname} locale="ar" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
-                                <Globe className="w-4 h-4" />
+                            <Link href={pathname} locale="ar" aria-label="Switch to Arabic" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                                <Globe className="w-4 h-4" aria-hidden="true" />
                                 <span className="text-xs font-bold font-arabic hidden md:inline-block">عربي</span>
                             </Link>
                         ) : (
-                            <Link href={pathname} locale="en" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
-                                <Globe className="w-4 h-4" />
+                            <Link href={pathname} locale="en" aria-label="Switch to English" className={`flex items-center gap-1.5 hover:text-app-acc transition-colors ${scrolled ? 'text-white/90' : 'text-white drop-shadow-md'}`}>
+                                <Globe className="w-4 h-4" aria-hidden="true" />
                                 <span className="text-[10px] font-bold tracking-widest hidden md:inline-block">EN</span>
                             </Link>
                         )}
