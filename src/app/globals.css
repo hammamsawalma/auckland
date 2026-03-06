@@ -23,6 +23,21 @@
   --font-sans: var(--font-inter);
   --font-arabic: var(--font-khebrat);
   --font-heading: var(--font-outfit);
+
+  /* Animations */
+  --animate-hero-in: hero-in 0.8s ease-out both;
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @layer base {

@@ -39,24 +39,18 @@ export default function Home() {
 
 
           <div className="relative z-20 container mx-auto px-4 text-center mt-20">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 uppercase tracking-tighter drop-shadow-lg"
+            <h1
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 uppercase tracking-tighter drop-shadow-lg animate-hero-in"
             >
               {t("title")} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-app-acc to-yellow-300 drop-shadow-sm">{t("subtitle")}</span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="text-xl md:text-3xl text-white mb-12 max-w-2xl mx-auto font-light drop-shadow-md"
+            <p
+              className="text-xl md:text-3xl text-white mb-12 max-w-2xl mx-auto font-light drop-shadow-md animate-hero-in [animation-delay:200ms]"
             >
               {t("tagline")}
-            </motion.p>
+            </p>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -73,6 +67,7 @@ export default function Home() {
               </Button>
             </motion.div>
           </div>
+
 
         </section>
 
