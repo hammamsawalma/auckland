@@ -45,7 +45,7 @@ export default function Contact() {
                 <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 bg-app-dark/60 z-10"></div>
                     <Image
-                        src="/images/contact/contact-hero.jpg"
+                        src="/images/contact/contact-hero.webp"
                         alt={t("title")}
                         fill
                         sizes="100vw"

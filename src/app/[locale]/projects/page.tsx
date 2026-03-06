@@ -22,8 +22,8 @@ export default function PortfolioHub() {
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
     // Projects Data
-    const wakrahImages = Array.from({ length: 59 }, (_, i) => `/images/projects/wakrah/wakrah_${i + 1}.jpg`);
-    const alKhorImages = Array.from({ length: 35 }, (_, i) => `/images/projects/alkhor/alkhor_${i + 1}.jpg`);
+    const wakrahImages = Array.from({ length: 59 }, (_, i) => `/images/projects/wakrah/wakrah_${i + 1}.webp`);
+    const alKhorImages = Array.from({ length: 35 }, (_, i) => `/images/projects/alkhor/alkhor_${i + 1}.webp`);
 
     const getAllProjectImages = () => {
         if (projectTab === "Wakrah") return wakrahImages;
@@ -101,7 +101,7 @@ export default function PortfolioHub() {
                 <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 bg-app-dark/60 z-10"></div>
                     <Image
-                        src="/images/gallery/gallery-hero.jpg"
+                        src="/images/gallery/gallery-hero.webp"
                         alt="Portfolio Hub"
                         fill
                         className="object-cover object-center"

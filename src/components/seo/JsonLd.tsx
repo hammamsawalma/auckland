@@ -18,7 +18,7 @@ export const localBusinessSchema = {
     alternateName: "Auckland CD",
     url: "https://www.aucklandcd.com",
     logo: "https://www.aucklandcd.com/images/acd-icon.png",
-    image: "https://www.aucklandcd.com/images/gallery/gallery-hero.jpg",
+    image: "https://www.aucklandcd.com/images/gallery/gallery-hero.webp",
     description:
         "Leading natural stone contractors in Qatar and the GCC. Specialists in Syrian stone, Omani marble, architectural facades, and luxury interior fit-out services.",
     address: {

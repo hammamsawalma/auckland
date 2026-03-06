@@ -30,7 +30,7 @@ export default function Home() {
               muted
               playsInline
               preload="metadata"
-              poster="/images/hero-fallback.jpg"
+              poster="/images/hero-fallback.webp"
               className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover object-center scale-[1.05]"
             >
               <source src="/videos/hero-drone.mp4#t=0.001" type="video/mp4" />
@@ -41,7 +41,7 @@ export default function Home() {
           {/* Background Fallback Image (Mobile Only) */}
           <div className="absolute inset-0 w-full h-full bg-app-dark overflow-hidden md:hidden">
             <Image
-              src="/images/hero-fallback.jpg"
+              src="/images/hero-fallback.webp"
               alt="Auckland Hero Background"
               fill
               priority

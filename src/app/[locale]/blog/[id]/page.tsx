@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             description,
             images: article.image
                 ? [{ url: article.image, width: 1200, height: 630, alt: title }]
-                : [{ url: '/images/gallery/gallery-hero.jpg', width: 1200, height: 630, alt: title }],
+                : [{ url: '/images/gallery/gallery-hero.webp', width: 1200, height: 630, alt: title }],
             publishedTime: article.dateEn,
             authors: [article.authorEn],
         },
@@ -73,7 +73,7 @@ export default async function ArticlePage({ params }: Props) {
         "@type": "Article",
         headline: title,
         description: isAr ? article.excerptAr : article.excerptEn,
-        image: article.image || '/images/gallery/gallery-hero.jpg',
+        image: article.image || '/images/gallery/gallery-hero.webp',
         datePublished: article.dateEn,
         author: {
             "@type": "Organization",

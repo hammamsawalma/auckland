@@ -64,7 +64,7 @@ export async function generateMetadata({
       siteName: t("title"),
       images: [
         {
-          url: "/images/gallery/gallery-hero.jpg",
+          url: "/images/gallery/gallery-hero.webp",
           width: 1200,
           height: 630,
           alt: t("title"),
@@ -75,7 +75,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t("title"),
       description: t("description"),
-      images: ["/images/gallery/gallery-hero.jpg"],
+      images: ["/images/gallery/gallery-hero.webp"],
     },
     appleWebApp: {
       capable: true,

@@ -97,7 +97,7 @@ export default function About() {
                             >
                                 <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden shadow-2xl">
                                     <Image
-                                        src="/images/content/stone-bg-1.jpg"
+                                        src="/images/content/stone-bg-1.webp"
                                         alt="Auckland Craftsmanship"
                                         fill
                                         className="object-cover hover:scale-105 transition-transform duration-700"
@@ -125,7 +125,7 @@ export default function About() {
                         >
                             <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl order-last md:order-first">
                                 <Image
-                                    src="/images/content/stone-texture.jpg"
+                                    src="/images/content/stone-texture.webp"
                                     alt="Stone Blocks"
                                     fill
                                     className="object-cover"
