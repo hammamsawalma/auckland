@@ -112,6 +112,27 @@ export function Footer() {
                 </div>
             </div>
 
+            {/* Trust + Review Strip */}
+            <div className="container mx-auto px-4 max-w-6xl relative z-20 mb-8">
+                <div className="flex flex-wrap items-center justify-between gap-4 py-5 px-6 rounded-2xl bg-white/3 border border-white/8">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-white/50">
+                        <span className="text-white/70 font-bold text-sm">{activeLocale === 'ar' ? 'مصادر الاستيراد:' : 'Sourced from:'}</span>
+                        <span>🇸🇾 {activeLocale === 'ar' ? 'سوريا' : 'Syria'}</span>
+                        <span>•</span>
+                        <span>🇴🇲 {activeLocale === 'ar' ? 'عُمان' : 'Oman'}</span>
+                        <span>•</span>
+                        <span>🇯🇴 {activeLocale === 'ar' ? 'الأردن' : 'Jordan'}</span>
+                        <span>•</span>
+                        <span>🇮🇹 {activeLocale === 'ar' ? 'إيطاليا' : 'Italy'}</span>
+                        <span>•</span>
+                        <span>🇵🇹 {activeLocale === 'ar' ? 'البرتغال' : 'Portugal'}</span>
+                    </div>
+                    <Link href="/reviews" className="text-xs text-app-acc hover:text-white transition-colors font-bold flex items-center gap-1.5 shrink-0">
+                        ⭐ {activeLocale === 'ar' ? 'قيّمنا على Google' : 'Rate us on Google'}
+                    </Link>
+                </div>
+            </div>
+
             {/* Bottom Bar */}
             <div className="container mx-auto px-4 max-w-6xl relative z-20">
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">

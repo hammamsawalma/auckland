@@ -10,6 +10,7 @@ import { useTranslations } from "next-intl";
 import { HighlightsMarquee } from "@/components/home/HighlightsMarquee";
 import { HeroVideo } from "@/components/home/HeroVideo";
 import { FAQSection } from "@/components/home/FAQSection";
+import { TrustBadges } from "@/components/home/TrustBadges";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -90,6 +91,7 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-app-acc/5 rounded-full blur-[100px] pointer-events-none"></div>
         </section>
 
+        <TrustBadges />
         <HighlightsMarquee />
         <FAQSection />
       </main>
