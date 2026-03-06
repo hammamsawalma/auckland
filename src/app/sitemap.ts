@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { articles } from '@/lib/blog-data';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.aucklandcd.com';
 
@@ -30,6 +31,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }
     ]);
 
-    return [...staticPages];
-}
+    const blogPages = articles.flatMap((article) => [
+        {
+            url: `${BASE_URL}/en/blog/${article.id}`,
+            lastModified: defaultLastMod,
+            changeFrequency: 'yearly' as const,
+            priority: 0.7,
+        },
+        {
+            url: `${BASE_URL}/ar/blog/${article.id}`,
+            lastModified: defaultLastMod,
+            changeFrequency: 'yearly' as const,
+            priority: 0.7,
+        },
+    ]);
 
+    return [...staticPages, ...blogPages];
+}

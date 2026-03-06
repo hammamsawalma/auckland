@@ -4,7 +4,6 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
   async headers() {
     return [
       // ─── Security Headers (applied globally) ────────────────────────────────

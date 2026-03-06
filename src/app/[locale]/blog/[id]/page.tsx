@@ -6,19 +6,44 @@ import { Footer } from "@/components/layout/Footer";
 import { articles } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 type Props = {
     params: Promise<{ locale: string; id: string }>;
 };
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.aucklandcd.com';
 
 // Generate metadata for each article for SEO
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { locale, id } = await params;
     const article = articles.find((a) => a.id === id);
     if (!article) return {};
+    const title = locale === "ar" ? article.titleAr : article.titleEn;
+    const description = locale === "ar" ? article.excerptAr : article.excerptEn;
+    const url = `${BASE_URL}/${locale}/blog/${id}`;
+    const altLocale = locale === "ar" ? "en" : "ar";
     return {
-        title: locale === "ar" ? article.titleAr : article.titleEn,
-        description: locale === "ar" ? article.excerptAr : article.excerptEn,
+        title,
+        description,
+        alternates: {
+            canonical: url,
+            languages: {
+                'en': `${BASE_URL}/en/blog/${id}`,
+                'ar': `${BASE_URL}/ar/blog/${id}`,
+            },
+        },
+        openGraph: {
+            type: "article",
+            url,
+            title,
+            description,
+            images: article.image
+                ? [{ url: article.image, width: 1200, height: 630, alt: title }]
+                : [{ url: '/images/gallery/gallery-hero.jpg', width: 1200, height: 630, alt: title }],
+            publishedTime: article.dateEn,
+            authors: [article.authorEn],
+        },
     };
 }
 
@@ -43,8 +68,32 @@ export default async function ArticlePage({ params }: Props) {
     const content = isAr ? article.contentAr : article.contentEn;
     const date = isAr ? article.dateAr : article.dateEn;
 
+    const articleSchema = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title,
+        description: isAr ? article.excerptAr : article.excerptEn,
+        image: article.image || '/images/gallery/gallery-hero.jpg',
+        datePublished: article.dateEn,
+        author: {
+            "@type": "Organization",
+            name: article.authorEn,
+        },
+        publisher: {
+            "@type": "Organization",
+            name: "Auckland Construction & Development",
+            logo: {
+                "@type": "ImageObject",
+                url: `${BASE_URL}/images/acd-icon.png`,
+            },
+        },
+        url: `${BASE_URL}/${locale}/blog/${id}`,
+        inLanguage: locale,
+    };
+
     return (
         <div className="flex flex-col min-h-screen">
+            <JsonLd data={articleSchema} />
             <Navbar />
 
             <main className="flex-1">

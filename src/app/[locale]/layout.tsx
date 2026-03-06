@@ -7,6 +7,8 @@ import { routing } from "@/i18n/routing";
 import dynamic from "next/dynamic";
 import { LazyMotion, domAnimation } from "framer-motion";
 import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
+import { JsonLd, localBusinessSchema } from "@/components/seo/JsonLd";
+import Script from "next/script";
 
 const WhatsAppButton = dynamic(() => import("@/components/ui/WhatsAppButton").then(mod => mod.WhatsAppButton));
 import "../font-test.css";
@@ -32,6 +34,8 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "SEO" });
 
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.aucklandcd.com';
+  const canonicalUrl = `${BASE_URL}/${locale}`;
+  const altLocale = locale === 'ar' ? 'en' : 'ar';
 
   return {
     title: {
@@ -42,10 +46,19 @@ export async function generateMetadata({
     keywords: t("keywords"),
     metadataBase: new URL(BASE_URL),
     manifest: '/manifest.json',
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        'en': `${BASE_URL}/en`,
+        'ar': `${BASE_URL}/ar`,
+        'x-default': `${BASE_URL}/en`,
+      },
+    },
     openGraph: {
       type: "website",
       locale: locale === "ar" ? "ar_QA" : "en_QA",
-      url: `${BASE_URL}/${locale}`,
+      alternateLocale: locale === "ar" ? "en_QA" : "ar_QA",
+      url: canonicalUrl,
       title: t("title"),
       description: t("description"),
       siteName: t("title"),
@@ -100,6 +113,23 @@ export default async function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} antialiased bg-app-light text-app-dark`}
       >
+        {/* Google Analytics 4 */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=G-8T79SE4PC1`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8T79SE4PC1');
+          `}
+        </Script>
+
+        {/* LocalBusiness JSON-LD */}
+        <JsonLd data={localBusinessSchema} />
+
         <NextIntlClientProvider messages={messages}>
           <LazyMotion features={domAnimation}>
             <div className="pb-16 sm:pb-20 lg:pb-0 flex flex-col min-h-screen">
