@@ -49,7 +49,7 @@ export function Footer() {
                     <div className="flex flex-col gap-6">
                         <h3 className="font-bold text-lg text-white tracking-wider uppercase">{tFoot("quickLinks")}</h3>
                         <div className="flex flex-col gap-3">
-                            {["home", "about", "projects", "calculator", "blog", "contact"].map((item) => (
+                            {["home", "about", "projects", "products", "calculator", "blog", "contact"].map((item) => (
                                 <Link
                                     key={item}
                                     href={item === "home" ? "/" : `/${item}`}

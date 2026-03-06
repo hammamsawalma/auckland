@@ -2,7 +2,7 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
-import { Home, HardHat, Pickaxe, Image as ImageIcon, Phone } from "lucide-react";
+import { Home, Layers, Pickaxe, Phone } from "lucide-react";
 
 export function MobileBottomNav() {
     const t = useTranslations("Navigation");
@@ -11,8 +11,8 @@ export function MobileBottomNav() {
 
     const navItems = [
         { key: "home", href: "/", icon: Home },
-        { key: "about", href: "/about", icon: HardHat },
         { key: "projects", href: "/projects", icon: Pickaxe },
+        { key: "products", href: "/products", icon: Layers },
         { key: "contact", href: "/contact", icon: Phone },
     ];
 
