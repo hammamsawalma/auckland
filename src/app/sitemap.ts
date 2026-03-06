@@ -1,16 +1,17 @@
 import { MetadataRoute } from 'next';
 import { articles } from '@/lib/blog-data';
+import { materials } from '@/lib/materials-data';
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.aucklandcd.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const defaultLastMod = new Date();
 
-    // Only include routes that actually exist in the app
     const staticPages = [
         '',           // home
         '/about',
         '/projects',
+        '/products',
         '/calculator',
         '/blog',
         '/contact',
@@ -46,5 +47,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
     ]);
 
-    return [...staticPages, ...blogPages];
+    // Material library pages — high priority for targeting SEO keywords
+    const materialPages = materials.flatMap((material) => [
+        {
+            url: `${BASE_URL}/en/products/${material.slug}`,
+            lastModified: defaultLastMod,
+            changeFrequency: 'monthly' as const,
+            priority: 0.9,
+        },
+        {
+            url: `${BASE_URL}/ar/products/${material.slug}`,
+            lastModified: defaultLastMod,
+            changeFrequency: 'monthly' as const,
+            priority: 0.9,
+        },
+    ]);
+
+    return [...staticPages, ...blogPages, ...materialPages];
 }

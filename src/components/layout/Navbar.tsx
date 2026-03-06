@@ -59,7 +59,7 @@ export function Navbar() {
 
                 {/* Main Navigation */}
                 <nav className="hidden lg:flex items-center justify-center lg:gap-1 xl:gap-5 whitespace-nowrap shrink-0">
-                    {["home", "about", "projects", "calculator", "blog"].map((item) => (
+                    {["home", "about", "projects", "products", "calculator", "blog"].map((item) => (
                         <Link
                             key={item}
                             href={item === "home" ? "/" : `/${item}`}

@@ -2,7 +2,8 @@
   "Navigation": {
     "home": "Home",
     "about": "Our Expertise",
-    "projects": "Portfolio & Materials",
+    "projects": "Portfolio",
+    "products": "Materials",
     "calculator": "Calculator",
     "blog": "Insights",
     "contact": "Contact Us",

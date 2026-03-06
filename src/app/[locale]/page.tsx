@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { HighlightsMarquee } from "@/components/home/HighlightsMarquee";
 import { HeroVideo } from "@/components/home/HeroVideo";
+import { FAQSection } from "@/components/home/FAQSection";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -90,6 +91,7 @@ export default function Home() {
         </section>
 
         <HighlightsMarquee />
+        <FAQSection />
       </main>
 
       <Footer />
