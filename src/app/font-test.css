@@ -3,10 +3,13 @@
   src: url('/fonts/ArbFONTS-Khebrat-Musamim-New.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
+
 @font-face {
   font-family: 'Khebrat';
   src: url('/fonts/ArbFONTS-Khebrat-Musamim-Bold-New.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
