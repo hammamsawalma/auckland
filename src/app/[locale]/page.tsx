@@ -8,6 +8,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { HighlightsMarquee } from "@/components/home/HighlightsMarquee";
+import { HeroVideo } from "@/components/home/HeroVideo";
 
 export default function Home() {
   const t = useTranslations("Home");
@@ -22,23 +23,10 @@ export default function Home() {
           {/* Background Overlay */}
           <div className="absolute inset-0 bg-app-dark/40 z-10 transition-opacity duration-1000"></div>
 
-          {/* Background Background Video (Desktop Only) */}
-          <div className="absolute inset-0 w-full h-full bg-app-dark overflow-hidden hidden md:block">
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              poster="/images/hero-fallback.webp"
-              className="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-x-1/2 -translate-y-1/2 object-cover object-center scale-[1.05]"
-            >
-              <source src="/videos/hero-drone.mp4#t=0.001" type="video/mp4" />
-              <track kind="captions" src="/captions/empty.vtt" label="English" default={false} />
-            </video>
-          </div>
+          {/* Desktop Video — conditionally rendered only on ≥768px via JS media query */}
+          <HeroVideo poster="/images/hero-fallback.webp" />
 
-          {/* Background Fallback Image (Mobile Only) */}
+          {/* Mobile Fallback Image — always rendered on mobile, desktop video hides it via JS */}
           <div className="absolute inset-0 w-full h-full bg-app-dark overflow-hidden md:hidden">
             <Image
               src="/images/hero-fallback.webp"
@@ -48,6 +36,7 @@ export default function Home() {
               className="object-cover object-center"
             />
           </div>
+
 
           <div className="relative z-20 container mx-auto px-4 text-center mt-20">
             <motion.h1
