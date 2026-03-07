@@ -47,11 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-// Statically generate all article pages at build time
-export async function generateStaticParams() {
-    return articles.map((a) => ({ id: a.id }));
-}
-
+// Page is rendered dynamically matching the rest of the application
 export default async function ArticlePage({ params }: Props) {
     const { locale, id } = await params;
     const t = await getTranslations({ locale, namespace: "Blog" });
